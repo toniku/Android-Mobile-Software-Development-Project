@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/drawer_account"
+        android:icon="@drawable/ic_perm_identity_black_24dp"
+        android:title="@string/myprofile"/>
+
+    <item android:id="@+id/drawer_training"
+        android:icon="@drawable/ic_directions_run_black_24dp"
+        android:title="@string/training"/>
+
+    <item android:id="@+id/drawer_calendar"
+        android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+        android:title="@string/calendar"/>
+
+    <item android:id="@+id/drawer_teams"
+        android:icon="@drawable/ic_people_black_24dp"
+        android:title="@string/teams"/>
+
+    <item android:id="@+id/drawer_logout"
+        android:icon="@drawable/ic_input_black_24dp"
+        android:title="@string/logout"/>
+
+
+</menu>
