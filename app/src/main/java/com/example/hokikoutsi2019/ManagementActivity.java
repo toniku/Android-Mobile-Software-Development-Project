@@ -10,15 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hokikoutsi2019.Classes.ListViewSubTrainingsAdapter;
-import com.example.hokikoutsi2019.Classes.ListViewTeamsAdapter;
-import com.example.hokikoutsi2019.Classes.SubTraining;
 import com.example.hokikoutsi2019.Classes.Team;
 import com.example.hokikoutsi2019.Classes.Training;
 import com.example.hokikoutsi2019.Classes.User;
@@ -30,9 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-
-public class TeamsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class ManagementActivity extends AppCompatActivity {
 
     private Button buttonLogOut;
     private DrawerLayout dl;
@@ -46,16 +39,23 @@ public class TeamsActivity extends AppCompatActivity implements AdapterView.OnIt
 
     private DatabaseReference databaseReference;
 
-    private ArrayList<Team> arrayList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teams);
+        setContentView(R.layout.activity_management);
+
+        Intent i = getIntent();
+        Team team = (Team) i.getSerializableExtra("team");
+        Log.i("team", team.getTeamName());
 
         setUpDrawer();
         getUser();
-        getTeamsToListView();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
     }
 
     ValueEventListener valueEventListener = new ValueEventListener() {
@@ -92,12 +92,6 @@ public class TeamsActivity extends AppCompatActivity implements AdapterView.OnIt
     };
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthStateListener);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(t.onOptionsItemSelected(item))
@@ -108,7 +102,7 @@ public class TeamsActivity extends AppCompatActivity implements AdapterView.OnIt
 
     public void setUpDrawer()
     {
-        dl = (DrawerLayout)findViewById(R.id.activity_teams);
+        dl = (DrawerLayout)findViewById(R.id.activity_management);
         t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
         dl.addDrawerListener(t);
         t.syncState();
@@ -123,31 +117,31 @@ public class TeamsActivity extends AppCompatActivity implements AdapterView.OnIt
                 Log.i("LOL", "Item id: " + id);
 
                 if (id == R.id.drawer_account) {
-                    Intent intent = new Intent(TeamsActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(ManagementActivity.this, ProfileActivity.class);
                     startActivity(intent);
                     return true;
                 }
                 else if (id == R.id.drawer_training)
                 {
-                    Intent intent = new Intent(TeamsActivity.this, MainActivity.class);
+                    Intent intent = new Intent(ManagementActivity.this, MainActivity.class);
                     startActivity(intent);
                     return true;
                 }
                 else if (id == R.id.drawer_logout) {
                     Log.i("LOL", "Log out pressed");
                     mAuth.getInstance().signOut();
-                    Intent intent = new Intent(TeamsActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(ManagementActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
                 }
                 else if (id == R.id.drawer_calendar)
                 {
-                    Toast.makeText(TeamsActivity.this, "Calendar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ManagementActivity.this, "Calendar", Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 else if (id == R.id.drawer_teams)
                 {
-                    Intent intent = new Intent(TeamsActivity.this, TeamsActivity.class);
+                    Intent intent = new Intent(ManagementActivity.this, TeamsActivity.class);
                     startActivity(intent);
                     return true;
                 }
@@ -185,43 +179,5 @@ public class TeamsActivity extends AppCompatActivity implements AdapterView.OnIt
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
         query.addValueEventListener(valueEventListener);
-    }
-
-    public void getTeamsToListView()
-    {
-        Team team1 = new Team();
-        team1.setTeamName("Oulun Kärpät");
-
-        Team team2 = new Team();
-        team2.setTeamName("Kiekko Laser");
-
-        arrayList = new ArrayList<Team>();
-        arrayList.add(team1);
-        arrayList.add(team2);
-
-        ListView lv = (ListView) findViewById(R.id.listViewTeams);
-        lv.setOnItemClickListener(this);
-        lv.setAdapter(new ListViewTeamsAdapter(this, arrayList));
-
-    }
-
-
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        try {
-
-            Log.i("LOL", "Itemiä klikattu");
-            Log.i("LOL", " " + i);
-            Team team = arrayList.get(i);
-            Log.i("LOL", team.getTeamName());
-            Intent intent = new Intent(this, ManagementActivity.class);
-            intent.putExtra("team", team);
-            startActivity(intent);
-        }
-
-        catch (Exception e)
-        {
-            Log.i("LOL", e.getMessage().toString());
-        }
     }
 }
