@@ -203,10 +203,8 @@ public class ShowTrainingListActivity extends AppCompatActivity implements View.
             subTraining = arrayList.get(i);
             Log.i("LOL", subTraining.getName());
             showDialog();
-
-
-
         }
+
         catch (Exception e)
         {
             Log.i("LOL", e.getMessage().toString());
@@ -224,12 +222,7 @@ public class ShowTrainingListActivity extends AppCompatActivity implements View.
         }
         ft.addToBackStack(null);
 
-        // Create and show the dialog.
         DialogFragment newFragment = SubTrainingInfoDialog.newInstance(1, subTraining);
         newFragment.show(ft, "yourTag");
-
-        //DialogFragment dialogFragment = new SubTrainingInfoDialog();
-        //dialogFragment.show(ft, "dialog");
-
     }
 }

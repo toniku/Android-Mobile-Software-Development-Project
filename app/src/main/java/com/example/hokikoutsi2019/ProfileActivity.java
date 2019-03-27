@@ -85,7 +85,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 else if (id == R.id.drawer_teams)
                 {
-                    Toast.makeText(ProfileActivity.this, "My Teams", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ProfileActivity.this, TeamsActivity.class);
+                    startActivity(intent);
                     return true;
                 }
                 else

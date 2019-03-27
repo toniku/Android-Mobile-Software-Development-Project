@@ -3,8 +3,6 @@ package com.example.hokikoutsi2019;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +10,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hokikoutsi2019.Classes.ListViewSubTrainingsAdapter;
+import com.example.hokikoutsi2019.Classes.ListViewTeamsAdapter;
+import com.example.hokikoutsi2019.Classes.SubTraining;
+import com.example.hokikoutsi2019.Classes.Team;
+import com.example.hokikoutsi2019.Classes.Training;
 import com.example.hokikoutsi2019.Classes.User;
-import com.google.android.gms.flags.impl.DataUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,12 +30,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class TeamsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private Button buttonLogOut;
-
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
@@ -43,22 +46,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private DatabaseReference databaseReference;
 
+    private ArrayList<Team> arrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_teams);
 
         setUpDrawer();
-        setUpNavBar();
         getUser();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        mAuth.addAuthStateListener(mAuthStateListener);
+        getTeamsToListView();
     }
 
     ValueEventListener valueEventListener = new ValueEventListener() {
@@ -95,8 +92,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     @Override
-    public void onClick(View view) {
-
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
     }
 
     @Override
@@ -108,14 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        // Disables back button
-    }
-
     public void setUpDrawer()
     {
-        dl = (DrawerLayout)findViewById(R.id.activity_main);
+        dl = (DrawerLayout)findViewById(R.id.activity_teams);
         t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
         dl.addDrawerListener(t);
         t.syncState();
@@ -130,31 +123,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.i("LOL", "Item id: " + id);
 
                 if (id == R.id.drawer_account) {
-                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(TeamsActivity.this, ProfileActivity.class);
                     startActivity(intent);
                     return true;
                 }
                 else if (id == R.id.drawer_training)
                 {
-                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                    Intent intent = new Intent(TeamsActivity.this, MainActivity.class);
                     startActivity(intent);
                     return true;
                 }
                 else if (id == R.id.drawer_logout) {
                     Log.i("LOL", "Log out pressed");
                     mAuth.getInstance().signOut();
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(TeamsActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
                 }
                 else if (id == R.id.drawer_calendar)
                 {
-                    Toast.makeText(MainActivity.this, "Calendar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TeamsActivity.this, "Calendar", Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 else if (id == R.id.drawer_teams)
                 {
-                    Intent intent = new Intent(MainActivity.this, TeamsActivity.class);
+                    Intent intent = new Intent(TeamsActivity.this, TeamsActivity.class);
                     startActivity(intent);
                     return true;
                 }
@@ -187,18 +180,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
     }
 
-    public void setUpNavBar()
-    {
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
-                MainActivity.this));
-
-        // Give the TabLayout the ViewPager
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        tabLayout.setupWithViewPager(viewPager);
-    }
-
     public void getUser()
     {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
@@ -206,4 +187,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         query.addValueEventListener(valueEventListener);
     }
 
+    public void getTeamsToListView()
+    {
+        Team team1 = new Team();
+        team1.setTeamName("Oulun Kärpät");
+
+        Team team2 = new Team();
+        team2.setTeamName("Kiekko Laser");
+
+        arrayList = new ArrayList<Team>();
+        arrayList.add(team1);
+        arrayList.add(team2);
+
+        ListView lv = (ListView) findViewById(R.id.listViewTeams);
+        lv.setOnItemClickListener(this);
+        lv.setAdapter(new ListViewTeamsAdapter(this, arrayList));
+
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        try {
+
+            Log.i("LOL", "Itemiä klikattu");
+            Log.i("LOL", " " + i);
+            Team team = arrayList.get(i);
+            Log.i("LOL", team.getTeamName());
+        }
+
+        catch (Exception e)
+        {
+            Log.i("LOL", e.getMessage().toString());
+        }
+    }
 }
