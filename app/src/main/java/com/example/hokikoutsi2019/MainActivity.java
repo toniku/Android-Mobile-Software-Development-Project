@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private TextView textViewDrawHeader;
+
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -71,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
         setUpDrawer();
         setUpNavBar();
         getUser();
@@ -84,39 +84,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuth.addAuthStateListener(mAuthStateListener);
     }
 
-    ValueEventListener valueEventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            if (dataSnapshot.exists())
-            {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren())
-                {
-                    User user = snapshot.getValue(User.class);
-                    Log.i("LOL", user.getFirstname());
-                    Log.i("LOL", user.getLastname());
-
-                    String firstname = user.getFirstname();
-                    String lastname = user.getLastname();
-
-                    String capFirName = firstname.substring(0, 1).toUpperCase() + firstname.substring(1);
-                    String capLasName = lastname.substring(0, 1).toUpperCase() + lastname.substring(1);
-
-                    String fullname = capFirName + " " + capLasName;
-                    textViewDrawHeader.setText(fullname);
-                }
-            }
-            else
-            {
-                textViewWarning.setText("Data fetching failed...");
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };
-
     @Override
     public void onClick(View view) {
 
@@ -125,23 +92,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(t.onOptionsItemSelected(item))
+        if (t.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        // Disables back button
-    }
-
-    public void setUpDrawer()
-    {
-        dl = (DrawerLayout)findViewById(R.id.activity_main);
-=======
+    public void setUpDrawer() {
         dl = (DrawerLayout) findViewById(R.id.activity_main);
->>>>>>> 0f4556b6806c79a65e8dede05b75d6758aa74caa
         t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
         dl.addDrawerListener(t);
         t.syncState();
@@ -172,16 +130,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (id == R.id.drawer_calendar) {
                     Toast.makeText(MainActivity.this, "Calendar", Toast.LENGTH_SHORT).show();
                     return true;
-<<<<<<< HEAD
-                }
-                else if (id == R.id.drawer_teams)
-                {
-                    Intent intent = new Intent(MainActivity.this, TeamsActivity.class);
-                    startActivity(intent);
-=======
                 } else if (id == R.id.drawer_teams) {
                     Toast.makeText(MainActivity.this, "My Teams", Toast.LENGTH_SHORT).show();
->>>>>>> 0f4556b6806c79a65e8dede05b75d6758aa74caa
                     return true;
                 } else {
                     return true;
@@ -208,8 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
     }
 
-    public void setUpNavBar()
-    {
+    public void setUpNavBar() {
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
@@ -220,33 +169,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    public void getUser()
-    {
+    public void getUser() {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
         query.addValueEventListener(valueEventListener);
-    }
-
-<<<<<<< HEAD
-=======
-    @Override
-    public void onClick(View view) {
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (t.onOptionsItemSelected(item))
-            return true;
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
         // Disables back button
     }
-
->>>>>>> 0f4556b6806c79a65e8dede05b75d6758aa74caa
 }
