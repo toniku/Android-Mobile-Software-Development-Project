@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textViewDrawHeader.setText(fullname);
                 }
             } else {
-                textViewWarning.setText("Data fetching failed...");
+                //textViewWarning.setText("Data fetching failed...");
             }
         }
 
