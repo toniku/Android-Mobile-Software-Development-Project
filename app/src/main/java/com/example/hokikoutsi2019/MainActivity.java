@@ -131,14 +131,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(MainActivity.this, "Calendar", Toast.LENGTH_SHORT).show();
                     return true;
                 } else if (id == R.id.drawer_teams) {
-                    Toast.makeText(MainActivity.this, "My Teams", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, TeamsActivity.class);
+                    startActivity(intent);
                     return true;
                 } else {
                     return true;
                 }
-
             }
-
         });
 
         View headerView = nv.inflateHeaderView(R.layout.nav_header);

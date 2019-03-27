@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,8 +22,8 @@ import java.util.ArrayList;
 public class PageFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     public static final String ARG_PAGE = "ARG_PAGE";
-    private int mPage;
     ArrayList<Training> trainingArrayList = new ArrayList<>();
+    private int mPage;
 
     public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -38,16 +37,13 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPage = getArguments().getInt(ARG_PAGE);
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        if (mPage == 1)
-        {
+        if (mPage == 1) {
             View view = inflater.inflate(R.layout.fragment_skating, container, false);
 
             trainingArrayList.clear();
@@ -81,24 +77,19 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
             trainingArrayList.add(training2);
             trainingArrayList.add(training3);
 
-            ListView lv = (ListView)view.findViewById(R.id.trainingListView);
+            ListView lv = (ListView) view.findViewById(R.id.trainingListView);
             lv.setOnItemClickListener(this);
             lv.setAdapter(new ListViewTrainingsAdapter(getActivity(), trainingArrayList));
 
             return view;
 
-        }
-        else
-        {
+        } else {
             View view = inflater.inflate(R.layout.fragment_page, container, false);
             TextView textView = (TextView) view;
             textView.setText("Fragment #" + mPage);
             return view;
         }
-
-
     }
-
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -113,9 +104,7 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
             Intent intent = new Intent(getActivity(), ShowTrainingListActivity.class);
             intent.putExtra("Training", training);
             startActivity(intent);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.i("LOL", e.getMessage().toString());
         }
     }

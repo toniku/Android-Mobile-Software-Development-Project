@@ -1,9 +1,5 @@
 package com.example.hokikoutsi2019.Classes;
 
-import android.content.res.Resources;
-
-import com.example.hokikoutsi2019.R;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -17,7 +13,6 @@ public class Training implements Serializable {
 
     }
 
-
     public String getName() {
         return name;
     }
@@ -26,26 +21,22 @@ public class Training implements Serializable {
         this.name = name;
     }
 
-    public String getLevel() {return level;}
+    public String getLevel() {
+        return level;
+    }
 
-    public void setLevel(int levelInt){
+    public void setLevel(int levelInt) {
 
-        if (levelInt == 1)
-        {
+        if (levelInt == 1) {
             this.level = "Aloittelija";
-        }
-        else if (levelInt == 2)
-        {
+        } else if (levelInt == 2) {
             this.level = "Ammattilainen";
-        }
-        else if (levelInt == 3)
-        {
+        } else if (levelInt == 3) {
             this.level = "Eliitti";
         }
     }
 
-    public void setSubTraining(SubTraining subTraining)
-    {
+    public void setSubTraining(SubTraining subTraining) {
         subTrainingsArrayList.add(subTraining);
     }
 
@@ -53,8 +44,7 @@ public class Training implements Serializable {
         return subTrainingsArrayList;
     }
 
-    public int getSubTrainingsSize()
-    {
+    public int getSubTrainingsSize() {
         return subTrainingsArrayList.size();
     }
 }
