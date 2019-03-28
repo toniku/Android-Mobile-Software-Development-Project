@@ -6,10 +6,18 @@ package com.example.hokikoutsi2019.Classes;
 
 public class User {
 
-    private String firstname;
-    private String lastname;
-    private String email;
-    private String username;
+    private String firstname, lastname, email, username;
+
+    public User(String firstname, String lastname, String email, String username) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.username = username;
+    }
+
+    public User() {
+
+    }
 
     public String getUsername() {
         return username;
@@ -19,8 +27,6 @@ public class User {
         this.username = username;
     }
 
-
-
     public String getEmail() {
         return email;
     }
@@ -28,8 +34,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 
     public String getLastname() {
         return lastname;
@@ -39,26 +43,11 @@ public class User {
         this.lastname = lastname;
     }
 
-
-
     public String getFirstname() {
         return firstname;
     }
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
-    }
-
-    public User(String firstname, String lastname, String email, String username)
-    {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.username = username;
-    }
-
-    public User()
-    {
-
     }
 }

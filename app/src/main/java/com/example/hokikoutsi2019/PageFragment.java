@@ -6,6 +6,7 @@ package com.example.hokikoutsi2019;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,19 +40,19 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        assert getArguments() != null;
         mPage = getArguments().getInt(ARG_PAGE);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if (mPage == 1) {
             View view = inflater.inflate(R.layout.fragment_skating, container, false);
 
             trainingArrayList.clear();
             Training training = new Training();
-            training.setName("Luisteluharjoitus1");
+            training.setName("Luisteluharjoitus 1");
             training.setLevel(1);
 
             SubTraining subTraining = new SubTraining();
@@ -69,18 +70,18 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
             training.setSubTraining(subTraining);
 
             Training training2 = new Training();
-            training2.setName("Luisteluharjoitus2");
+            training2.setName("Luisteluharjoitus 2");
             training2.setLevel(2);
 
             Training training3 = new Training();
-            training3.setName("Luisteluharjoitus3");
+            training3.setName("Luisteluharjoitus 3");
             training3.setLevel(3);
 
             trainingArrayList.add(training);
             trainingArrayList.add(training2);
             trainingArrayList.add(training3);
 
-            ListView lv = (ListView) view.findViewById(R.id.trainingListView);
+            ListView lv = view.findViewById(R.id.trainingListView);
             lv.setOnItemClickListener(this);
             lv.setAdapter(new ListViewTrainingsAdapter(getActivity(), trainingArrayList));
 
@@ -98,7 +99,7 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         try {
 
-            Log.i("LOL", "Itemiä klikattu");
+            Log.i("LOL", "Itemia klikattu");
             Log.i("LOL", " " + i);
 
             Training training = trainingArrayList.get(i);
@@ -108,7 +109,7 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
             intent.putExtra("Training", training);
             startActivity(intent);
         } catch (Exception e) {
-            Log.i("LOL", e.getMessage().toString());
+            Log.i("LOL", e.getMessage());
         }
     }
 }

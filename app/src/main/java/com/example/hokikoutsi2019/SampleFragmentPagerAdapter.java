@@ -10,8 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 5;
-    private String tabTitles[] = new String[] { "Luistelu", "Kiekonhallinta", "Voimakkuus", "Laukominen", "TAB5" };
+    private final int PAGE_COUNT = 5;
+    private String tabTitles[] = new String[]{"Luistelu", "Kiekonhallinta", "Voimakkuus", "Laukominen", "TAB5"};
     private Context context;
 
     public SampleFragmentPagerAdapter(FragmentManager fm, Context context) {

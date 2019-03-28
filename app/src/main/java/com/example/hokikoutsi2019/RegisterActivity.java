@@ -53,8 +53,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         buttonRegister = findViewById(R.id.buttonRegister);
         buttonRegister.setOnClickListener(this);
 
-        editTextFirstname = findViewById(R.id.editTextFirstname);
-        editTextLastname = findViewById(R.id.editTextLastname);
+        editTextFirstname = findViewById(R.id.editTextFirstName);
+        editTextLastname = findViewById(R.id.editTextLastName);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -76,7 +76,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onStart() {
         super.onStart();
-
         mAuth.addAuthStateListener(mAuthStateListener);
     }
 
@@ -151,14 +150,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                 }
                                             }
                                         });
-
                             } else {
                                 Log.w("LOL", "createUserWithEmail:failure", task.getException());
                                 Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
+        }
+    }
+}
 
             /*mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -194,6 +194,4 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             }
                         }
                     });*/
-        }
-    }
-}
+

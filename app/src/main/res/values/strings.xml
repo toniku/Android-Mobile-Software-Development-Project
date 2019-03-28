@@ -4,13 +4,13 @@
 
 <resources>
 
-    <string name="app_name">HokiKoutsi2019</string>
+    <string name="app_name">KOUTSI 2019</string>
 
     <string name="open">Aukaise</string>
     <string name="close">Sulje</string>
     <string name="logout">Kirjaudu Ulos</string>
-    <string name="myprofile">Minun Profiili</string>
-    <string name="gototraining">Siirry Harjoitteluun</string>
+    <string name="myProfile">Minun Profiili</string>
+    <string name="goToTraining">Siirry Harjoitteluun</string>
     <string name="teams">Joukkueet</string>
     <string name="calendar">Kalenteri</string>
     <string name="training">Harjoittelu</string>
@@ -27,8 +27,8 @@
     <string name="log_button_login">Kirjaudu</string>
     <string name="log_register">Rekisteröidy</string>
 
-    <string name="reg_firstname">Etunimi</string>
-    <string name="reg_lastname">Sukunimi</string>
+    <string name="reg_firstName">Etunimi</string>
+    <string name="reg_lastName">Sukunimi</string>
     <string name="reg_email">Sähköposti</string>
     <string name="reg_username">Käyttäjätunnus</string>
     <string name="reg_password">Salasana</string>

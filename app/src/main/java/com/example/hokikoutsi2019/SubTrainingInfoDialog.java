@@ -9,17 +9,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.SubTraining;
+
+import java.util.Objects;
 
 public class SubTrainingInfoDialog extends DialogFragment implements View.OnClickListener {
 
@@ -38,6 +38,17 @@ public class SubTrainingInfoDialog extends DialogFragment implements View.OnClic
         return frag;
     }
 
+    public static void watchYoutubeVideo(Context context, String id) {
+        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.youtube.com/watch?v=" + id));
+        try {
+            context.startActivity(appIntent);
+        } catch (ActivityNotFoundException ex) {
+            context.startActivity(webIntent);
+        }
+    }
+
     public void setSubTraining(SubTraining subTraining) {
         this.subTraining = subTraining;
     }
@@ -48,38 +59,26 @@ public class SubTrainingInfoDialog extends DialogFragment implements View.OnClic
         setRetainInstance(true);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.subtraininginfodialog, container, false);
-        TextView textViewName = (TextView) v.findViewById(R.id.textViewInfoName);
+        View view = inflater.inflate(R.layout.subtraininginfodialog, container, false);
+        TextView textViewName = view.findViewById(R.id.textViewInfoName);
         textViewName.setText(subTraining.getName());
 
-        TextView textViewInfo = (TextView) v.findViewById(R.id.textViewInfo);
+        TextView textViewInfo = view.findViewById(R.id.textViewInfo);
         textViewInfo.setText(subTraining.getInfo());
 
-        ImageView youtubeLink = (ImageView) v.findViewById(R.id.imageViewYoutube);
+        ImageView youtubeLink = view.findViewById(R.id.imageViewYoutube);
         youtubeLink.setOnClickListener(this);
-        return v;
+        return view;
     }
 
     @Override
     public void onClick(View view) {
-        if (view == getView().findViewById(R.id.imageViewYoutube)) {
+        if (view == Objects.requireNonNull(getView()).findViewById(R.id.imageViewYoutube)) {
             Log.i("UUU", "Youtube clicked");
-            watchYoutubeVideo(getActivity(), "ykwh7ZUXrJg");
+            watchYoutubeVideo(Objects.requireNonNull(getActivity()), "ykwh7ZUXrJg");
         }
 
-    }
-
-    public static void watchYoutubeVideo(Context context, String id){
-        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
-        Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.youtube.com/watch?v=" + id));
-        try {
-            context.startActivity(appIntent);
-        } catch (ActivityNotFoundException ex) {
-            context.startActivity(webIntent);
-        }
     }
 }

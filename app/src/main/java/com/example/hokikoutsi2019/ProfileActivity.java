@@ -76,12 +76,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonEditUserInfo = findViewById(R.id.buttonEditUserInfo);
         buttonEditUserInfo.setOnClickListener(this);
 
-        dl = (DrawerLayout) findViewById(R.id.activity_profile);
+        dl = findViewById(R.id.activity_profile);
         t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
         dl.addDrawerListener(t);
         t.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv = (NavigationView) findViewById(R.id.nav_view);
+        nv = findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -120,7 +120,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         });
 
         View headerView = nv.inflateHeaderView(R.layout.nav_header);
-        textViewDrawHeader = (TextView) headerView.findViewById(R.id.drawer_header);
+        textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
         mAuth = FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -149,10 +149,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-
-
         if (view == findViewById(R.id.buttonEditUserInfo)) {
-            //Toast.makeText(ProfileActivity.this, "Button Clicked!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ProfileActivity.this, EditUserInfoActivity.class);
             startActivity(intent);
         }
@@ -160,10 +157,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         if (t.onOptionsItemSelected(item))
             return true;
-
         return super.onOptionsItemSelected(item);
     }
 

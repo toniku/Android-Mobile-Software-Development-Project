@@ -7,39 +7,34 @@ package com.example.hokikoutsi2019.Classes;
 import java.io.Serializable;
 
 public class SubTraining implements Serializable {
-    private String name;
-    private String info;
+    private String name, info;
     private int repetitions;
 
-    public  SubTraining()
-    {
+    public SubTraining() {
 
     }
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public String getName()
-    {
+    public String getName() {
         return this.name;
     }
 
-    public void setRepetitions(int repetitions)
-    {
-        this.repetitions = repetitions;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getRepetitions()
-    {
+    public int getRepetitions() {
         return this.repetitions;
     }
 
-    public void setInfo(String info)
-    {
-        this.info = info;
+    public void setRepetitions(int repetitions) {
+        this.repetitions = repetitions;
     }
 
-    public String getInfo(){return this.info;}
+    public String getInfo() {
+        return this.info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
 }

@@ -6,7 +6,6 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="400dp"
     android:layout_height="300dp"
     android:layout_gravity="center"
@@ -14,8 +13,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="400dp"
-        android:layout_height="300dp"
-        >
+        android:layout_height="300dp">
 
         <TextView
             android:id="@+id/textViewInfoName"
@@ -29,25 +27,32 @@
 
         <ImageView
             android:id="@+id/imageViewYoutube"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="129dp"
+            android:layout_height="125dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.968"
             app:layout_constraintStart_toEndOf="@+id/textViewInfoName"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_media_play" />
 
         <TextView
             android:id="@+id/textViewInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="236dp"
+            android:layout_height="130dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus euismod est in consectetur. Donec mollis tortor urna, sed feugiat est porta quis."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewYoutube"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewInfoName" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.021" />
 
     </android.support.constraint.ConstraintLayout>
 

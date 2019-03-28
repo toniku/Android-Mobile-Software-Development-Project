@@ -9,7 +9,6 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,20 +22,17 @@ import java.util.ArrayList;
 public class ListViewTeamsAdapter extends ArrayAdapter<Team> {
 
     public ListViewTeamsAdapter(Context context, ArrayList<Team> teams) {
-        super(context,0, teams);
+        super(context, 0, teams);
     }
 
-
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         Team team = getItem(position);
 
         if (convertView == null) {
-            int layoutId = 0;
-            layoutId = R.layout.list_item_team;
+            int layoutId = R.layout.list_item_team;
             convertView = LayoutInflater.from(getContext()).inflate(layoutId, parent, false);
         }
 

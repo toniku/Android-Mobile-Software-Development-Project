@@ -9,8 +9,7 @@ import java.util.ArrayList;
 
 public class Training implements Serializable {
 
-    private String name;
-    private String level;
+    private String name, level;
     private ArrayList<SubTraining> subTrainingsArrayList = new ArrayList<>();
 
     public Training() {

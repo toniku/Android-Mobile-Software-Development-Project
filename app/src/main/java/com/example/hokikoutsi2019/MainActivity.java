@@ -36,7 +36,6 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonLogOut;
-
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
@@ -79,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setUpDrawer();
         setUpNavBar();
         getUser();
@@ -107,12 +105,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void setUpDrawer() {
-        dl = (DrawerLayout) findViewById(R.id.activity_main);
+        dl = findViewById(R.id.activity_main);
         t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
         dl.addDrawerListener(t);
         t.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv = (NavigationView) findViewById(R.id.nav_view);
+        nv = findViewById(R.id.nav_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -149,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         View headerView = nv.inflateHeaderView(R.layout.nav_header);
-        textViewDrawHeader = (TextView) headerView.findViewById(R.id.drawer_header);
+        textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
         mAuth = FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -167,12 +165,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void setUpNavBar() {
         // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        ViewPager viewPager = findViewById(R.id.viewpager);
         viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
                 MainActivity.this));
 
         // Give the TabLayout the ViewPager
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
 

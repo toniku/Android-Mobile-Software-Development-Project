@@ -9,7 +9,6 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,20 +22,17 @@ import java.util.ArrayList;
 public class ListViewSubTrainingsAdapter extends ArrayAdapter<SubTraining> {
 
     public ListViewSubTrainingsAdapter(Context context, ArrayList<SubTraining> trainings) {
-        super(context,0, trainings);
+        super(context, 0, trainings);
     }
 
-
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        SubTraining  subTraining = getItem(position);
+        SubTraining subTraining = getItem(position);
 
         if (convertView == null) {
-            int layoutId = 0;
-            layoutId = R.layout.list_item_subtraining;
+            int layoutId = R.layout.list_item_subtraining;
             convertView = LayoutInflater.from(getContext()).inflate(layoutId, parent, false);
         }
 
@@ -48,5 +44,4 @@ public class ListViewSubTrainingsAdapter extends ArrayAdapter<SubTraining> {
 
         return convertView;
     }
-
 }
