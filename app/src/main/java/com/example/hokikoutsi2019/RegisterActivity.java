@@ -1,3 +1,7 @@
+/*
+ * Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ */
+
 package com.example.hokikoutsi2019;
 
 import android.os.Bundle;
@@ -46,15 +50,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        buttonRegister = findViewById(R.id.buttonRegister);
         buttonRegister.setOnClickListener(this);
 
-        editTextFirstname = (EditText) findViewById(R.id.editTextFirstname);
-        editTextLastname = (EditText) findViewById(R.id.editTextLastname);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextUsername = (EditText) findViewById(R.id.editTextUsername);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        editTextConPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
+        editTextFirstname = findViewById(R.id.editTextFirstname);
+        editTextLastname = findViewById(R.id.editTextLastname);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextUsername = findViewById(R.id.editTextUsername);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextConPassword = findViewById(R.id.editTextConfirmPassword);
 
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
