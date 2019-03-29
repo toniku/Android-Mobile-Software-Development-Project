@@ -1,11 +1,23 @@
+/*
+ * Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ */
+
 package com.example.hokikoutsi2019.Classes;
 
 public class User {
 
-    private String firstname;
-    private String lastname;
-    private String email;
-    private String username;
+    private String firstname, lastname, email, username;
+
+    public User(String firstname, String lastname, String email, String username) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.username = username;
+    }
+
+    public User() {
+
+    }
 
     public String getUsername() {
         return username;
@@ -15,8 +27,6 @@ public class User {
         this.username = username;
     }
 
-
-
     public String getEmail() {
         return email;
     }
@@ -24,8 +34,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 
     public String getLastname() {
         return lastname;
@@ -35,26 +43,11 @@ public class User {
         this.lastname = lastname;
     }
 
-
-
     public String getFirstname() {
         return firstname;
     }
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
-    }
-
-    public User(String firstname, String lastname, String email, String username)
-    {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.username = username;
-    }
-
-    public User()
-    {
-
     }
 }

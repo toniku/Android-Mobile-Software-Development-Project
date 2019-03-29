@@ -1,14 +1,18 @@
+/*
+ * Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ */
+
 package com.example.hokikoutsi2019;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,13 +22,12 @@ import com.example.hokikoutsi2019.Classes.Training;
 
 import java.util.ArrayList;
 
-
 // In this case, the fragment displays simple text based on the page
 public class PageFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     public static final String ARG_PAGE = "ARG_PAGE";
-    private int mPage;
     ArrayList<Training> trainingArrayList = new ArrayList<>();
+    private int mPage;
 
     public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -37,22 +40,19 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        assert getArguments() != null;
         mPage = getArguments().getInt(ARG_PAGE);
-
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        if (mPage == 1)
-        {
+        if (mPage == 1) {
             View view = inflater.inflate(R.layout.fragment_skating, container, false);
 
             trainingArrayList.clear();
             Training training = new Training();
-            training.setName("Luisteluharjoitus1");
+            training.setName("Luisteluharjoitus 1");
             training.setLevel(1);
 
             SubTraining subTraining = new SubTraining();
@@ -70,41 +70,36 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
             training.setSubTraining(subTraining);
 
             Training training2 = new Training();
-            training2.setName("Luisteluharjoitus2");
+            training2.setName("Luisteluharjoitus 2");
             training2.setLevel(2);
 
             Training training3 = new Training();
-            training3.setName("Luisteluharjoitus3");
+            training3.setName("Luisteluharjoitus 3");
             training3.setLevel(3);
 
             trainingArrayList.add(training);
             trainingArrayList.add(training2);
             trainingArrayList.add(training3);
 
-            ListView lv = (ListView)view.findViewById(R.id.trainingListView);
+            ListView lv = view.findViewById(R.id.trainingListView);
             lv.setOnItemClickListener(this);
             lv.setAdapter(new ListViewTrainingsAdapter(getActivity(), trainingArrayList));
 
             return view;
 
-        }
-        else
-        {
+        } else {
             View view = inflater.inflate(R.layout.fragment_page, container, false);
             TextView textView = (TextView) view;
             textView.setText("Fragment #" + mPage);
             return view;
         }
-
-
     }
-
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         try {
 
-            Log.i("LOL", "Itemiä klikattu");
+            Log.i("LOL", "Itemia klikattu");
             Log.i("LOL", " " + i);
 
             Training training = trainingArrayList.get(i);
@@ -113,10 +108,8 @@ public class PageFragment extends Fragment implements AdapterView.OnItemClickLis
             Intent intent = new Intent(getActivity(), ShowTrainingListActivity.class);
             intent.putExtra("Training", training);
             startActivity(intent);
-        }
-        catch (Exception e)
-        {
-            Log.i("LOL", e.getMessage().toString());
+        } catch (Exception e) {
+            Log.i("LOL", e.getMessage());
         }
     }
 }

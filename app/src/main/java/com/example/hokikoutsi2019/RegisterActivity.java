@@ -1,8 +1,12 @@
+/*
+ * Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ */
+
 package com.example.hokikoutsi2019;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,13 +19,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
-
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,15 +50,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        buttonRegister = findViewById(R.id.buttonRegister);
         buttonRegister.setOnClickListener(this);
 
-        editTextFirstname = (EditText) findViewById(R.id.editTextFirstname);
-        editTextLastname = (EditText) findViewById(R.id.editTextLastname);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextUsername = (EditText) findViewById(R.id.editTextUsername);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        editTextConPassword = (EditText) findViewById(R.id.editTextConfirmPassword);
+        editTextFirstname = findViewById(R.id.editTextFirstName);
+        editTextLastname = findViewById(R.id.editTextLastName);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextUsername = findViewById(R.id.editTextUsername);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextConPassword = findViewById(R.id.editTextConfirmPassword);
 
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -67,8 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() != null)
-                {
+                if (firebaseAuth.getCurrentUser() != null) {
                     //Do this if user is already logged in. Go to another activity for eaxample
                 }
             }
@@ -78,15 +76,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onStart() {
         super.onStart();
-
         mAuth.addAuthStateListener(mAuthStateListener);
     }
 
     @Override
     public void onClick(View view) {
 
-        if (view == findViewById(R.id.buttonRegister))
-        {
+        if (view == findViewById(R.id.buttonRegister)) {
             firstname = editTextFirstname.getText().toString();
             lastname = editTextLastname.getText().toString();
             email = editTextEmail.getText().toString();
@@ -94,27 +90,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             password = editTextPassword.getText().toString();
             conPassword = editTextConPassword.getText().toString();
 
-            if(TextUtils.isEmpty(firstname)) {
+            if (TextUtils.isEmpty(firstname)) {
                 editTextFirstname.setError(getString(R.string.reg_fill_field));
                 return;
             }
-            if(TextUtils.isEmpty(lastname)) {
+            if (TextUtils.isEmpty(lastname)) {
                 editTextLastname.setError(getString(R.string.reg_fill_field));
                 return;
             }
-            if(TextUtils.isEmpty(email)) {
+            if (TextUtils.isEmpty(email)) {
                 editTextEmail.setError(getString(R.string.reg_fill_field));
                 return;
             }
-            if(TextUtils.isEmpty(username)) {
+            if (TextUtils.isEmpty(username)) {
                 editTextUsername.setError(getString(R.string.reg_fill_field));
                 return;
             }
-            if(TextUtils.isEmpty(password)) {
+            if (TextUtils.isEmpty(password)) {
                 editTextPassword.setError(getString(R.string.reg_fill_field));
                 return;
             }
-            if(TextUtils.isEmpty(conPassword)) {
+            if (TextUtils.isEmpty(conPassword)) {
                 editTextConPassword.setError(getString(R.string.reg_fill_field));
                 return;
             }
@@ -147,24 +143,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
 
-                                                if (task.isSuccessful())
-                                                {
+                                                if (task.isSuccessful()) {
                                                     Toast.makeText(RegisterActivity.this, "Registeration Success!", Toast.LENGTH_LONG).show();
-                                                }
-                                                else
-                                                {
+                                                } else {
                                                     Toast.makeText(RegisterActivity.this, "Error In Registeration adding to datbase", Toast.LENGTH_LONG).show();
                                                 }
                                             }
                                         });
-
                             } else {
                                 Log.w("LOL", "createUserWithEmail:failure", task.getException());
                                 Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
+        }
+    }
+}
 
             /*mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -200,6 +194,4 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             }
                         }
                     });*/
-        }
-    }
-}
+
