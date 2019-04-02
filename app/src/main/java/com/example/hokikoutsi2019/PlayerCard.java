@@ -4,5 +4,24 @@
 
 package com.example.hokikoutsi2019;
 
-public class PlayerCard {
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
+
+public class PlayerCard extends AppCompatActivity {
+
+    private TextView playerPhoneNumberTextView;
+
+
+    public void onClick (View v) {
+        int viewID = v.getId();
+
+        if (viewID == R.id.playerPhoneNumberTextView) {
+            Uri number = Uri.parse("tel:555123");
+            Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+            startActivity(callIntent);
+        }
+    }
 }
