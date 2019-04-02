@@ -79,8 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUpDrawer();
-        setUpNavBar();
-        getUser();
+        //getUser();
     }
 
     @Override
@@ -119,30 +118,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int id = item.getItemId();
                 Log.i("LOL", "Item id: " + id);
 
-                if (id == R.id.drawer_account) {
-                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.drawer_training) {
-                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.drawer_logout) {
+                 if (id == R.id.drawer_logout) {
                     Log.i("LOL", "Log out pressed");
                     mAuth.getInstance().signOut();
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
-                } else if (id == R.id.drawer_calendar) {
-                    Toast.makeText(MainActivity.this, "Calendar", Toast.LENGTH_SHORT).show();
-                    return true;
-                } else if (id == R.id.drawer_teams) {
-                    Intent intent = new Intent(MainActivity.this, TeamsActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else {
-                    return true;
                 }
+                else if (id == R.id.drawer_lineup)
+                 {
+                     Intent intent = new Intent(MainActivity.this, LineupActivity.class);
+                     startActivity(intent);
+                     return true;
+                 }
+                return true;
             }
         });
 
@@ -163,16 +152,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
     }
 
-    public void setUpNavBar() {
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
-                MainActivity.this));
-
-        // Give the TabLayout the ViewPager
-        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
-        tabLayout.setupWithViewPager(viewPager);
-    }
 
     public void getUser() {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");

@@ -20,6 +20,9 @@
     <string name="pro">Ammattilainen</string>
     <string name="elite">Eliitti</string>
 
+    <string name="statistics">Tilastot</string>
+    <string name="lineup">Kokoonpano</string>
+
     <string name="drawer_item1">Profiili</string>
 
     <string name="log_email">Sähköposti</string>

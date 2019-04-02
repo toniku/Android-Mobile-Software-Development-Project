@@ -6,9 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/drawer_account"
+        android:id="@+id/drawer_lineup"
         android:icon="@drawable/ic_perm_identity_black_24dp"
-        android:title="@string/myProfile" />
+        android:title="@string/lineup"/>
 
     <item
         android:id="@+id/drawer_training"
