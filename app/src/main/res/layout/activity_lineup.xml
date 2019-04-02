@@ -4,7 +4,6 @@
 
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_lineup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,14 +21,13 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent">
 
-
             <TableLayout
                 android:layout_width="395dp"
                 android:layout_height="715dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:paddingTop="400dp"
+                android:paddingTop="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -41,25 +39,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
                         android:text="Etunimi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorWhite"
-                        android:layout_column="1" />
+                        android:textColor="@color/colorWhite" />
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
                         android:text="Sukunimi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorWhite"
-                        android:layout_column="2" />
+                        android:textColor="@color/colorWhite" />
 
                     <TextView
-                        android:text="Pelinumero"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorWhite"
-                        android:layout_column="2" />
+                        android:layout_column="2"
+                        android:text="Pelinumero"
+                        android:textColor="@color/colorWhite" />
 
                 </TableRow>
 
