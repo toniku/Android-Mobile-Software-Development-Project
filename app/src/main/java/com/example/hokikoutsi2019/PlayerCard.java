@@ -26,6 +26,7 @@ public class PlayerCard extends AppCompatActivity {
                 Uri number = Uri.parse(phoneNumber);
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
                 startActivity(callIntent);
+                
             }
         });
     }
