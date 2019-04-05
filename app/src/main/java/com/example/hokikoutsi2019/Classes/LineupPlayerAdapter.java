@@ -18,6 +18,7 @@ import java.util.List;
 
 
 public class LineupPlayerAdapter extends ArrayAdapter {
+
     private List list = new ArrayList();
 
     public LineupPlayerAdapter(Context context, int resource) {
@@ -39,7 +40,9 @@ public class LineupPlayerAdapter extends ArrayAdapter {
         return list.get(position);
     }
 
-/*    @Override
+
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View list_item_view;
@@ -49,20 +52,23 @@ public class LineupPlayerAdapter extends ArrayAdapter {
         if (list_item_view == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             list_item_view = layoutInflater.inflate(R.layout.lineup_player_list_item, parent, false);
-            lineupPlayerHolder = new CompetitionHolder();
-            lineupPlayerHolder.CompetitionTextView = (TextView) list_item_view.findViewById(R.id.competition_list_item_textView);
+            lineupPlayerHolder = new LineupPlayerHolder();
+            lineupPlayerHolder.PlayerNameTextView = (TextView) list_item_view.findViewById(R.id.LineUpPlayerNameTextView);
+            lineupPlayerHolder.PlayerJerseyTextView = (TextView) list_item_view.findViewById(R.id.LineUpPlayerJerseyTextView);
             list_item_view.setTag(lineupPlayerHolder);
         } else {
-            lineupPlayerHolder = (CompetitionHolder) list_item_view.getTag();
+            lineupPlayerHolder = (LineupPlayerHolder) list_item_view.getTag();
         }
 
         LineupPlayer lineupPlayer = (LineupPlayer) this.getItem(position);
         assert lineupPlayer != null;
-        //lineupPlayerHolder.CompetitionTextView.setText(lineupPlayer.getFirstName());
+        lineupPlayerHolder.PlayerNameTextView.setText(lineupPlayer.getFirstName() + " " + lineupPlayer.getLastName());
+        lineupPlayerHolder.PlayerJerseyTextView.setText(lineupPlayer.getJerseyNumber());
         return list_item_view;
     }
 
-    static class CompetitionHolder {
-        TextView CompetitionTextView;
-    }*/
+    static class LineupPlayerHolder {
+        TextView PlayerNameTextView;
+        TextView PlayerJerseyTextView;
+    }
 }
