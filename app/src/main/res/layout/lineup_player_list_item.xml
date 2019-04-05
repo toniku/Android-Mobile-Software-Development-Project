@@ -2,14 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="400dp"
     android:layout_height="80dp"
-    android:layout_gravity="center_horizontal">
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/competition_list_item_textView"
+        android:id="@+id/firstNameTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="NAME"
+        android:gravity="left|center_vertical"
+        android:text="Etunimi"
         android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/lastNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:text="Sukunimi"
+        android:textSize="15dp"/>
+
 
 </LinearLayout>
