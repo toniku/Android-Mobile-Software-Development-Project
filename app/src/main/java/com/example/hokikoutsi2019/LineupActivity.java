@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.hokikoutsi2019.Classes.LineupPlayer;
 import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
 import com.example.hokikoutsi2019.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -75,8 +76,30 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lineup);
         setUpDrawer();
-        ListView listView = findViewById(R.id.)
-        //getUser();
+        ListView listView = findViewById(R.id.playerListView);
+        lineupPlayerAdapter = new LineupPlayerAdapter(this, R.layout.lineup_player_list_item);
+        listView.setAdapter(lineupPlayerAdapter);
+
+        LineupPlayer lineupPlayer = new LineupPlayer("Jani", "Hakanpää", 94);
+        LineupPlayer lineupPlayer1 = new LineupPlayer("Shaun", "Heshka", 26);
+        LineupPlayer lineupPlayer2 = new LineupPlayer("Teemu", "Kivihalme", 61);
+        LineupPlayer lineupPlayer3 = new LineupPlayer("Lasse", "Kukkonen", 5);
+        LineupPlayer lineupPlayer4 = new LineupPlayer("Atte", "Ohtamaa", 55);
+        LineupPlayer lineupPlayer5 = new LineupPlayer("Aleksi", "Heponiemi", 20);
+        LineupPlayer lineupPlayer6 = new LineupPlayer("Jussi", "Jokinen", 36);
+        LineupPlayer lineupPlayer7 = new LineupPlayer("Rasmus", "Kupari", 19);
+        LineupPlayer lineupPlayer8 = new LineupPlayer("Ville", "Leskinen", 12);
+        LineupPlayer lineupPlayer9 = new LineupPlayer("Oskar", "Osala", 92);
+        lineupPlayerAdapter.add(lineupPlayer);
+        lineupPlayerAdapter.add(lineupPlayer1);
+        lineupPlayerAdapter.add(lineupPlayer2);
+        lineupPlayerAdapter.add(lineupPlayer3);
+        lineupPlayerAdapter.add(lineupPlayer4);
+        lineupPlayerAdapter.add(lineupPlayer5);
+        lineupPlayerAdapter.add(lineupPlayer6);
+        lineupPlayerAdapter.add(lineupPlayer7);
+        lineupPlayerAdapter.add(lineupPlayer8);
+        lineupPlayerAdapter.add(lineupPlayer9);
     }
 
     @Override
