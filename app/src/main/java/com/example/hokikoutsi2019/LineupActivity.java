@@ -15,8 +15,10 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
 import com.example.hokikoutsi2019.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +35,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private TextView textViewDrawHeader;
+    private LineupPlayerAdapter lineupPlayerAdapter;
 
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -72,6 +75,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lineup);
         setUpDrawer();
+        ListView listView = findViewById(R.id.)
         //getUser();
     }
 
