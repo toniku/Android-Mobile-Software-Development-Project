@@ -24,9 +24,9 @@ public class PlayerCard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String phoneNumber = phoneNumberTextView.getText().toString();
-                //Uri number = Uri.parse(phoneNumber);
-                //Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
-                //startActivity(callIntent);
+                Uri number = Uri.parse(phoneNumber);
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                startActivity(callIntent);
             }
         });
     }
