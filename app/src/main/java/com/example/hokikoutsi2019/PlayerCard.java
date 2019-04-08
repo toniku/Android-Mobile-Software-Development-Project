@@ -15,18 +15,18 @@ import android.widget.TextView;
 public class PlayerCard extends AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_playercard);
         final TextView phoneNumberTextView = findViewById(R.id.playerPhoneNumberTextView);
 
         phoneNumberTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phoneNumber = phoneNumberTextView.getText().toString();
-                Uri number = Uri.parse(phoneNumber);
-                Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
-                startActivity(callIntent);
-
+                //Uri number = Uri.parse(phoneNumber);
+                //Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                //startActivity(callIntent);
             }
         });
     }

@@ -11,11 +11,10 @@ public class LineupPlayer {
     private int jerseyNumber;
     private int birthDate;
 
-    public LineupPlayer(String firstName, String lastName, int jerseyNumber, int birthDate) {
+    public LineupPlayer(String firstName, String lastName, int jerseyNumber) {
         this.setFirstName(firstName);
         this.setLastName(lastName);
         this.setJerseyNumber(jerseyNumber);
-        this.setBirthDate(birthDate);
     }
 
     public String getFirstName() {
@@ -38,18 +37,7 @@ public class LineupPlayer {
         return jerseyNumber;
     }
 
-    public void setJerseyNumber(int jerseyNumber) {
-        this.jerseyNumber = jerseyNumber;
-    }
-
-    public int getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(int birthDate) {
-        this.birthDate = birthDate;
-    }
-
+    public void setJerseyNumber(int jerseyNumber) { this.jerseyNumber = jerseyNumber; }
 
 }
 
