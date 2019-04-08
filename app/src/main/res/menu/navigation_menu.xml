@@ -6,14 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/drawer_profile"
+        android:icon="@drawable/ic_directions_run_black_24dp"
+        android:title="@string/myProfile" />
+
+    <item
         android:id="@+id/drawer_lineup"
         android:icon="@drawable/ic_perm_identity_black_24dp"
         android:title="@string/lineup"/>
-
-    <item
-        android:id="@+id/drawer_training"
-        android:icon="@drawable/ic_directions_run_black_24dp"
-        android:title="@string/training" />
 
     <item
         android:id="@+id/drawer_calendar"
