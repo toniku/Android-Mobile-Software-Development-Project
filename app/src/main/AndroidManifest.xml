@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LineupActivity"></activity>
-        <activity android:name=".RegisterActivity" />1
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".PlayerCard" />
         <activity android:name=".LoginActivity"/>
         <activity android:name=".MainActivity" >
