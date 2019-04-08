@@ -16,7 +16,6 @@ import com.example.hokikoutsi2019.R;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class LineupPlayerAdapter extends ArrayAdapter {
 
     private List list = new ArrayList();
@@ -39,7 +38,6 @@ public class LineupPlayerAdapter extends ArrayAdapter {
     public Object getItem(int position) {
         return list.get(position);
     }
-
 
 
     @Override
