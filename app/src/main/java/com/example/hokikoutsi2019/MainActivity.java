@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void getUser() {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        Query query = databaseReference.orderByChild("email").equalTo(Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
+        Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
         query.addValueEventListener(valueEventListener);
     }
 
