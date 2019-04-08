@@ -29,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 /**
  * Created by Janne Heikkilä, Toni Kukkohovi, Eetu Lehtomaa, Jouni Peltola
  */
@@ -154,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void getUser() {
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
+        Query query = databaseReference.orderByChild("email").equalTo(Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
         query.addValueEventListener(valueEventListener);
     }
 
