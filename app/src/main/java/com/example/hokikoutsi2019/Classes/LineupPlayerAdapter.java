@@ -62,7 +62,7 @@ public class LineupPlayerAdapter extends ArrayAdapter {
         assert lineupPlayer != null;
         lineupPlayerHolder.PlayerNameTextView.setText(lineupPlayer.getFirstName() + " " + lineupPlayer.getLastName());
         String jerseyNumber = Integer.toString(lineupPlayer.getJerseyNumber());
-        lineupPlayerHolder.PlayerJerseyTextView.setText(jerseyNumber);
+        lineupPlayerHolder.PlayerJerseyTextView.setText("#" + jerseyNumber);
         return list_item_view;
     }
 
