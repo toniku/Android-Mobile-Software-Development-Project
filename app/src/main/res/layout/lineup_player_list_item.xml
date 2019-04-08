@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_gravity="center_horizontal"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/rounded_box_player_list_item"
+    android:backgroundTint="40"
     android:orientation="vertical">
 
     <TextView
@@ -21,7 +22,7 @@
         android:paddingTop="10dp"
         android:text="Mikael Granlund"
         android:textColor="@color/colorWhite"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +36,7 @@
         android:layout_marginBottom="8dp"
         android:text="#64"
         android:textColor="@color/colorWhite"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
