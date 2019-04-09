@@ -11,75 +11,82 @@
 
     <ImageView
         android:id="@+id/playerProfilePicImageView"
-        android:layout_width="178dp"
-        android:layout_height="173dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="187dp"
+        android:layout_height="168dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071"
+        app:layout_constraintVertical_bias="0.207"
         app:srcCompat="@drawable/pikachu2" />
-
-    <TextView
-        android:id="@+id/playerNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorOrange"
-        android:text="Eetu Pekka"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerProfilePicImageView" />
 
     <LinearLayout
         android:id="@+id/info2linearLayout"
-        android:layout_width="195dp"
-        android:layout_height="75dp"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#E6E7E9"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/playerProfilePicImageView"
         app:layout_constraintTop_toBottomOf="@+id/infoLinearLayout">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="Puhelinnumero" />
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Yhteystiedot:" />
 
-        <TextView
-            android:id="@+id/playerPhoneNumberTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="12341243124" />
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Kylänraitti 5" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="378 800 Helsinki" />
+
+            <TextView
+                android:id="@+id/playerPhoneNumberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="p. 040 999 777 555" />
+        </LinearLayout>
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="378dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="268dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView14">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -105,31 +112,93 @@
 
     <LinearLayout
         android:id="@+id/infoLinearLayout"
-        android:layout_width="195dp"
-        android:layout_height="75dp"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:background="#E6E7E9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/playerProfilePicImageView"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/heightTextView"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Pituus:" />
+            android:orientation="vertical"
+            android:paddingRight="20dp">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/syntymäaikaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Syntymäaika:"
+                android:textAlignment="textEnd" />
+
+            <TextView
+                android:id="@+id/pituusTextView"
+                android:layout_width="91dp"
+                android:layout_height="wrap_content"
+                android:text="Pituus:"
+                android:textAlignment="textEnd" />
+
+            <TextView
+                android:id="@+id/painoTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Paino:"
+                android:textAlignment="textEnd" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2006" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="165 cm" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="50 kg" />
+
+        </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harry Yyllä"
+        app:layout_constraintBottom_toBottomOf="@+id/playerProfilePicImageView"
+        app:layout_constraintEnd_toEndOf="@+id/playerProfilePicImageView"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="@+id/playerProfilePicImageView"
+        app:layout_constraintTop_toTopOf="@+id/playerProfilePicImageView"
+        app:layout_constraintVertical_bias="0.993" />
 
 </android.support.constraint.ConstraintLayout>
