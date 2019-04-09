@@ -78,27 +78,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         ListView listView = findViewById(R.id.playerListView);
         lineupPlayerAdapter = new LineupPlayerAdapter(this, R.layout.lineup_player_list_item);
         listView.setAdapter(lineupPlayerAdapter);
-
-        LineupPlayer lineupPlayer = new LineupPlayer("Jani", "Hakanpää", 94);
-        LineupPlayer lineupPlayer1 = new LineupPlayer("Shaun", "Heshka", 26);
-        LineupPlayer lineupPlayer2 = new LineupPlayer("Teemu", "Kivihalme", 61);
-        LineupPlayer lineupPlayer3 = new LineupPlayer("Lasse", "Kukkonen", 5);
-        LineupPlayer lineupPlayer4 = new LineupPlayer("Atte", "Ohtamaa", 55);
-        LineupPlayer lineupPlayer5 = new LineupPlayer("Aleksi", "Heponiemi", 20);
-        LineupPlayer lineupPlayer6 = new LineupPlayer("Jussi", "Jokinen", 36);
-        LineupPlayer lineupPlayer7 = new LineupPlayer("Rasmus", "Kupari", 19);
-        LineupPlayer lineupPlayer8 = new LineupPlayer("Ville", "Leskinen", 12);
-        LineupPlayer lineupPlayer9 = new LineupPlayer("Oskar", "Osala", 92);
-        lineupPlayerAdapter.add(lineupPlayer);
-        lineupPlayerAdapter.add(lineupPlayer1);
-        lineupPlayerAdapter.add(lineupPlayer2);
-        lineupPlayerAdapter.add(lineupPlayer3);
-        lineupPlayerAdapter.add(lineupPlayer4);
-        lineupPlayerAdapter.add(lineupPlayer5);
-        lineupPlayerAdapter.add(lineupPlayer6);
-        lineupPlayerAdapter.add(lineupPlayer7);
-        lineupPlayerAdapter.add(lineupPlayer8);
-        lineupPlayerAdapter.add(lineupPlayer9);
+        addPlayers();
     }
 
     @Override
@@ -173,5 +153,50 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
         query.addValueEventListener(valueEventListener);
+    }
+
+    private void addPlayers() {
+        LineupPlayer lineupPlayer = new LineupPlayer("Jani", "Hakanpää", 94);
+        LineupPlayer lineupPlayer1 = new LineupPlayer("Shaun", "Heshka", 26);
+        LineupPlayer lineupPlayer2 = new LineupPlayer("Teemu", "Kivihalme", 61);
+        LineupPlayer lineupPlayer3 = new LineupPlayer("Lasse", "Kukkonen", 5);
+        LineupPlayer lineupPlayer4 = new LineupPlayer("Atte", "Ohtamaa", 55);
+        LineupPlayer lineupPlayer5 = new LineupPlayer("Aleksi", "Heponiemi", 20);
+        LineupPlayer lineupPlayer6 = new LineupPlayer("Jussi", "Jokinen", 36);
+        LineupPlayer lineupPlayer7 = new LineupPlayer("Rasmus", "Kupari", 19);
+        LineupPlayer lineupPlayer8 = new LineupPlayer("Ville", "Leskinen", 12);
+        LineupPlayer lineupPlayer9 = new LineupPlayer("Oskar", "Osala", 92);
+        LineupPlayer lineupPlayer10 = new LineupPlayer("Mika", "Pyörälä", 17);
+        LineupPlayer lineupPlayer11 = new LineupPlayer("Jari", "Sailio", 41);
+        LineupPlayer lineupPlayer12 = new LineupPlayer("Tino", "Metsävainio", 25);
+        LineupPlayer lineupPlayer13 = new LineupPlayer("Jasper", "Lindsten", 67);
+        LineupPlayer lineupPlayer14 = new LineupPlayer("Nicklas", "Lasu", 31);
+        LineupPlayer lineupPlayer15 = new LineupPlayer("Michal", "Kristof", 13);
+        LineupPlayer lineupPlayer16 = new LineupPlayer("Radek", "Koblizek", 29);
+        LineupPlayer lineupPlayer17 = new LineupPlayer("Otto", "Karvinen", 21);
+        LineupPlayer lineupPlayer18 = new LineupPlayer("Miska", "Humaloja", 27);
+        LineupPlayer lineupPlayer19 = new LineupPlayer("Sami", "Anttila", 18);
+        LineupPlayer lineupPlayer20 = new LineupPlayer("Taneli", "Ronkainen", 22);
+        lineupPlayerAdapter.add(lineupPlayer);
+        lineupPlayerAdapter.add(lineupPlayer1);
+        lineupPlayerAdapter.add(lineupPlayer2);
+        lineupPlayerAdapter.add(lineupPlayer3);
+        lineupPlayerAdapter.add(lineupPlayer4);
+        lineupPlayerAdapter.add(lineupPlayer5);
+        lineupPlayerAdapter.add(lineupPlayer6);
+        lineupPlayerAdapter.add(lineupPlayer7);
+        lineupPlayerAdapter.add(lineupPlayer8);
+        lineupPlayerAdapter.add(lineupPlayer9);
+        lineupPlayerAdapter.add(lineupPlayer10);
+        lineupPlayerAdapter.add(lineupPlayer11);
+        lineupPlayerAdapter.add(lineupPlayer12);
+        lineupPlayerAdapter.add(lineupPlayer13);
+        lineupPlayerAdapter.add(lineupPlayer14);
+        lineupPlayerAdapter.add(lineupPlayer15);
+        lineupPlayerAdapter.add(lineupPlayer16);
+        lineupPlayerAdapter.add(lineupPlayer17);
+        lineupPlayerAdapter.add(lineupPlayer18);
+        lineupPlayerAdapter.add(lineupPlayer19);
+        lineupPlayerAdapter.add(lineupPlayer20);
     }
 }
