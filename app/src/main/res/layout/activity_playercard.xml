@@ -96,7 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/playerNameTextView"
         tools:layout_marginTop="8dp">
 
         <TableLayout
@@ -378,7 +378,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/playerNameTextView"
         android:textColor="@color/colorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
