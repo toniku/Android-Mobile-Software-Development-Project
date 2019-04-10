@@ -6,8 +6,10 @@
 <resources>
     <color name="colorPrimary">#404040</color>
     <color name="colorPrimaryDark">#666666</color>
+    <color name="colorPrimaryDarkTransparent">#64666666</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorOrange">#F26522</color>
+    <color name="colorOrangeTransparent">#64F26522</color>
 </resources>
