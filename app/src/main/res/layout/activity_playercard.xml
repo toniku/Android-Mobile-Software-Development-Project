@@ -97,16 +97,33 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/"
+                    android:id="@+id/playerPoints"
                     android:text="Pisteet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_column="1"/>
+
+                <TextView
+                    android:id="@+id/playerGoals"
+                    android:text="Maalit"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_column="2"/>
+
+                <TextView
+                    android:id="@+id/playerPass"
+                    android:text="Syötöt"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_column="2"/>
+
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent" >
+
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
