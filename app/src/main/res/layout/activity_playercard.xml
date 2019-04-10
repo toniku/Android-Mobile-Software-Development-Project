@@ -9,80 +9,95 @@
     android:background="@drawable/testitausta1"
     android:weightSum="100">
 
-    <ImageView
-        android:id="@+id/playerProfilePicImageView"
-        android:layout_width="172dp"
-        android:layout_height="168dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207"
-        app:srcCompat="@drawable/pikachu2"
-        tools:background="@color/colorPrimaryDarkTransparent" />
-
     <LinearLayout
-        android:id="@+id/info2linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="78dp"
+        android:id="@+id/info3Linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="183dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/colorPrimaryDarkTransparent"
-        android:orientation="horizontal"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/playerProfilePicImageView"
-        app:layout_constraintTop_toBottomOf="@+id/infoLinearLayout">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/playerProfilePicImageView"
+            android:layout_width="172dp"
+            android:layout_height="168dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="50"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.207"
+            app:srcCompat="@drawable/pikachu2"
+            tools:background="@color/colorPrimaryDarkTransparent"
+            tools:layout_marginStart="8dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="88dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:id="@+id/info2linearLayout"
+            android:layout_width="150dp"
+            android:layout_height="168dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="50"
+            android:background="@color/colorPrimaryDarkTransparent"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/playerProfilePicImageView">
 
-            <TextView
-                android:id="@+id/textView15"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textColor="@color/colorWhite"
-                android:text="Yhteystiedot:"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:layout_width="match_parent">
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textColor="@color/colorWhite"
-                android:text="Kylänraitti 5"
-                android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Yhteystiedot:"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textColor="@color/colorWhite"
-                android:text="378 800 Helsinki"
-                android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Kylänraitti 5"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/playerPhoneNumberTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textColor="@color/colorWhite"
-                android:text="p. 040 999 777 555"
-                android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="378 800 Helsinki"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/playerPhoneNumberTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="p. 040 999 777 555"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -90,13 +105,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="378dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/colorPrimaryDarkTransparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/info3Linearlayout"
         tools:layout_marginTop="8dp">
 
         <TableLayout
@@ -130,45 +145,52 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="1"
-                    android:paddingTop="14dp"
-                    android:background="@color/colorPrimaryDarkTransparent"
-                    android:text="Maalit"
+                    android:layout_marginLeft="14dp"
                     android:layout_marginTop="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
+                    android:paddingTop="14dp"
+                    android:text="Maalit"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="@color/colorWhite"
-                    android:textAlignment="center"
-                    tools:layout_marginLeft="16dp" />
+                    tools:layout_marginLeft="16dp"
+                    android:layout_weight="33" />
 
                 <TextView
                     android:id="@+id/playerAssists"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorPrimaryDarkTransparent"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="2"
+                    android:layout_marginLeft="14dp"
                     android:layout_marginTop="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Syötöt"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textAlignment="center"
-                    tools:layout_marginLeft="14dp" />
+                    tools:layout_marginLeft="14dp"
+                    android:layout_weight="33"/>
 
                 <TextView
                     android:id="@+id/playerPoints"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorPrimaryDarkTransparent"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="3"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Pisteet"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textAlignment="center"
-                    tools:layout_marginTop="14dp" />
+                    tools:layout_marginTop="14dp"
+                    android:layout_weight="33"/>
 
             </TableRow>
 
@@ -177,219 +199,121 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/playerGames"
-                android:textColor="@color/colorWhite"
-                android:background="@color/colorPrimaryDarkTransparent"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_column="1"
-                android:layout_marginTop="14dp"
-                android:paddingTop="14dp"
-                android:text="Ottelut"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                tools:layout_marginLeft="16dp" />
+                <TextView
+                    android:id="@+id/playerGames"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_column="1"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
+                    android:paddingTop="14dp"
+                    android:text="Ottelut"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:layout_marginLeft="16dp"
+                    android:layout_weight="33" />
 
-            <TextView
-                android:id="@+id/playerGameTime"
-                android:textColor="@color/colorWhite"
-                android:background="@color/colorPrimaryDarkTransparent"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_column="2"
-                android:paddingTop="14dp"
-                android:layout_marginTop="14dp"
-                android:text="Peliaika"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                tools:layout_marginLeft="14dp" />
+                <TextView
+                    android:id="@+id/playerGameTime"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_column="2"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
+                    android:paddingTop="14dp"
+                    android:text="Peliaika"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:layout_marginLeft="14dp"
+                    android:layout_weight="33"/>
 
-            <TextView
-                android:id="@+id/playerPenalty"
-                android:textColor="@color/colorWhite"
-                android:background="@color/colorPrimaryDarkTransparent"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_column="3"
-                android:layout_marginLeft="14dp"
-                android:paddingTop="14dp"
-                android:text="Rangaistukset"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                tools:layout_marginTop="14dp" />
+                <TextView
+                    android:id="@+id/playerPenalty"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_column="3"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
+                    android:paddingTop="14dp"
+                    android:text="Rangaistukset"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:layout_marginTop="14dp"
+                    android:layout_weight="33"/>
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/playerGamePenalties"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorPrimaryDarkTransparent"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="1"
-                    android:paddingTop="14dp"
                     android:layout_marginTop="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
+                    android:paddingTop="14dp"
                     android:text="Ottelu-rangaistukset"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textAlignment="center"
-                    tools:layout_marginLeft="16dp" />
+                    tools:layout_marginLeft="16dp"
+                    android:layout_weight="33" />
 
                 <TextView
                     android:id="@+id/playerShots"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorPrimaryDarkTransparent"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="2"
                     android:layout_marginTop="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Laukaukset"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textAlignment="center"
-                    tools:layout_marginLeft="14dp" />
+                    tools:layout_marginLeft="14dp"
+                    android:layout_weight="33" />
 
                 <TextView
                     android:id="@+id/playerShootingPersentange"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorPrimaryDarkTransparent"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="3"
+                    android:layout_marginTop="14dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Laukaisu-prosentti"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textAlignment="center"
-                    tools:layout_marginTop="14dp" />
+                    tools:layout_marginTop="14dp"
+                    android:layout_weight="33" />
 
-        </TableRow>
+            </TableRow>
 
         </TableLayout>
 
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/infoLinearLayout"
-        android:layout_width="0dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/colorPrimaryDarkTransparent"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/playerProfilePicImageView"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingRight="20dp">
-
-            <TextView
-                android:id="@+id/syntymäaikaTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Syntymäaika:"
-                android:textAlignment="textEnd"
-                android:textColor="@color/colorWhite"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/pituusTextView"
-                android:layout_width="98dp"
-                android:layout_height="wrap_content"
-                android:text="Pituus:"
-                android:textAlignment="textEnd"
-                android:textColor="@color/colorWhite"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/painoTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Paino:"
-                android:textAlignment="textEnd"
-                android:textColor="@color/colorWhite"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView6"
-                android:textColor="@color/colorWhite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2006"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:textColor="@color/colorWhite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="165 cm"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView13"
-                android:textColor="@color/colorWhite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="50 kg"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView14"
-        android:textColor="@color/colorWhite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Harry Yyllä"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/playerProfilePicImageView"
-        app:layout_constraintEnd_toEndOf="@+id/playerProfilePicImageView"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/playerProfilePicImageView"
-        app:layout_constraintTop_toTopOf="@+id/playerProfilePicImageView"
-        app:layout_constraintVertical_bias="0.993" />
 
 </android.support.constraint.ConstraintLayout>
