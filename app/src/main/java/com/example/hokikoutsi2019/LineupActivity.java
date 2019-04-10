@@ -85,7 +85,8 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(LineupActivity.this, PlayerCard.class);
-                intent.putExtra("PlayerName",listView.getItemAtPosition(position).toString())
+                intent.putExtra("PlayerName",listView.getItemAtPosition(position).toString());
+                startActivity(intent);
             }
         });
     }
