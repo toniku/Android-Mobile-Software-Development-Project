@@ -14,9 +14,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hokikoutsi2019.Classes.LineupPlayer;
 import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
@@ -75,10 +77,17 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lineup);
         setUpDrawer();
-        ListView listView = findViewById(R.id.playerListView);
+        final ListView listView = findViewById(R.id.playerListView);
         lineupPlayerAdapter = new LineupPlayerAdapter(this, R.layout.lineup_player_list_item);
         listView.setAdapter(lineupPlayerAdapter);
         addPlayers();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(LineupActivity.this, PlayerCard.class);
+                intent.putExtra("PlayerName",listView.getItemAtPosition(position).toString())
+            }
+        });
     }
 
     @Override
