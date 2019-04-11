@@ -9,14 +9,22 @@
     android:background="@drawable/testitausta1"
     android:weightSum="100">
 
+    <TextView
+        android:id="@+id/playerNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:text="Pekka Sauri" />
+
     <LinearLayout
         android:id="@+id/info3Linearlayout"
         android:layout_width="match_parent"
         android:layout_height="183dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -106,12 +114,13 @@
         android:layout_width="match_parent"
         android:layout_height="378dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@color/colorPrimaryDarkTransparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/info3Linearlayout"
         tools:layout_marginTop="8dp">
 
         <TableLayout
@@ -147,6 +156,7 @@
                     android:layout_column="1"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Maalit"
@@ -154,8 +164,7 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginLeft="16dp"
-                    android:layout_weight="33" />
+                    tools:layout_marginLeft="16dp" />
 
                 <TextView
                     android:id="@+id/playerAssists"
@@ -164,6 +173,7 @@
                     android:layout_column="2"
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Syötöt"
@@ -171,8 +181,7 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginLeft="14dp"
-                    android:layout_weight="33"/>
+                    tools:layout_marginLeft="14dp" />
 
                 <TextView
                     android:id="@+id/playerPoints"
@@ -182,6 +191,7 @@
                     android:layout_marginLeft="14dp"
                     android:layout_marginTop="14dp"
                     android:layout_marginRight="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Pisteet"
@@ -189,8 +199,7 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginTop="14dp"
-                    android:layout_weight="33"/>
+                    tools:layout_marginTop="14dp" />
 
             </TableRow>
 
@@ -204,8 +213,9 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="1"
-                    android:layout_marginTop="14dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Ottelut"
@@ -213,16 +223,16 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginLeft="16dp"
-                    android:layout_weight="33" />
+                    tools:layout_marginLeft="16dp" />
 
                 <TextView
                     android:id="@+id/playerGameTime"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="2"
-                    android:layout_marginTop="14dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Peliaika"
@@ -230,17 +240,17 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginLeft="14dp"
-                    android:layout_weight="33"/>
+                    tools:layout_marginLeft="14dp" />
 
                 <TextView
                     android:id="@+id/playerPenalty"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="3"
-                    android:layout_marginTop="14dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
                     android:layout_marginRight="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Rangaistukset"
@@ -248,8 +258,7 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginTop="14dp"
-                    android:layout_weight="33"/>
+                    tools:layout_marginTop="14dp" />
 
             </TableRow>
 
@@ -262,8 +271,9 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="1"
-                    android:layout_marginTop="14dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Ottelu-rangaistukset"
@@ -271,16 +281,16 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginLeft="16dp"
-                    android:layout_weight="33" />
+                    tools:layout_marginLeft="16dp" />
 
                 <TextView
                     android:id="@+id/playerShots"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="2"
-                    android:layout_marginTop="14dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Laukaukset"
@@ -288,17 +298,17 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginLeft="14dp"
-                    android:layout_weight="33" />
+                    tools:layout_marginLeft="14dp" />
 
                 <TextView
                     android:id="@+id/playerShootingPersentange"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_column="3"
-                    android:layout_marginTop="14dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
                     android:layout_marginRight="14dp"
+                    android:layout_weight="33"
                     android:background="@color/colorPrimaryDarkTransparent"
                     android:paddingTop="14dp"
                     android:text="Laukaisu-prosentti"
@@ -306,8 +316,7 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:layout_marginTop="14dp"
-                    android:layout_weight="33" />
+                    tools:layout_marginTop="14dp" />
 
             </TableRow>
 
