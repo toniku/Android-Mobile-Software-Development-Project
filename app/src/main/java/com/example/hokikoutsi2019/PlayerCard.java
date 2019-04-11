@@ -8,15 +8,25 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class PlayerCard extends AppCompatActivity {
+
+    private TextView playerNameTextView;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playercard);
+        String data = getIntent().getExtras().getString("PlayerName");
+        Log.d("SIIS", "playerCarddi" + data);
+        playerNameTextView = findViewById(R.id.playerNameTextView);
+
         final TextView phoneNumberTextView = findViewById(R.id.playerPhoneNumberTextView);
 
         phoneNumberTextView.setOnClickListener(new View.OnClickListener() {

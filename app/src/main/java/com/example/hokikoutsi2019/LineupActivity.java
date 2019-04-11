@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.hokikoutsi2019.Classes.LineupPlayer;
 import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
+import com.example.hokikoutsi2019.Classes.Player;
 import com.example.hokikoutsi2019.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -70,6 +71,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private DatabaseReference databaseReference;
+    private View currentView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +87,8 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(LineupActivity.this, PlayerCard.class);
-                intent.putExtra("PlayerName",listView.getItemAtPosition(position).toString());
+                Player player = (Player) listView.getAdapter().getItem(position);
+                intent.putExtra("PlayerName",listView.getAdapter().getItemId(position));
                 startActivity(intent);
             }
         });
