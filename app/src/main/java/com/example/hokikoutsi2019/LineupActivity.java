@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hokikoutsi2019.Classes.LineupAdapter;
 import com.example.hokikoutsi2019.Classes.LineupPlayer;
 import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
 import com.example.hokikoutsi2019.Classes.Player;
@@ -136,8 +137,15 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
                     Intent intent = new Intent(LineupActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
-                } else if (id == R.id.drawer_lineup) {
+                }
+                else if (id == R.id.drawer_lineup) {
                     Intent intent = new Intent(LineupActivity.this, LineupActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                else if (id == R.id.drawer_games)
+                {
+                    Intent intent = new Intent(LineupActivity.this, LatestGamesActivity.class);
                     startActivity(intent);
                     return true;
                 }

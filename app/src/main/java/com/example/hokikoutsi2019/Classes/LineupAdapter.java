@@ -25,7 +25,6 @@ public class LineupAdapter extends ArrayAdapter<Player> {
         super(context,0, players);
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @NonNull
     @Override
