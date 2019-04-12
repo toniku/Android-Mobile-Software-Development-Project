@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class PlayerCard extends AppCompatActivity {
+public class PlayerCardActivity extends AppCompatActivity {
 
     private TextView playerNameTextView;
     Bundle bundle;
