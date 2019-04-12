@@ -68,7 +68,8 @@
             android:layout_weight="50"
             android:gravity="bottom|center"
             android:orientation="vertical"
-            tools:layout_width="match_parent">
+            tools:layout_width="match_parent"
+            android:background="@color/colorPrimaryDarkTransparent">
 
             <TextView
                 android:id="@+id/textView15"
