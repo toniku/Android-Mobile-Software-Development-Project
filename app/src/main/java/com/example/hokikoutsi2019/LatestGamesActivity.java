@@ -171,14 +171,18 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
     {
         final ListView listView = findViewById(R.id.gamesListView);
         GameAdapter adapter = new GameAdapter(this, R.layout.game_list_item);
-        Game game1 = new Game(1, 2);
+
+        //ADD TEST DATA
+        Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT", 1, 2);
         adapter.add(game1);
-
-        Game game2 = new Game(0, 1);
+        Game game2 = new Game("KIEKKO-LASER", "LIMINGAN KIEKKO", 4, 5);
         adapter.add(game2);
-
-        Game game3 = new Game(8, 2);
+        Game game3 = new Game("TAPPARA", "KIEKKO-LASER", 0, 2);
         adapter.add(game3);
+        Game game4 = new Game("ROKI", "KIEKKO-LASER", 1, 3);
+        adapter.add(game4);
+        Game game5 = new Game("KIEKKO-LASER", "KEPA", 2, 2);
+        adapter.add(game5);
 
         listView.setAdapter(adapter);
 

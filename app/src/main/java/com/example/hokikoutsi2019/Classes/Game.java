@@ -7,21 +7,28 @@ package com.example.hokikoutsi2019.Classes;
 public class Game {
     private int homeGoals;
     private int awayGoals;
+    private String homeTeam;
+    private String awayTeam;
 
-    public Game(int home_goals, int away_goals)
+    public Game(String homeTeam, String awayTeam, int home_goals, int away_goals)
     {
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
         this.homeGoals = home_goals;
         this.awayGoals = away_goals;
     }
 
+    public String getHomeTeam(){return this.homeTeam;}
+    public String getAwayTeam() {return this.awayTeam;}
     public int getHome_goals(){return this.homeGoals;}
     public int getAway_goals(){return this.awayGoals;}
 
+    public void setHomeTeam(String team){this.homeTeam = team;}
+    public void setAwayTeam(String team){this.awayTeam = team;}
     public void setHomeGoals(int goals)
     {
         this.homeGoals = goals;
     }
-
     public void setAwayGoals(int goals)
     {
         this.awayGoals = goals;

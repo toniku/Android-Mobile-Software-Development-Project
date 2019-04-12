@@ -56,6 +56,8 @@ public class GameAdapter extends ArrayAdapter {
             list_item_view = layoutInflater.inflate(R.layout.game_list_item, parent, false);
             gameHolder = new GameHolder();
             gameHolder.ScoreListView = (TextView) list_item_view.findViewById(R.id.textViewScore);
+            gameHolder.HomeTeamName = (TextView) list_item_view.findViewById(R.id.textViewHomeTeam);
+            gameHolder.AwayTeamName = (TextView) list_item_view.findViewById(R.id.textViewAwayTeam);
             list_item_view.setTag(gameHolder);
         } else {
             gameHolder = (GameHolder) list_item_view.getTag();
@@ -66,10 +68,14 @@ public class GameAdapter extends ArrayAdapter {
         String homeGoals = Integer.toString(game.getHome_goals());
         String awayGoals = Integer.toString(game.getAway_goals());
         gameHolder.ScoreListView.setText(homeGoals + "-" + awayGoals);
+        gameHolder.HomeTeamName.setText(game.getHomeTeam());
+        gameHolder.AwayTeamName.setText(game.getAwayTeam());
         return list_item_view;
     }
 
     static class GameHolder {
         TextView ScoreListView;
+        TextView HomeTeamName;
+        TextView AwayTeamName;
     }
 }
