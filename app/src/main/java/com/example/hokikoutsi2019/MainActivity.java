@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUpDrawer();
-       // getUser();
+        // getUser();
     }
 
     @Override
@@ -135,6 +135,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else if (id == R.id.drawer_lineup)
                  {
                      Intent intent = new Intent(MainActivity.this, LineupActivity.class);
+                     startActivity(intent);
+                     return true;
+                 }
+                 else if (id == R.id.drawer_games)
+                 {
+                     Intent intent = new Intent(MainActivity.this, LatestGamesActivity.class);
                      startActivity(intent);
                      return true;
                  }

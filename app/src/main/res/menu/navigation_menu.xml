@@ -29,6 +29,11 @@
         android:id="@+id/drawer_line_edit"
         android:icon="@drawable/ic_people_black_24dp"
         android:title="Ketjut" />
+        s
+    <item
+        android:id="@+id/drawer_games"
+        android:icon="@drawable/ic_people_black_24dp"
+        android:title="@string/lastest_games" />
 
     <item
         android:id="@+id/drawer_logout"
