@@ -33,7 +33,7 @@ public class PlayerCardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String phoneNumber = phoneNumberTextView.getText().toString();
-                Uri number = Uri.parse(phoneNumber);
+                Uri number = Uri.parse("tel:" + phoneNumber);
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
                 startActivity(callIntent);
             }
