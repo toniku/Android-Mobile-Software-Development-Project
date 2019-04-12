@@ -10,8 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class OffenceFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 4;
-    private String Offence[] = new String[] { "1. ketju", "2. ketju", "3. ketju","4. ketju"};
+    final int PAGE_COUNT = 2;
+    private String Offence[] = new String[] { "1. ketju", "2. ketju"};
     private Context context;
 
     public OffenceFragmentPagerAdapter(FragmentManager fm, Context context) {
