@@ -5,21 +5,25 @@
 package com.example.hokikoutsi2019;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.hokikoutsi2019.Classes.Game;
+import com.example.hokikoutsi2019.Classes.GameAdapter;
+import com.example.hokikoutsi2019.Classes.LineupPlayer;
+import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
+import com.example.hokikoutsi2019.Classes.Player;
 import com.example.hokikoutsi2019.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -29,13 +33,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
-/**
- * Created by Janne Heikkilä, Toni Kukkohovi, Eetu Lehtomaa, Jouni Peltola
- */
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class LatestGamesActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonLogOut;
     private DrawerLayout dl;
@@ -78,8 +78,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_latest_games);
         setUpDrawer();
+        setUpListView();
         // getUser();
     }
 
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void setUpDrawer() {
-        dl = findViewById(R.id.activity_main);
+        dl = findViewById(R.id.activity_lastestgames);
         t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
         dl.addDrawerListener(t);
         t.syncState();
@@ -119,25 +120,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int id = item.getItemId();
                 Log.i("LOL", "Item id: " + id);
 
-                 if (id == R.id.drawer_logout) {
+                if (id == R.id.drawer_logout) {
                     Log.i("LOL", "Log out pressed");
                     mAuth.getInstance().signOut();
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(LatestGamesActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
                 }
                 else if (id == R.id.drawer_lineup)
-                 {
-                     Intent intent = new Intent(MainActivity.this, LineupActivity.class);
-                     startActivity(intent);
-                     return true;
-                 }
-                 else if (id == R.id.drawer_games)
-                 {
-                     Intent intent = new Intent(MainActivity.this, LatestGamesActivity.class);
-                     startActivity(intent);
-                     return true;
-                 }
+                {
+                    Intent intent = new Intent(LatestGamesActivity.this, LineupActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                else if (id == R.id.drawer_games)
+                {
+                    Intent intent = new Intent(LatestGamesActivity.this, LatestGamesActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
                 return true;
             }
         });
@@ -166,8 +167,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         query.addValueEventListener(valueEventListener);
     }
 
-    @Override
-    public void onBackPressed() {
-        // Disables back button
+    public void setUpListView()
+    {
+        final ListView listView = findViewById(R.id.gamesListView);
+        GameAdapter adapter = new GameAdapter(this, R.layout.game_list_item);
+        Game game1 = new Game(1, 2);
+        adapter.add(game1);
+
+        Game game2 = new Game(0, 1);
+        adapter.add(game2);
+
+        Game game3 = new Game(8, 2);
+        adapter.add(game3);
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
     }
+
 }
