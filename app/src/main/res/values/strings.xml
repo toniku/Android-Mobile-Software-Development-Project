@@ -12,6 +12,7 @@
     <string name="myProfile">Oma profiili</string>
     <string name="goToTraining">Siirry Harjoitteluun</string>
     <string name="teams">Joukkueet</string>
+    <string name="line_edit">Ketjut</string>
     <string name="calendar">Kalenteri</string>
     <string name="training">Harjoittelu</string>
     <string name="edit_user_Information">Muokkaa käyttäjätietoja</string>
