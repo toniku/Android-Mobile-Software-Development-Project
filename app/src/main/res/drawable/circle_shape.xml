@@ -1,10 +1,13 @@
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape xmlns:android="http://schemas.android.com/apk/res/android" >
-            <stroke android:width="3dp" android:color="@color/colorPrimary" />
-            <padding android:left="500dp" android:top="500dp" android:right="500dp" android:bottom="500dp" />
-            <solid android:color="@color/colorOrangeTransparent"/>
-            <corners android:radius="5000dp" />
-        </shape>
-    </item>
-</selector>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <stroke
+        android:width="2dp"
+        android:color="#FFFFFF" />
+
+    <solid android:color="#9FE554" />
+    <size
+        android:width="60dp"
+        android:height="60dp" />
+
+</shape>
