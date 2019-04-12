@@ -12,7 +12,7 @@
         <activity android:name=".LatestGamesActivity"></activity>
         <activity android:name=".LineupActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".PlayerCard" />
+        <activity android:name=".PlayerCardActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
