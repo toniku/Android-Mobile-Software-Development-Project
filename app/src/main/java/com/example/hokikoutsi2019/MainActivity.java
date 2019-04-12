@@ -126,6 +126,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
                     return true;
                 }
+                 else if (id == R.id.drawer_line_edit)
+                 {
+                     Intent intent = new Intent(MainActivity.this, LineEditActivity.class);
+                     startActivity(intent);
+                     return true;
+                 }
                 else if (id == R.id.drawer_lineup)
                  {
                      Intent intent = new Intent(MainActivity.this, LineupActivity.class);
