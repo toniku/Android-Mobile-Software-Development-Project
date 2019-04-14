@@ -180,10 +180,11 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
 
         //ADD TEST DATA
         Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT", 0, 0);
-        game1.setGameEvent(0, "LEHTOMAA", true);
-        game1.setGameEvent(0, "KUKKOHOVI", false);
-        game1.setGameEvent(0, "HEIKKILÄ", true);
-        game1.setGameEvent(0, "PELTOLA", false);
+        game1.setHomeGoal("LEHTOMAA");
+        game1.setAwayGoal("KUKKOHOVI");
+        game1.setHomeGoal("HEIKKILÄ");
+        game1.setHomeGoal("LIPSANEN");
+        game1.setAwayGoal("PELTOLA");
 
         adapter.add(game1);
         Game game2 = new Game("KIEKKO-LASER", "LIMINGAN KIEKKO", 4, 5);

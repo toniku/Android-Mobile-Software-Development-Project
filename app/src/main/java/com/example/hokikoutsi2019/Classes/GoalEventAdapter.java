@@ -16,21 +16,20 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.hokikoutsi2019.R;
-import com.google.android.gms.flags.IFlagProvider;
 
 import java.util.ArrayList;
 
-public class GameEventAdapter extends ArrayAdapter<GameEvent> {
+public class GoalEventAdapter extends ArrayAdapter<GoalEvent> {
 
-    public GameEventAdapter(Context context, ArrayList<GameEvent> gameEvents) {
-        super(context,0, gameEvents);
+    public GoalEventAdapter(Context context, ArrayList<GoalEvent> goalEvents) {
+        super(context,0, goalEvents);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        GameEvent gameEvent = getItem(position);
+        GoalEvent goalEvent = (GoalEvent) getItem(position);
 
         if (convertView == null) {
             int layoutId = 0;
@@ -38,22 +37,23 @@ public class GameEventAdapter extends ArrayAdapter<GameEvent> {
             convertView = LayoutInflater.from(getContext()).inflate(layoutId, parent, false);
         }
 
-        if (gameEvent.getHome())
+        if (goalEvent.isHomeScored())
         {
             TextView textViewEvent = convertView.findViewById(R.id.textViewHomeEvent);
-            textViewEvent.setText(gameEvent.getPlayerName() + System.getProperty ("line.separator") + gameEvent.getHomeGoals() + "-" + gameEvent.getAwayGoals());
-
-            TextView textViewEventName = convertView.findViewById(R.id.textViewEventName);
-            textViewEventName.setText(gameEvent.getEventType());
+            textViewEvent.setText(goalEvent.getScorer() + System.getProperty ("line.separator")
+                    + goalEvent.getHomeGoals() + "-" + goalEvent.getAwayGoals());
         }
         else
         {
             TextView textViewEvent = convertView.findViewById(R.id.textViewAwayEvent);
-            textViewEvent.setText(gameEvent.getPlayerName() + System.getProperty ("line.separator") + gameEvent.getHomeGoals() + "-" + gameEvent.getAwayGoals());
-
-            TextView textViewEventName = convertView.findViewById(R.id.textViewEventName);
-            textViewEventName.setText(gameEvent.getEventType());
+            textViewEvent.setText(goalEvent.getScorer() + System.getProperty ("line.separator")
+                    + goalEvent.getHomeGoals() + "-" + goalEvent.getAwayGoals());
         }
+
+        TextView textViewEventName = convertView.findViewById(R.id.textViewEventName);
+        textViewEventName.setText(goalEvent.getType());
+
+
 
 
         return convertView;

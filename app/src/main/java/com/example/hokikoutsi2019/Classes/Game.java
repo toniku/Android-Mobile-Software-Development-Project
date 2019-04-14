@@ -14,18 +14,18 @@ public class Game implements Serializable {
     private String homeTeam;
     private String awayTeam;
 
-    public ArrayList<GameEvent> getGameEvents() {
+    public ArrayList<GoalEvent> getGameEvents() {
         return gameEvents;
     }
 
-    private ArrayList<GameEvent> gameEvents = new ArrayList<>();
+    ArrayList<GoalEvent> gameEvents = new ArrayList();
 
     public Game(String homeTeam, String awayTeam, int home_goals, int away_goals)
     {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.homeGoals = home_goals;
-        this.awayGoals = away_goals;
+        this.homeGoals = home_goals = 0;
+        this.awayGoals = away_goals = 0;
     }
 
     public String getHomeTeam(){return this.homeTeam;}
@@ -45,26 +45,17 @@ public class Game implements Serializable {
         this.awayGoals = goals;
     }
 
-    public void setGameEvent(int type, String player, boolean home)
+    public void setHomeGoal(String scorer)
     {
-        //Goal
-        if (type == 0)
-        {
-            //Home team scores
-            if(home)
-            {
-                homeGoals++;
-                GameEvent gameEventHomeGoal = new GameEvent("MAALI", player, home, homeGoals, awayGoals);
-                gameEvents.add(gameEventHomeGoal);
-            }
-            else
-            {
-                awayGoals++;
-                GameEvent gameEventAwayGoal = new GameEvent("MAALI", player, home, homeGoals, awayGoals);
-                gameEvents.add(gameEventAwayGoal);
+        this.homeGoals++;
+        GoalEvent goalEvent = new GoalEvent(scorer, homeGoals, awayGoals, true);
+        gameEvents.add(goalEvent);
+    }
 
-            }
-
-        }
+    public void setAwayGoal(String scorer)
+    {
+        this.awayGoals++;
+        GoalEvent goalEvent = new GoalEvent(scorer, homeGoals, awayGoals, false);
+        gameEvents.add(goalEvent);
     }
 }

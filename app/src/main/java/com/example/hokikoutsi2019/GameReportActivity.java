@@ -12,8 +12,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.Game;
-import com.example.hokikoutsi2019.Classes.GameEvent;
-import com.example.hokikoutsi2019.Classes.GameEventAdapter;
+import com.example.hokikoutsi2019.Classes.GoalEvent;
+import com.example.hokikoutsi2019.Classes.GoalEventAdapter;
 
 import java.util.ArrayList;
 
@@ -38,12 +38,14 @@ public class GameReportActivity extends AppCompatActivity {
         Game game = (Game) i.getSerializableExtra("gameObject");
         Log.d("LOL", "Report: " + game.getAwayTeam() + " VS " + game.getHomeTeam());
 
+
+
         textViewHomeTeam.setText(game.getHomeTeam());
         textViewAwayTeam.setText(game.getAwayTeam());
         textViewScore.setText("" + game.getHome_goals() + "-" + game.getAway_goals());
 
-        ArrayList<GameEvent> gameEvents = game.getGameEvents();
-        GameEventAdapter gameEventAdapter = new GameEventAdapter(this, gameEvents);
-        listView.setAdapter(gameEventAdapter);
+        ArrayList<GoalEvent> goalList = game.getGameEvents();
+        GoalEventAdapter goalEventAdapter = new GoalEventAdapter(this, goalList);
+        listView.setAdapter(goalEventAdapter);
     }
 }
