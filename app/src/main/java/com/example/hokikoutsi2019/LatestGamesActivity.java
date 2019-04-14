@@ -127,6 +127,12 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
                     startActivity(intent);
                     return true;
                 }
+                else if (id == R.id.drawer_line_edit)
+                {
+                    Intent intent = new Intent(LatestGamesActivity.this, LineEditActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
                 else if (id == R.id.drawer_lineup)
                 {
                     Intent intent = new Intent(LatestGamesActivity.this, LineupActivity.class);
@@ -173,7 +179,12 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         GameAdapter adapter = new GameAdapter(this, R.layout.game_list_item);
 
         //ADD TEST DATA
-        Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT", 1, 2);
+        Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT", 0, 0);
+        game1.setGameEvent(0, "LEHTOMAA", true);
+        game1.setGameEvent(0, "KUKKOHOVI", false);
+        game1.setGameEvent(0, "HEIKKILÄ", true);
+        game1.setGameEvent(0, "PELTOLA", false);
+
         adapter.add(game1);
         Game game2 = new Game("KIEKKO-LASER", "LIMINGAN KIEKKO", 4, 5);
         adapter.add(game2);
@@ -189,7 +200,12 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Game game = (Game) parent.getAdapter().getItem(position);
+                Log.d("LOL", game.getHomeTeam() + " VS " + game.getAwayTeam());
 
+                Intent i = new Intent(LatestGamesActivity.this, GameReportActivity.class);
+                i.putExtra("gameObject", game);
+                startActivity(i);
             }
         });
 
