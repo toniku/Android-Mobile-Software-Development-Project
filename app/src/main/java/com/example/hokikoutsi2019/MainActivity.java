@@ -17,9 +17,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hokikoutsi2019.Classes.Game;
 import com.example.hokikoutsi2019.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -37,11 +40,15 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonLogOut;
+    //private Button buttonLogOut;
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private TextView textViewDrawHeader;
+    Button button = null;
+    RadioButton radioButtonHome = null;
+    RadioButton radioButtonAway = null;
+    EditText editTextOpponent = null;
 
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -80,6 +87,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUpDrawer();
+        button = findViewById(R.id.buttonStart);
+        button.setOnClickListener(this);
+
+        radioButtonHome = (RadioButton) findViewById(R.id.radioButtonHome);
+        radioButtonAway = (RadioButton) findViewById(R.id.radioButtonAway);
+        editTextOpponent = (EditText) findViewById(R.id.editTextOpponent);
         // getUser();
     }
 
@@ -92,7 +105,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        if (view == findViewById(R.id.buttonStart))
+        {
+            Log.d("LOL", "Button pressed!");
+            Log.d("LOL", "RadioButtonHome: " + radioButtonHome.isChecked());
+            Log.d("LOL", "RadioButtonAway: " + radioButtonAway.isChecked());
 
+            if (radioButtonHome.isChecked())
+            {
+                String opponent = editTextOpponent.getText().toString().toUpperCase();
+                Game game = new Game("KIEKKO-LASER", opponent);
+
+                Log.d("LOL", game.getHomeTeam() + " VS " + game.getAwayTeam());
+                Intent i = new Intent(MainActivity.this, NewGameActivity.class);
+                i.putExtra("gameObject", game);
+                startActivity(i);
+            }
+            else
+            {
+                String opponent = editTextOpponent.getText().toString().toUpperCase();
+                Game game = new Game(opponent, "KIEKKO-LASER");
+
+                Log.d("LOL", game.getHomeTeam() + " VS " + game.getAwayTeam());
+                Intent i = new Intent(MainActivity.this, NewGameActivity.class);
+                i.putExtra("gameObject", game);
+                startActivity(i);
+            }
+        }
     }
 
     @Override

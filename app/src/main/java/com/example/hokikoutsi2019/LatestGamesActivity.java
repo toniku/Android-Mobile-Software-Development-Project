@@ -179,7 +179,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         GameAdapter adapter = new GameAdapter(this, R.layout.game_list_item);
 
         //ADD TEST DATA
-        Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT", 0, 0);
+        Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT");
         game1.setHomeGoal("LEHTOMAA");
         game1.setAwayGoal("KUKKOHOVI");
         game1.setHomeGoal("HEIKKILÄ");
@@ -187,13 +187,13 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         game1.setAwayGoal("PELTOLA");
 
         adapter.add(game1);
-        Game game2 = new Game("KIEKKO-LASER", "LIMINGAN KIEKKO", 4, 5);
+        Game game2 = new Game("KIEKKO-LASER", "LIMINGAN KIEKKO");
         adapter.add(game2);
-        Game game3 = new Game("TAPPARA", "KIEKKO-LASER", 0, 2);
+        Game game3 = new Game("TAPPARA", "KIEKKO-LASER");
         adapter.add(game3);
-        Game game4 = new Game("ROKI", "KIEKKO-LASER", 1, 3);
+        Game game4 = new Game("ROKI", "KIEKKO-LASER");
         adapter.add(game4);
-        Game game5 = new Game("KIEKKO-LASER", "KEPA", 2, 2);
+        Game game5 = new Game("KIEKKO-LASER", "KEPA");
         adapter.add(game5);
 
         listView.setAdapter(adapter);

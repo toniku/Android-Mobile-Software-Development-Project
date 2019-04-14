@@ -20,12 +20,12 @@ public class Game implements Serializable {
 
     ArrayList<GoalEvent> gameEvents = new ArrayList();
 
-    public Game(String homeTeam, String awayTeam, int home_goals, int away_goals)
+    public Game(String homeTeam, String awayTeam)
     {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.homeGoals = home_goals = 0;
-        this.awayGoals = away_goals = 0;
+        this.homeGoals =  0;
+        this.awayGoals =  0;
     }
 
     public String getHomeTeam(){return this.homeTeam;}
