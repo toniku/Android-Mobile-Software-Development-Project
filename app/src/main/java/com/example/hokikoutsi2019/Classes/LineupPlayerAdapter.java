@@ -5,6 +5,10 @@
 package com.example.hokikoutsi2019.Classes;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,58 +20,31 @@ import com.example.hokikoutsi2019.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LineupPlayerAdapter extends ArrayAdapter {
+public class LineupPlayerAdapter extends ArrayAdapter<Player> {
 
-    private List list = new ArrayList();
-
-    public LineupPlayerAdapter(Context context, int resource) {
-        super(context, resource);
+    public LineupPlayerAdapter(Context context, ArrayList<Player> players) {
+        super(context,0, players);
     }
 
-    public void add(LineupPlayer object) {
-        super.add(object);
-        list.add(object);
-    }
-
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @NonNull
     @Override
-    public int getCount() {
-        return list.size();
-    }
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        Player player = (Player) getItem(position);
 
-    @Override
-    public Object getItem(int position) {
-        return list.get(position);
-    }
-
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        View list_item_view;
-        list_item_view = convertView;
-        LineupPlayerHolder lineupPlayerHolder;
-
-        if (list_item_view == null) {
-            LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            list_item_view = layoutInflater.inflate(R.layout.lineup_player_list_item, parent, false);
-            lineupPlayerHolder = new LineupPlayerHolder();
-            lineupPlayerHolder.PlayerNameTextView = (TextView) list_item_view.findViewById(R.id.LineUpPlayerNameTextView);
-            lineupPlayerHolder.PlayerJerseyTextView = (TextView) list_item_view.findViewById(R.id.LineUpPlayerJerseyTextView);
-            list_item_view.setTag(lineupPlayerHolder);
-        } else {
-            lineupPlayerHolder = (LineupPlayerHolder) list_item_view.getTag();
+        if (convertView == null) {
+            int layoutId = 0;
+            layoutId = R.layout.lineup_player_list_item;
+            convertView = LayoutInflater.from(getContext()).inflate(layoutId, parent, false);
         }
 
-        LineupPlayer lineupPlayer = (LineupPlayer) this.getItem(position);
-        assert lineupPlayer != null;
-        lineupPlayerHolder.PlayerNameTextView.setText(lineupPlayer.getFirstName() + " " + lineupPlayer.getLastName());
-        String jerseyNumber = Integer.toString(lineupPlayer.getJerseyNumber());
-        lineupPlayerHolder.PlayerJerseyTextView.setText("#" + jerseyNumber);
-        return list_item_view;
+        TextView textViewName = convertView.findViewById(R.id.LineUpPlayerNameTextView);
+        textViewName.setText(player.getFirstname() + " " + player.getLastname());
+
+        TextView textViewJersey = convertView.findViewById(R.id.LineUpPlayerJerseyTextView);
+        textViewJersey.setText("#" + player.getNumber());
+
+        return convertView;
     }
 
-    static class LineupPlayerHolder {
-        TextView PlayerNameTextView;
-        TextView PlayerJerseyTextView;
-    }
 }

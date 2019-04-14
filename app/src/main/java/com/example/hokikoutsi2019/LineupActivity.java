@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hokikoutsi2019.Classes.Game;
 import com.example.hokikoutsi2019.Classes.LineupAdapter;
 import com.example.hokikoutsi2019.Classes.LineupPlayer;
 import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
@@ -33,6 +34,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class LineupActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonLogOut;
@@ -40,6 +43,8 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private TextView textViewDrawHeader;
+    private ArrayList<Player> playerList = new ArrayList<Player>();
+
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -81,16 +86,18 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_lineup);
         setUpDrawer();
         final ListView listView = findViewById(R.id.playerListView);
-        lineupPlayerAdapter = new LineupPlayerAdapter(this, R.layout.lineup_player_list_item);
-        listView.setAdapter(lineupPlayerAdapter);
         addPlayers();
+        lineupPlayerAdapter = new LineupPlayerAdapter(this, playerList);
+        listView.setAdapter(lineupPlayerAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(LineupActivity.this, PlayerCardActivity.class);
-                Player player = (Player) listView.getAdapter().getItem(position);
-                intent.putExtra("PlayerName",listView.getAdapter().getItemId(position));
-                startActivity(intent);
+
+                Player player2 = (Player) parent.getAdapter().getItem(position);
+                Log.d("LOL", "Clicked player: " + player2.getFirstname() + " "+ player2.getLastname());
+                Intent i = new Intent(LineupActivity.this, PlayerCardActivity.class);
+                i.putExtra("playerObject", player2);
+                startActivity(i);
             }
         });
     }
@@ -177,47 +184,18 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void addPlayers() {
-        LineupPlayer lineupPlayer = new LineupPlayer("Jani", "Hakanpää", 94);
-        LineupPlayer lineupPlayer1 = new LineupPlayer("Shaun", "Heshka", 26);
-        LineupPlayer lineupPlayer2 = new LineupPlayer("Teemu", "Kivihalme", 61);
-        LineupPlayer lineupPlayer3 = new LineupPlayer("Lasse", "Kukkonen", 5);
-        LineupPlayer lineupPlayer4 = new LineupPlayer("Atte", "Ohtamaa", 55);
-        LineupPlayer lineupPlayer5 = new LineupPlayer("Aleksi", "Heponiemi", 20);
-        LineupPlayer lineupPlayer6 = new LineupPlayer("Jussi", "Jokinen", 36);
-        LineupPlayer lineupPlayer7 = new LineupPlayer("Rasmus", "Kupari", 19);
-        LineupPlayer lineupPlayer8 = new LineupPlayer("Ville", "Leskinen", 12);
-        LineupPlayer lineupPlayer9 = new LineupPlayer("Oskar", "Osala", 92);
-        LineupPlayer lineupPlayer10 = new LineupPlayer("Mika", "Pyörälä", 17);
-        LineupPlayer lineupPlayer11 = new LineupPlayer("Jari", "Sailio", 41);
-        LineupPlayer lineupPlayer12 = new LineupPlayer("Tino", "Metsävainio", 25);
-        LineupPlayer lineupPlayer13 = new LineupPlayer("Jasper", "Lindsten", 67);
-        LineupPlayer lineupPlayer14 = new LineupPlayer("Nicklas", "Lasu", 31);
-        LineupPlayer lineupPlayer15 = new LineupPlayer("Michal", "Kristof", 13);
-        LineupPlayer lineupPlayer16 = new LineupPlayer("Radek", "Koblizek", 29);
-        LineupPlayer lineupPlayer17 = new LineupPlayer("Otto", "Karvinen", 21);
-        LineupPlayer lineupPlayer18 = new LineupPlayer("Miska", "Humaloja", 27);
-        LineupPlayer lineupPlayer19 = new LineupPlayer("Sami", "Anttila", 18);
-        LineupPlayer lineupPlayer20 = new LineupPlayer("Taneli", "Ronkainen", 22);
-        lineupPlayerAdapter.add(lineupPlayer);
-        lineupPlayerAdapter.add(lineupPlayer1);
-        lineupPlayerAdapter.add(lineupPlayer2);
-        lineupPlayerAdapter.add(lineupPlayer3);
-        lineupPlayerAdapter.add(lineupPlayer4);
-        lineupPlayerAdapter.add(lineupPlayer5);
-        lineupPlayerAdapter.add(lineupPlayer6);
-        lineupPlayerAdapter.add(lineupPlayer7);
-        lineupPlayerAdapter.add(lineupPlayer8);
-        lineupPlayerAdapter.add(lineupPlayer9);
-        lineupPlayerAdapter.add(lineupPlayer10);
-        lineupPlayerAdapter.add(lineupPlayer11);
-        lineupPlayerAdapter.add(lineupPlayer12);
-        lineupPlayerAdapter.add(lineupPlayer13);
-        lineupPlayerAdapter.add(lineupPlayer14);
-        lineupPlayerAdapter.add(lineupPlayer15);
-        lineupPlayerAdapter.add(lineupPlayer16);
-        lineupPlayerAdapter.add(lineupPlayer17);
-        lineupPlayerAdapter.add(lineupPlayer18);
-        lineupPlayerAdapter.add(lineupPlayer19);
-        lineupPlayerAdapter.add(lineupPlayer20);
+        Player lineupPlayer = new Player("Jani", "Hakanpää", 94);
+        playerList.add(lineupPlayer);
+
+        Player lineupPlayer1 = new Player("Toni", "Kukkohovi", 69);
+        playerList.add(lineupPlayer1);
+
+        Player lineupPlayer2 = new Player("Eetu", "Lehtomaa", 96);
+        lineupPlayer2.setContact("Liisantie 7" , "90560", "Oulu", "0407193427");
+        playerList.add(lineupPlayer2);
+
+        Player lineupPlayer3 = new Player("Jouni", "Peltola", 85);
+        playerList.add(lineupPlayer3);
+
     }
 }

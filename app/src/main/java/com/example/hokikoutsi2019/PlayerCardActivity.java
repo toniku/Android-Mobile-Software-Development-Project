@@ -12,28 +12,53 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.hokikoutsi2019.Classes.Player;
+
 import org.w3c.dom.Text;
 
 public class PlayerCardActivity extends AppCompatActivity {
 
     private TextView playerNameTextView;
+    private Player player;
     Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playercard);
-        String data = getIntent().getExtras().getString("PlayerName");
-        Log.d("SIIS", "playerCarddi" + data);
+        Intent i = getIntent();
+        player = (Player) i.getSerializableExtra("playerObject");
+        Log.d("LOL", "CARD: " + player.getLastname());
         playerNameTextView = findViewById(R.id.playerNameTextView);
 
         final TextView phoneNumberTextView = findViewById(R.id.playerPhoneNumberTextView);
+        final TextView addressTextView = findViewById(R.id.textView16);
+        final TextView cityTextView = findViewById(R.id.textView18);
+
+        try
+        {
+            String phoneNumber = player.getContact().getPhoneNumber();
+            phoneNumberTextView.setText(phoneNumber);
+
+            String address = player.getContact().getAddress();
+            addressTextView.setText(address);
+
+            String city = player.getContact().getZipCode() + " " + player.getContact().getCity();
+            cityTextView.setText(city);
+        }
+        catch (Exception e)
+        {
+            Log.d("LOL", e.toString());
+            phoneNumberTextView.setText("");
+            addressTextView.setText("");
+            cityTextView.setText("");
+        }
 
         phoneNumberTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phoneNumber = phoneNumberTextView.getText().toString();
-                Uri number = Uri.parse("tel:" + phoneNumber);
+                Uri number = Uri.parse("tel:" + player.getContact().getPhoneNumber());
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
                 startActivity(callIntent);
             }

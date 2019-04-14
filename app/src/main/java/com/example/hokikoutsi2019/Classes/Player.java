@@ -4,7 +4,12 @@
 
 package com.example.hokikoutsi2019.Classes;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
+
+    private Contact contact;
+
     public String getFirstname() {
         return firstname;
     }
@@ -25,15 +30,15 @@ public class Player {
 
     private String lastname;
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
-    private String number;
+    private int number;
 
     public String getHandness() {
         return handness;
@@ -54,4 +59,22 @@ public class Player {
     }
 
     private String birthdate;
+
+    public Player(String fname,String lname, int jerseyNumber)
+    {
+        this.firstname = fname;
+        this.lastname = lname;
+        this.number = jerseyNumber;
+        this.birthdate = "";
+        this.handness = "";
+    }
+
+    public void setContact(String address, String zipCode, String city, String phoneNumber) {
+        this.contact = new Contact(address, zipCode, city, phoneNumber);
+    }
+
+    public Contact getContact()
+    {
+        return contact;
+    }
 }
