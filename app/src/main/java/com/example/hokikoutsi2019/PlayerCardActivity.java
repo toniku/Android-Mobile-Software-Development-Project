@@ -34,6 +34,8 @@ public class PlayerCardActivity extends AppCompatActivity {
         final TextView phoneNumberTextView = findViewById(R.id.playerPhoneNumberTextView);
         final TextView addressTextView = findViewById(R.id.textView16);
         final TextView cityTextView = findViewById(R.id.textView18);
+        final TextView playerNameTextView = findViewById(R.id.playerNameTextView);
+        playerNameTextView.setText(player.getFirstname() + " " + player.getLastname());
 
         try
         {
