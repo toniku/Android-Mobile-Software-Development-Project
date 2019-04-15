@@ -6,11 +6,11 @@
 
     <string name="app_name">KOUTSI 2019</string>
 
-    <string name="new_game">Aloita Peli</string>
+    <string name="new_game">Aloita peli</string>
     <string name="lines">Ketjut</string>
     <string name="open">Aukaise</string>
     <string name="close">Sulje</string>
-    <string name="logout">Kirjaudu Ulos</string>
+    <string name="logout">Kirjaudu ulos</string>
     <string name="myProfile">Oma profiili</string>
     <string name="goToTraining">Siirry Harjoitteluun</string>
     <string name="teams">Joukkueet</string>
@@ -23,7 +23,7 @@
     <string name="pro">Ammattilainen</string>
     <string name="elite">Eliitti</string>
 
-    <string name="lastest_games">Viime Pelit</string>
+    <string name="latest_games">Viimeisemmät pelit</string>
     <string name="statistics">Tilastot</string>
     <string name="lineup">Kokoonpano</string>
 
