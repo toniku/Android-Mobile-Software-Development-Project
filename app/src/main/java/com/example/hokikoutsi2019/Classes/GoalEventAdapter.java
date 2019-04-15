@@ -18,31 +18,43 @@ import android.widget.TextView;
 import com.example.hokikoutsi2019.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class LineupPlayerAdapter extends ArrayAdapter<Player> {
+public class GoalEventAdapter extends ArrayAdapter<GoalEvent> {
 
-    public LineupPlayerAdapter(Context context, ArrayList<Player> players) {
-        super(context,0, players);
+    public GoalEventAdapter(Context context, ArrayList<GoalEvent> goalEvents) {
+        super(context,0, goalEvents);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Player player = (Player) getItem(position);
+        GoalEvent goalEvent = (GoalEvent) getItem(position);
 
         if (convertView == null) {
             int layoutId = 0;
-            layoutId = R.layout.lineup_player_list_item;
+            layoutId = R.layout.report_list_item;
             convertView = LayoutInflater.from(getContext()).inflate(layoutId, parent, false);
         }
 
-        TextView textViewName = convertView.findViewById(R.id.LineUpPlayerNameTextView);
-        textViewName.setText(player.getFirstname() + " " + player.getLastname());
+        if (goalEvent.isHomeScored())
+        {
+            TextView textViewEvent = convertView.findViewById(R.id.textViewHomeEvent);
+            textViewEvent.setText(goalEvent.getScorer() + System.getProperty ("line.separator")
+                    + goalEvent.getHomeGoals() + "-" + goalEvent.getAwayGoals());
+        }
+        else
+        {
+            TextView textViewEvent = convertView.findViewById(R.id.textViewAwayEvent);
+            textViewEvent.setText(goalEvent.getScorer() + System.getProperty ("line.separator")
+                    + goalEvent.getHomeGoals() + "-" + goalEvent.getAwayGoals());
+        }
 
-        TextView textViewJersey = convertView.findViewById(R.id.LineUpPlayerJerseyTextView);
-        textViewJersey.setText("#" + player.getNumber());
+        TextView textViewEventName = convertView.findViewById(R.id.textViewEventName);
+        textViewEventName.setText(goalEvent.getType());
+
+
+
 
         return convertView;
     }

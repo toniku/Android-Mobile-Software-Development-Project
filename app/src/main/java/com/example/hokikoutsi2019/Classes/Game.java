@@ -4,24 +4,35 @@
 
 package com.example.hokikoutsi2019.Classes;
 
-public class Game {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Game implements Serializable {
+
     private int homeGoals;
     private int awayGoals;
     private String homeTeam;
     private String awayTeam;
 
-    public Game(String homeTeam, String awayTeam, int home_goals, int away_goals)
+    public ArrayList<GoalEvent> getGameEvents() {
+        return gameEvents;
+    }
+
+    ArrayList<GoalEvent> gameEvents = new ArrayList();
+
+    public Game(String homeTeam, String awayTeam)
     {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.homeGoals = home_goals;
-        this.awayGoals = away_goals;
+        this.homeGoals =  0;
+        this.awayGoals =  0;
     }
 
     public String getHomeTeam(){return this.homeTeam;}
     public String getAwayTeam() {return this.awayTeam;}
     public int getHome_goals(){return this.homeGoals;}
     public int getAway_goals(){return this.awayGoals;}
+
 
     public void setHomeTeam(String team){this.homeTeam = team;}
     public void setAwayTeam(String team){this.awayTeam = team;}
@@ -32,5 +43,19 @@ public class Game {
     public void setAwayGoals(int goals)
     {
         this.awayGoals = goals;
+    }
+
+    public void setHomeGoal(String scorer)
+    {
+        this.homeGoals++;
+        GoalEvent goalEvent = new GoalEvent(scorer, homeGoals, awayGoals, true);
+        gameEvents.add(goalEvent);
+    }
+
+    public void setAwayGoal(String scorer)
+    {
+        this.awayGoals++;
+        GoalEvent goalEvent = new GoalEvent(scorer, homeGoals, awayGoals, false);
+        gameEvents.add(goalEvent);
     }
 }

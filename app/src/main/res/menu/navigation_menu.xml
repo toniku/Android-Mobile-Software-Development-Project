@@ -16,9 +16,9 @@
         android:title="@string/lineup"/>
 
     <item
-        android:id="@+id/drawer_calendar"
+        android:id="@+id/drawer_new_game"
         android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
-        android:title="@string/calendar" />
+        android:title="@string/new_game" />
 
     <item
         android:id="@+id/drawer_line_edit"

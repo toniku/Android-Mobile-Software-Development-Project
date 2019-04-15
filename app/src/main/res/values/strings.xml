@@ -6,6 +6,7 @@
 
     <string name="app_name">KOUTSI 2019</string>
 
+    <string name="new_game">Aloita Peli</string>
     <string name="lines">Ketjut</string>
     <string name="open">Aukaise</string>
     <string name="close">Sulje</string>

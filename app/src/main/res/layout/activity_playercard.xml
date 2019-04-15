@@ -13,9 +13,8 @@
         android:id="@+id/playerNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="38dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
         android:textColor="@color/colorWhite"
@@ -42,23 +41,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/playerProfilePicImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="183dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_weight="50"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.207"
-            app:srcCompat="@drawable/pikachu2"
-            tools:background="@color/colorPrimaryDarkTransparent" />
+        <android.support.v7.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:elevation="12dp"
+            android:id="@+id/view2"
+            app:cardCornerRadius="75dp"
+            android:layout_centerHorizontal="true">
+            <ImageView
+                android:layout_height="150dp"
+                android:layout_width="match_parent"
+                android:id="@+id/imageView1"
+                android:src="@drawable/pikachu2"
+                android:scaleType="centerCrop"/>
+        </android.support.v7.widget.CardView>
+
+
 
 
         <LinearLayout
@@ -133,6 +131,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -151,64 +151,86 @@
 
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/playerGoals"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_column="1"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginTop="14dp"
-                    android:layout_weight="33"
-                    android:background="@color/colorPrimaryDarkTransparent"
-                    android:paddingTop="14dp"
-                    android:text="Maalit"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    tools:layout_marginLeft="16dp" />
 
-                <TextView
-                    android:id="@+id/playerAssists"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_column="2"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginTop="14dp"
-                    android:layout_weight="33"
-                    android:background="@color/colorPrimaryDarkTransparent"
-                    android:paddingTop="14dp"
-                    android:text="Syötöt"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    tools:layout_marginLeft="14dp" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/playerPoints"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_column="3"
-                    android:layout_marginLeft="14dp"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginRight="14dp"
-                    android:layout_weight="33"
-                    android:background="@color/colorPrimaryDarkTransparent"
-                    android:paddingTop="14dp"
-                    android:text="Pisteet"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    tools:layout_marginTop="14dp" />
+                    <LinearLayout android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-            </TableRow>
+                    <TextView
+                        android:id="@+id/playerGoals"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:layout_column="1"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_weight="33"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:text="Maalit"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:layout_marginLeft="16dp" />
 
+                    <TextView
+                        android:id="@+id/playerGoalsNum"
+                        android:layout_width="100dp"
+                        android:layout_height="70dp"
+                        android:layout_column="1"
+                        android:layout_weight="33"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:text="69"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:layout_marginLeft="16dp" />
+
+                    <TextView
+                        android:id="@+id/playerAssists"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_column="2"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_weight="33"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:text="Syötöt"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:layout_marginLeft="14dp" />
+
+                    <TextView
+                        android:id="@+id/playerPoints"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_column="3"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginRight="14dp"
+                        android:layout_weight="33"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:text="Pisteet"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:layout_marginTop="14dp" />
+
+                    </LinearLayout>
+
+                </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -230,6 +252,8 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     tools:layout_marginLeft="16dp" />
+
+
 
                 <TextView
                     android:id="@+id/playerGameTime"

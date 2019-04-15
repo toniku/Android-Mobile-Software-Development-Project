@@ -127,6 +127,12 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
                     startActivity(intent);
                     return true;
                 }
+                else if (id == R.id.drawer_line_edit)
+                {
+                    Intent intent = new Intent(LatestGamesActivity.this, LineEditActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
                 else if (id == R.id.drawer_lineup)
                 {
                     Intent intent = new Intent(LatestGamesActivity.this, LineupActivity.class);
@@ -173,15 +179,21 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         GameAdapter adapter = new GameAdapter(this, R.layout.game_list_item);
 
         //ADD TEST DATA
-        Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT", 1, 2);
+        Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT");
+        game1.setHomeGoal("LEHTOMAA");
+        game1.setAwayGoal("KUKKOHOVI");
+        game1.setHomeGoal("HEIKKILÄ");
+        game1.setHomeGoal("LIPSANEN");
+        game1.setAwayGoal("PELTOLA");
+
         adapter.add(game1);
-        Game game2 = new Game("KIEKKO-LASER", "LIMINGAN KIEKKO", 4, 5);
+        Game game2 = new Game("KIEKKO-LASER", "LIMINGAN KIEKKO");
         adapter.add(game2);
-        Game game3 = new Game("TAPPARA", "KIEKKO-LASER", 0, 2);
+        Game game3 = new Game("TAPPARA", "KIEKKO-LASER");
         adapter.add(game3);
-        Game game4 = new Game("ROKI", "KIEKKO-LASER", 1, 3);
+        Game game4 = new Game("ROKI", "KIEKKO-LASER");
         adapter.add(game4);
-        Game game5 = new Game("KIEKKO-LASER", "KEPA", 2, 2);
+        Game game5 = new Game("KIEKKO-LASER", "KEPA");
         adapter.add(game5);
 
         listView.setAdapter(adapter);
@@ -189,7 +201,12 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Game game = (Game) parent.getAdapter().getItem(position);
+                Log.d("LOL", game.getHomeTeam() + " VS " + game.getAwayTeam());
 
+                Intent i = new Intent(LatestGamesActivity.this, GameReportActivity.class);
+                i.putExtra("gameObject", game);
+                startActivity(i);
             }
         });
 
