@@ -43,8 +43,8 @@ public class NewGamePageFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.new_game_fragment_page, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment #" + mPage);
+        //TextView textView = (TextView) view;
+        //textView.setText("Fragment #" + mPage);
         return view;
 
     }
