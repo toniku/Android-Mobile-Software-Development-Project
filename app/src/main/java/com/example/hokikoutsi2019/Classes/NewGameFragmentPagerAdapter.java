@@ -16,7 +16,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class NewGameFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 4;
-    private String tabTitles[] = new String[] { "LOL", "XD", "XD2", "LOL2"};
+    private String tabTitles[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
     private Context context;
 
     public NewGameFragmentPagerAdapter(FragmentManager fm, Context context) {
