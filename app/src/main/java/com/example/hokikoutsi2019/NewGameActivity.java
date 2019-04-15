@@ -23,7 +23,6 @@ public class NewGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_game);
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
-
         ViewPager viewPager = findViewById(R.id.viewpager);
         viewPager.setAdapter(new NewGameFragmentPagerAdapter(getSupportFragmentManager(),
                 NewGameActivity.this));
