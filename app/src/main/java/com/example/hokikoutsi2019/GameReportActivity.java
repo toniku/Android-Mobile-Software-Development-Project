@@ -5,8 +5,8 @@
 package com.example.hokikoutsi2019;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,11 +18,10 @@ import com.example.hokikoutsi2019.Classes.GoalEventAdapter;
 import java.util.ArrayList;
 
 public class GameReportActivity extends AppCompatActivity {
+    ListView listView = null;
     private TextView textViewHomeTeam = null;
     private TextView textViewAwayTeam = null;
     private TextView textViewScore = null;
-    ListView listView = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +31,11 @@ public class GameReportActivity extends AppCompatActivity {
         textViewHomeTeam = findViewById(R.id.textViewHomeTeam);
         textViewAwayTeam = findViewById(R.id.textViewAwayTeam);
         textViewScore = findViewById(R.id.textViewScore);
-        listView =  findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
 
         Intent i = getIntent();
         Game game = (Game) i.getSerializableExtra("gameObject");
         Log.d("LOL", "Report: " + game.getAwayTeam() + " VS " + game.getHomeTeam());
-
-
 
         textViewHomeTeam.setText(game.getHomeTeam());
         textViewAwayTeam.setText(game.getAwayTeam());

@@ -7,7 +7,7 @@
     <item
         android:id="@+id/drawer_new_game"
         android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
-        android:title="@string/new_game" />
+        android:title="@string/new_game"/>
 
     <item
         android:id="@+id/drawer_lineup"
@@ -34,6 +34,5 @@
         android:id="@+id/drawer_logout"
         android:icon="@drawable/ic_input_black_24dp"
         android:title="@string/logout" />
-
 
 </menu>

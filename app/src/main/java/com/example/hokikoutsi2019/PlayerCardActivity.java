@@ -15,13 +15,11 @@ import android.widget.TextView;
 import com.example.hokikoutsi2019.Classes.Player;
 import com.example.hokikoutsi2019.Classes.Stats;
 
-import org.w3c.dom.Text;
-
 public class PlayerCardActivity extends AppCompatActivity {
 
+    Bundle bundle;
     private TextView playerNameTextView;
     private Player player;
-    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +36,7 @@ public class PlayerCardActivity extends AppCompatActivity {
         final TextView playerNameTextView = findViewById(R.id.playerNameTextView);
         playerNameTextView.setText(player.getFirstname() + " " + player.getLastname());
 
-        try
-        {
+        try {
             String phoneNumber = player.getContact().getPhoneNumber();
             phoneNumberTextView.setText(phoneNumber);
 
@@ -48,22 +45,17 @@ public class PlayerCardActivity extends AppCompatActivity {
 
             String city = player.getContact().getZipCode() + " " + player.getContact().getCity();
             cityTextView.setText(city);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.d("LOL", e.toString());
             phoneNumberTextView.setText("");
             addressTextView.setText("");
             cityTextView.setText("");
         }
 
-        try
-        {
+        try {
             Stats playerStats = player.getStats();
             Log.d("LOL", "GOALS: " + playerStats.getGoals());
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
 
         }
 

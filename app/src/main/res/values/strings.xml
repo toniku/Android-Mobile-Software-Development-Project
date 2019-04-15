@@ -4,7 +4,7 @@
 
 <resources>
 
-    <string name="app_name">KOUTSI 2019</string>
+    <string name="app_name"></string>
 
     <string name="new_game">Aloita peli</string>
     <string name="lines">Ketjut</string>
@@ -23,7 +23,7 @@
     <string name="pro">Ammattilainen</string>
     <string name="elite">Eliitti</string>
 
-    <string name="latest_games">Viimeisemmät pelit</string>
+    <string name="latest_games">Viimeisimmät pelit</string>
     <string name="statistics">Tilastot</string>
     <string name="lineup">Kokoonpano</string>
 

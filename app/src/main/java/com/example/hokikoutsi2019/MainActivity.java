@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hokikoutsi2019.Classes.Game;
 import com.example.hokikoutsi2019.Classes.User;
@@ -40,16 +37,15 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    Button button = null;
+    RadioButton radioButtonHome = null;
+    RadioButton radioButtonAway = null;
+    EditText editTextOpponent = null;
     //private Button buttonLogOut;
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private TextView textViewDrawHeader;
-    Button button = null;
-    RadioButton radioButtonHome = null;
-    RadioButton radioButtonAway = null;
-    EditText editTextOpponent = null;
-
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -86,33 +82,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getApplicationContext().getString(R.string.new_game).toUpperCase());
         setUpDrawer();
         button = findViewById(R.id.buttonStart);
         button.setOnClickListener(this);
 
-        radioButtonHome = (RadioButton) findViewById(R.id.radioButtonHome);
-        radioButtonAway = (RadioButton) findViewById(R.id.radioButtonAway);
-        editTextOpponent = (EditText) findViewById(R.id.editTextOpponent);
+        radioButtonHome = findViewById(R.id.radioButtonHome);
+        radioButtonAway = findViewById(R.id.radioButtonAway);
+        editTextOpponent = findViewById(R.id.editTextOpponent);
         // getUser();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         mAuth.addAuthStateListener(mAuthStateListener);
     }
 
     @Override
     public void onClick(View view) {
-        if (view == findViewById(R.id.buttonStart))
-        {
+        if (view == findViewById(R.id.buttonStart)) {
             Log.d("LOL", "Button pressed!");
             Log.d("LOL", "RadioButtonHome: " + radioButtonHome.isChecked());
             Log.d("LOL", "RadioButtonAway: " + radioButtonAway.isChecked());
 
-            if (radioButtonHome.isChecked())
-            {
+            if (radioButtonHome.isChecked()) {
                 String opponent = editTextOpponent.getText().toString().toUpperCase();
                 Game game = new Game("KIEKKO-LASER", opponent);
 
@@ -120,9 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent i = new Intent(MainActivity.this, NewGameActivity.class);
                 i.putExtra("gameObject", game);
                 startActivity(i);
-            }
-            else
-            {
+            } else {
                 String opponent = editTextOpponent.getText().toString().toUpperCase();
                 Game game = new Game(opponent, "KIEKKO-LASER");
 
@@ -158,31 +150,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int id = item.getItemId();
                 Log.i("LOL", "Item id: " + id);
 
-                 if (id == R.id.drawer_logout) {
+                if (id == R.id.drawer_logout) {
                     Log.i("LOL", "Log out pressed");
                     mAuth.getInstance().signOut();
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
+                } else if (id == R.id.drawer_line_edit) {
+                    Intent intent = new Intent(MainActivity.this, LineEditActivity.class);
+                    startActivity(intent);
+                    return true;
+                } else if (id == R.id.drawer_lineup) {
+                    Intent intent = new Intent(MainActivity.this, LineupActivity.class);
+                    startActivity(intent);
+                    return true;
+                } else if (id == R.id.drawer_games) {
+                    Intent intent = new Intent(MainActivity.this, LatestGamesActivity.class);
+                    startActivity(intent);
+                    return true;
                 }
-                 else if (id == R.id.drawer_line_edit)
-                 {
-                     Intent intent = new Intent(MainActivity.this, LineEditActivity.class);
-                     startActivity(intent);
-                     return true;
-                 }
-                else if (id == R.id.drawer_lineup)
-                 {
-                     Intent intent = new Intent(MainActivity.this, LineupActivity.class);
-                     startActivity(intent);
-                     return true;
-                 }
-                 else if (id == R.id.drawer_games)
-                 {
-                     Intent intent = new Intent(MainActivity.this, LatestGamesActivity.class);
-                     startActivity(intent);
-                     return true;
-                 }
                 return true;
             }
         });
