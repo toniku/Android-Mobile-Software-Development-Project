@@ -20,13 +20,13 @@ public class GoaliePageFragment extends Fragment {
 
     private int mPage;
 
-    public static OffencePageFragment newInstance(int page) {
+    public static GoaliePageFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
-        OffencePageFragment fragment = new OffencePageFragment();
+        GoaliePageFragment fragment = new GoaliePageFragment();
         fragment.setArguments(args);
         return fragment;
-    }
+}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
