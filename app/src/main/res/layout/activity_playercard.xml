@@ -48,16 +48,16 @@
             android:id="@+id/view2"
             app:cardCornerRadius="75dp"
             android:layout_centerHorizontal="true">
+
             <ImageView
                 android:layout_height="150dp"
                 android:layout_width="match_parent"
-                android:id="@+id/imageView1"
-                android:src="@drawable/pikachu2"
+                android:id="@+id/playerDefaultImage"
+                android:src="@drawable/playerDefaultImage"
+                android:background="@android:color/transparent"
                 android:scaleType="centerCrop"/>
+
         </android.support.v7.widget.CardView>
-
-
-
 
         <LinearLayout
             android:id="@+id/info2LinearLayout"
