@@ -6,24 +6,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/drawer_profile"
-        android:icon="@drawable/ic_directions_run_black_24dp"
-        android:title="@string/myProfile" />
+        android:id="@+id/drawer_new_game"
+        android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+        android:title="@string/new_game" />
 
     <item
         android:id="@+id/drawer_lineup"
         android:icon="@drawable/ic_perm_identity_black_24dp"
         android:title="@string/lineup"/>
 
-    <item
-        android:id="@+id/drawer_new_game"
-        android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
-        android:title="@string/new_game" />
 
     <item
         android:id="@+id/drawer_line_edit"
         android:icon="@drawable/ic_people_black_24dp"
-        android:title="Ketjut" />
+        android:title="@string/lines" />
 
     <item
         android:id="@+id/drawer_teams"
@@ -31,14 +27,9 @@
         android:title="@string/teams" />
 
     <item
-        android:id="@+id/drawer_line_edit"
-        android:icon="@drawable/ic_people_black_24dp"
-        android:title="@string/line_edit" />
-        s
-    <item
         android:id="@+id/drawer_games"
         android:icon="@drawable/ic_people_black_24dp"
-        android:title="@string/lastest_games" />
+        android:title="@string/latest_games" />
 
     <item
         android:id="@+id/drawer_logout"
