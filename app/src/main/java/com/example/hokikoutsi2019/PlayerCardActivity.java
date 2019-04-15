@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.Player;
+import com.example.hokikoutsi2019.Classes.Stats;
 
 import org.w3c.dom.Text;
 
@@ -54,6 +55,16 @@ public class PlayerCardActivity extends AppCompatActivity {
             phoneNumberTextView.setText("");
             addressTextView.setText("");
             cityTextView.setText("");
+        }
+
+        try
+        {
+            Stats playerStats = player.getStats();
+            Log.d("LOL", "GOALS: " + playerStats.getGoals());
+        }
+        catch (Exception e)
+        {
+
         }
 
         phoneNumberTextView.setOnClickListener(new View.OnClickListener() {
