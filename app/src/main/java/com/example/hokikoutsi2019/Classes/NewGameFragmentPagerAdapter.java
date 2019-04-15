@@ -16,8 +16,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class NewGameFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 4;
-    private String Subjects[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
-
+    private String tabTitles[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
     private Context context;
 
     public NewGameFragmentPagerAdapter(FragmentManager fm, Context context) {
@@ -37,6 +36,7 @@ public class NewGameFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return Subjects[position];
+        // Generate title based on item position
+        return tabTitles[position];
     }
 }
