@@ -13,7 +13,7 @@ import android.util.Log;
 
 import com.example.hokikoutsi2019.Classes.Game;
 import com.example.hokikoutsi2019.Classes.NewGameFragmentPagerAdapter;
-import com.example.hokikoutsi2019.Classes.OffenceFragmentPagerAdapter;
+
 
 public class NewGameActivity extends AppCompatActivity {
 
@@ -22,11 +22,8 @@ public class NewGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
 
-        Intent i = getIntent();
-        Game game = (Game) i.getSerializableExtra("gameObject");
-        Log.d("LOL", "NewGame: " + game.getHomeTeam() + " VS " + game.getAwayTeam());
-
         // Get the ViewPager and set it's PagerAdapter so that it can display items
+
         ViewPager viewPager = findViewById(R.id.viewpager);
         viewPager.setAdapter(new NewGameFragmentPagerAdapter(getSupportFragmentManager(),
                 NewGameActivity.this));
@@ -34,5 +31,11 @@ public class NewGameActivity extends AppCompatActivity {
         // Give the TabLayout the ViewPager
         TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        Intent i = getIntent();
+        Game game = (Game) i.getSerializableExtra("gameObject");
+        Log.d("LOL", "NewGame: " + game.getHomeTeam() + " VS " + game.getAwayTeam());
+
+
     }
 }
