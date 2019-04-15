@@ -192,6 +192,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
 
         Player lineupPlayer2 = new Player("Eetu", "Lehtomaa", 96);
         lineupPlayer2.setContact("Liisantie 7" , "90560", "Oulu", "0407193427");
+        lineupPlayer2.setStats(2019);
         playerList.add(lineupPlayer2);
 
         Player lineupPlayer3 = new Player("Jouni", "Peltola", 85);
