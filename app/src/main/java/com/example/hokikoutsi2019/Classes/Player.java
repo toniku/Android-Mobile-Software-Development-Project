@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 public class Player implements Serializable {
 
+    private Stats stats;
+
     private Contact contact;
 
     public String getFirstname() {
@@ -71,6 +73,16 @@ public class Player implements Serializable {
 
     public void setContact(String address, String zipCode, String city, String phoneNumber) {
         this.contact = new Contact(address, zipCode, city, phoneNumber);
+    }
+
+    public void setStats(int seasonStart)
+    {
+        stats = new Stats(2019);
+    }
+
+    public Stats getStats()
+    {
+        return this.stats;
     }
 
     public Contact getContact()
