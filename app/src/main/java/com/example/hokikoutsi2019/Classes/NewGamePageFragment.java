@@ -43,7 +43,6 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
         super.onCreate(savedInstanceState);
         mPage = getArguments().getInt(ARG_PAGE);
 
-
     }
 
     @Override
@@ -53,6 +52,12 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
         if (mPage == 1)
         {
             View view = inflater.inflate(R.layout.game_fragment, container, false);
+            return view;
+
+        }
+        else if (mPage == 2)
+        {
+            View view = inflater.inflate(R.layout.lines_frament, container, false);
             return view;
 
         }

@@ -6,16 +6,24 @@ package com.example.hokikoutsi2019;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.Game;
 import com.example.hokikoutsi2019.Classes.NewGameFragmentPagerAdapter;
+import com.example.hokikoutsi2019.Classes.NewGamePageFragment;
 
 
 public class NewGameActivity extends AppCompatActivity {
+
+    TextView textViewHome = null;
+    TextView textViewAway = null;
+    NewGameFragmentPagerAdapter newGameFragmentPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +32,8 @@ public class NewGameActivity extends AppCompatActivity {
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = findViewById(R.id.viewpager);
-        viewPager.setAdapter(new NewGameFragmentPagerAdapter(getSupportFragmentManager(),
-                NewGameActivity.this));
+        newGameFragmentPagerAdapter = new NewGameFragmentPagerAdapter(getSupportFragmentManager(), NewGameActivity.this);
+        viewPager.setAdapter(newGameFragmentPagerAdapter);
 
         // Give the TabLayout the ViewPager
         TabLayout tabLayout = findViewById(R.id.sliding_tabs);
@@ -34,6 +42,19 @@ public class NewGameActivity extends AppCompatActivity {
         Intent i = getIntent();
         Game game = (Game) i.getSerializableExtra("gameObject");
         Log.d("LOL", "NewGame: " + game.getHomeTeam() + " VS " + game.getAwayTeam());
+
+        //Add contents to fragment
+        Fragment fragment = newGameFragmentPagerAdapter.getItem(0);
+        try
+        {
+            Log.d("LOL","" + fragment.getId());
+            Log.d("LOL", fragment.toString());
+        }
+        catch (Exception e)
+        {
+            Log.d("LOL", e.toString());
+        }
+
 
 
     }
