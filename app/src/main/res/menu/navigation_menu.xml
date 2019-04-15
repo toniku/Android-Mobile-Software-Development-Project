@@ -23,7 +23,7 @@
     <item
         android:id="@+id/drawer_line_edit"
         android:icon="@drawable/ic_people_black_24dp"
-        android:title="Ketjut" />
+        android:title="@string/lines" />
 
     <item
         android:id="@+id/drawer_teams"
