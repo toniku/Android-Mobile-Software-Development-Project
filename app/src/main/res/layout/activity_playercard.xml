@@ -42,20 +42,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.v7.widget.CardView
+            android:id="@+id/view2"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:elevation="12dp"
-            android:id="@+id/view2"
-            app:cardCornerRadius="75dp"
-            android:layout_centerHorizontal="true">
+            app:cardCornerRadius="75dp">
 
             <ImageView
-                android:layout_height="150dp"
-                android:layout_width="match_parent"
                 android:id="@+id/playerDefaultImage"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/playerDefaultImage"
-                android:background="@android:color/transparent"
-                android:scaleType="centerCrop"/>
+                android:background=""/>
 
         </android.support.v7.widget.CardView>
 
@@ -64,10 +63,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="50"
+            android:background="@color/colorPrimaryDarkTransparent"
             android:gravity="bottom|center"
             android:orientation="vertical"
-            tools:layout_width="match_parent"
-            android:background="@color/colorPrimaryDarkTransparent">
+            tools:layout_width="match_parent">
 
             <TextView
                 android:id="@+id/textView15"
@@ -132,7 +131,6 @@
             android:layout_height="match_parent">
 
 
-
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -152,14 +150,14 @@
             </TableRow>
 
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <TableRow
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/playerGoals"
@@ -228,9 +226,9 @@
                         android:textStyle="bold"
                         tools:layout_marginTop="14dp" />
 
-                    </LinearLayout>
+                </LinearLayout>
 
-                </TableRow>
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -252,7 +250,6 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     tools:layout_marginLeft="16dp" />
-
 
 
                 <TextView
