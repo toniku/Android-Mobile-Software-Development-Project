@@ -21,9 +21,6 @@ import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.Game;
 import com.example.hokikoutsi2019.Classes.GameAdapter;
-import com.example.hokikoutsi2019.Classes.LineupPlayer;
-import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
-import com.example.hokikoutsi2019.Classes.Player;
 import com.example.hokikoutsi2019.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -33,15 +30,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class LatestGamesActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonLogOut;
-    private DrawerLayout dl;
-    private ActionBarDrawerToggle t;
-    private NavigationView nv;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private NavigationView navigationView;
     private TextView textViewDrawHeader;
 
     ValueEventListener valueEventListener = new ValueEventListener() {
@@ -101,29 +97,27 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (t.onOptionsItemSelected(item))
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
     }
 
     public void setUpDrawer() {
-        dl = findViewById(R.id.activity_lastestgames);
-        t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
-        dl.addDrawerListener(t);
-        t.syncState();
+        drawerLayout = findViewById(R.id.activity_lastestgames);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv = findViewById(R.id.nav_view);
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
-                Log.i("LOL", "Item id: " + id);
 
                 if (id == R.id.drawer_logout) {
-                    Log.i("LOL", "Log out pressed");
                     mAuth.getInstance().signOut();
                     Intent intent = new Intent(LatestGamesActivity.this, LoginActivity.class);
                     startActivity(intent);
@@ -136,16 +130,18 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
                     Intent intent = new Intent(LatestGamesActivity.this, LineupActivity.class);
                     startActivity(intent);
                     return true;
-                } else if (id == R.id.drawer_games) {
-                    Intent intent = new Intent(LatestGamesActivity.this, LatestGamesActivity.class);
+                } else if (id == R.id.drawer_new_game) {
+                    Intent intent = new Intent(LatestGamesActivity.this, MainActivity.class);
                     startActivity(intent);
                     return true;
                 }
+                finish();
+                drawerLayout.closeDrawers();
                 return true;
             }
         });
 
-        View headerView = nv.inflateHeaderView(R.layout.nav_header);
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
         textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
         mAuth = FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
