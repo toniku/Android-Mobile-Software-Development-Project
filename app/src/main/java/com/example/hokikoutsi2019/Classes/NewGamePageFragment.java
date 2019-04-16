@@ -16,6 +16,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -31,6 +32,7 @@ import com.example.hokikoutsi2019.R;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 
 // In this case, the fragment displays simple text based on the page
@@ -42,6 +44,7 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
     private static final String DESCRIBABLE_KEY = "describable_key";
     private Game game;
     TextView textViewScore;
+    TextView textViewScorePage2;
 
     public static NewGamePageFragment newInstance(int page, Game game) {
 
@@ -64,6 +67,18 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
     @Override
     public void setArguments(@Nullable Bundle args) {
         super.setArguments(args);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("LOL", "EEEEEEEEESSSSSSSS page: " + mPage);
     }
 
     @Override
@@ -103,13 +118,34 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
         }
         else if (mPage == 2)
         {
-            View view = inflater.inflate(R.layout.lines_frament, container, false);
+            View view = inflater.inflate(R.layout.event_fragment, container, false);
+
+            TextView textViewHomeTeam =  view.findViewById(R.id.textViewHomeTeam);
+            textViewHomeTeam.setText(game.getHomeTeam());
+
+            TextView textViewAwayTeam =  view.findViewById(R.id.textViewAwayTeam);
+            textViewAwayTeam.setText(game.getAwayTeam());
+
+            String score = game.getHome_goals() + "-" + game.getAway_goals();
+            textViewScorePage2 = view.findViewById(R.id.textViewScore);
+            textViewScorePage2.setText(score);
+
             return view;
 
         }
+        else if (mPage == 3)
+        {
+            View view = inflater.inflate(R.layout.lines_frament, container, false);
+            return view;
+        }
+        else if (mPage == 4)
+        {
+            View view = inflater.inflate(R.layout.lines_frament, container, false);
+            return view;
+        }
         else
         {
-            View view = inflater.inflate(R.layout.event_fragment, container, false);
+            View view = inflater.inflate(R.layout.lines_frament, container, false);
             return view;
         }
 
@@ -185,6 +221,7 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
                     game.setHomeGoal(scorer);
                     String score = game.getHome_goals() + "-" + game.getAway_goals();
                     textViewScore.setText(score);
+
                     dialog.dismiss();
 
                     String toastText = "";
@@ -196,9 +233,10 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
                     {
                         toastText = "MAALI: " + scorer;
                     }
-
+                    updateEvents();
                     Toast toast=Toast.makeText(getContext(),toastText,Toast.LENGTH_SHORT);
                     toast.show();
+                    getFragmentManager().beginTransaction().commit();
                 }
             });
             dialog.show();
@@ -217,6 +255,10 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
             String score = game.getHome_goals() + "-" + game.getAway_goals();
             textViewScore.setText(score);
         }
+    }
+
+    public void updateEvents()
+    {
 
     }
 }
