@@ -165,7 +165,7 @@
                         android:layout_width="100dp"
                         android:layout_height="30dp"
                         android:layout_column="1"
-                        android:layout_marginStart="14dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="14dp"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
@@ -182,7 +182,7 @@
                         android:layout_width="100dp"
                         android:layout_height="70dp"
                         android:layout_column="1"
-                        android:layout_marginStart="14dp"
+                        android:layout_marginStart="8dp"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="14dp"
@@ -246,6 +246,7 @@
                         android:layout_height="30dp"
                         android:layout_column="3"
                         android:layout_marginTop="14dp"
+                        android:paddingLeft="14dp"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="@dimen/default_gap"
@@ -255,7 +256,7 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         tools:layout_marginLeft="16dp"
-                        tools:layout_marginEnd="14dp"/>
+                        tools:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:id="@+id/pointsTextView"
@@ -265,13 +266,14 @@
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="14dp"
+                        android:paddingLeft="14dp"
                         android:text="99"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="32sp"
                         android:textStyle="bold"
                         tools:layout_marginLeft="16dp"
-                        tools:layout_marginEnd="14dp"/>
+                        tools:layout_marginEnd="8dp"/>
 
                 </LinearLayout>
 
