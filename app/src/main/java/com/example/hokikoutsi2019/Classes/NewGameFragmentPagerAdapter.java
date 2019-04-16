@@ -17,11 +17,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class NewGameFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 4;
     private String tabTitles[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
+    private Game game;
     private Context context;
 
-    public NewGameFragmentPagerAdapter(FragmentManager fm, Context context) {
+    public NewGameFragmentPagerAdapter(FragmentManager fm, Context context, Game game) {
         super(fm);
         this.context = context;
+        this.game = game;
     }
 
     @Override
@@ -30,8 +32,8 @@ public class NewGameFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return NewGamePageFragment.newInstance(position + 1);
+    public NewGamePageFragment getItem(int position) {
+        return NewGamePageFragment.newInstance(position + 1, game);
     }
 
     @Override

@@ -4,6 +4,8 @@
 
 package com.example.hokikoutsi2019;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -30,10 +33,8 @@ public class NewGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
 
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
+
         ViewPager viewPager = findViewById(R.id.viewpager);
-        newGameFragmentPagerAdapter = new NewGameFragmentPagerAdapter(getSupportFragmentManager(), NewGameActivity.this);
-        viewPager.setAdapter(newGameFragmentPagerAdapter);
 
         // Give the TabLayout the ViewPager
         TabLayout tabLayout = findViewById(R.id.sliding_tabs);
@@ -43,17 +44,20 @@ public class NewGameActivity extends AppCompatActivity {
         Game game = (Game) i.getSerializableExtra("gameObject");
         Log.d("LOL", "NewGame: " + game.getHomeTeam() + " VS " + game.getAwayTeam());
 
+        newGameFragmentPagerAdapter = new NewGameFragmentPagerAdapter(getSupportFragmentManager(), NewGameActivity.this, game);
+        viewPager.setAdapter(newGameFragmentPagerAdapter);
+
+
         //Add contents to fragment
-        Fragment fragment = newGameFragmentPagerAdapter.getItem(0);
         try
         {
-            Log.d("LOL","" + fragment.getId());
-            Log.d("LOL", fragment.toString());
+
         }
         catch (Exception e)
         {
             Log.d("LOL", e.toString());
         }
+
 
 
 

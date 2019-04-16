@@ -10,6 +10,7 @@ package com.example.hokikoutsi2019.Classes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ import android.widget.TextView;
 
 import com.example.hokikoutsi2019.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 
@@ -30,13 +33,19 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
     public static final String ARG_PAGE = "ARG_PAGE";
     private int mPage;
 
-    public static NewGamePageFragment newInstance(int page) {
-        Bundle args = new Bundle();
-        args.putInt(ARG_PAGE, page);
+    private static final String DESCRIBABLE_KEY = "describable_key";
+    private Game game;
+
+    public static NewGamePageFragment newInstance(int page, Game game) {
+
         NewGamePageFragment fragment = new NewGamePageFragment();
-        fragment.setArguments(args);
+        Bundle bundle = new Bundle();
+        bundle.putInt(ARG_PAGE, page);
+        bundle.putSerializable(DESCRIBABLE_KEY, game);
+        fragment.setArguments(bundle);
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,12 +55,27 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
     }
 
     @Override
+    public void setArguments(@Nullable Bundle args) {
+        super.setArguments(args);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        this.game = (Game) getArguments().getSerializable(DESCRIBABLE_KEY);
 
         if (mPage == 1)
         {
             View view = inflater.inflate(R.layout.game_fragment, container, false);
+            Log.d("LOLOL", game.getHomeTeam());
+
+            TextView textViewHomeTeam =  view.findViewById(R.id.textViewHomeTeam);
+            textViewHomeTeam.setText(game.getHomeTeam());
+
+            TextView textViewAwayTeam =  view.findViewById(R.id.textViewAwayTeam);
+            textViewAwayTeam.setText(game.getAwayTeam());
+
             return view;
 
         }
@@ -82,5 +106,7 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
 
         }
     }
+
+
 }
 
