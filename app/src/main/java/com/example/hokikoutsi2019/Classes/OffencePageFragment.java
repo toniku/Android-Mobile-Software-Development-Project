@@ -39,8 +39,6 @@ public class OffencePageFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_page, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment #" + mPage);
         return view;
 
     }
