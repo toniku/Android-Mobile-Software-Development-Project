@@ -76,6 +76,9 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
             TextView textViewAwayTeam =  view.findViewById(R.id.textViewAwayTeam);
             textViewAwayTeam.setText(game.getAwayTeam());
 
+            String score = game.getHome_goals() + "-" + game.getAway_goals();
+            TextView textViewScore = view.findViewById(R.id.textViewScore);
+            textViewScore.setText(score);
             return view;
 
         }
