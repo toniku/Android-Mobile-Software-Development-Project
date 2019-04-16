@@ -18,11 +18,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.hokikoutsi2019.Classes.Game;
-import com.example.hokikoutsi2019.Classes.LineupAdapter;
-import com.example.hokikoutsi2019.Classes.LineupPlayer;
 import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
 import com.example.hokikoutsi2019.Classes.Player;
 import com.example.hokikoutsi2019.Classes.User;
@@ -35,6 +31,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class LineupActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -43,8 +40,6 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     private TextView textViewDrawHeader;
-    private ArrayList<Player> playerList = new ArrayList<Player>();
-
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -73,17 +68,18 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     };
+    private ArrayList<Player> playerList = new ArrayList<Player>();
     private LineupPlayerAdapter lineupPlayerAdapter;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private DatabaseReference databaseReference;
-    private View currentView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lineup);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getApplicationContext().getString(R.string.lineup).toUpperCase());
         setUpDrawer();
         final ListView listView = findViewById(R.id.playerListView);
         addPlayers();
@@ -94,7 +90,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Player player2 = (Player) parent.getAdapter().getItem(position);
-                Log.d("LOL", "Clicked player: " + player2.getFirstname() + " "+ player2.getLastname());
+                Log.d("LOL", "Clicked player: " + player2.getFirstname() + " " + player2.getLastname());
                 Intent i = new Intent(LineupActivity.this, PlayerCardActivity.class);
                 i.putExtra("playerObject", player2);
                 startActivity(i);
@@ -144,14 +140,15 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
                     Intent intent = new Intent(LineupActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
-                }
-                else if (id == R.id.drawer_lineup) {
+                } else if (id == R.id.drawer_line_edit) {
+                    Intent intent = new Intent(LineupActivity.this, LineEditActivity.class);
+                    startActivity(intent);
+                    return true;
+                } else if (id == R.id.drawer_lineup) {
                     Intent intent = new Intent(LineupActivity.this, LineupActivity.class);
                     startActivity(intent);
                     return true;
-                }
-                else if (id == R.id.drawer_games)
-                {
+                } else if (id == R.id.drawer_games) {
                     Intent intent = new Intent(LineupActivity.this, LatestGamesActivity.class);
                     startActivity(intent);
                     return true;
@@ -191,7 +188,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         playerList.add(lineupPlayer1);
 
         Player lineupPlayer2 = new Player("Eetu", "Lehtomaa", 96);
-        lineupPlayer2.setContact("Liisantie 7" , "90560", "Oulu", "0407193427");
+        lineupPlayer2.setContact("Liisantie 7", "90560", "Oulu", "0407193427");
         lineupPlayer2.setStats(2019);
         playerList.add(lineupPlayer2);
 

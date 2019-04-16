@@ -9,8 +9,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/testitausta1"
-    android:fitsSystemWindows="true">
-
+    android:fitsSystemWindows="true"
+    tools:openDrawer="left">
 
     <FrameLayout
         android:id="@+id/content_frame"
@@ -123,8 +123,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
-                android:text="ALOITA"
                 android:background="@color/colorPrimaryDarkTransparent"
+                android:text="ALOITA"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +137,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/colorNavHeader"
         android:fitsSystemWindows="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:itemTextColor="@color/colorWhite"
         app:menu="@menu/navigation_menu">
 
     </android.support.design.widget.NavigationView>

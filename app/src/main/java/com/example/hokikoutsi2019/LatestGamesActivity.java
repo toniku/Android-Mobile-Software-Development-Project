@@ -34,6 +34,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class LatestGamesActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -79,6 +80,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_latest_games);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getApplicationContext().getString(R.string.latest_games).toUpperCase());
         setUpDrawer();
         setUpListView();
         // getUser();
@@ -126,21 +128,15 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
                     Intent intent = new Intent(LatestGamesActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
-                }
-                else if (id == R.id.drawer_line_edit)
-                {
+                } else if (id == R.id.drawer_line_edit) {
                     Intent intent = new Intent(LatestGamesActivity.this, LineEditActivity.class);
                     startActivity(intent);
                     return true;
-                }
-                else if (id == R.id.drawer_lineup)
-                {
+                } else if (id == R.id.drawer_lineup) {
                     Intent intent = new Intent(LatestGamesActivity.this, LineupActivity.class);
                     startActivity(intent);
                     return true;
-                }
-                else if (id == R.id.drawer_games)
-                {
+                } else if (id == R.id.drawer_games) {
                     Intent intent = new Intent(LatestGamesActivity.this, LatestGamesActivity.class);
                     startActivity(intent);
                     return true;
