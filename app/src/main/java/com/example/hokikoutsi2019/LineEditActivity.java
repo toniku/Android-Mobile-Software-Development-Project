@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.hokikoutsi2019.Classes.DefenceFragmentPagerAdapter;
 import com.example.hokikoutsi2019.Classes.GoalieFragmentPagerAdapter;
@@ -18,35 +19,43 @@ public class LineEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_line_edit);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //back button doesn't work!
 
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = findViewById(R.id.viewpager);
-        viewPager.setAdapter(new OffenceFragmentPagerAdapter(getSupportFragmentManager(),
-                LineEditActivity.this));
 
-        // Give the TabLayout the ViewPager
-        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
-        tabLayout.setupWithViewPager(viewPager);
 
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager2 = findViewById(R.id.viewpager2);
-        viewPager2.setAdapter(new DefenceFragmentPagerAdapter(getSupportFragmentManager(),
-                LineEditActivity.this));
+        try {
+            setContentView(R.layout.activity_line_edit);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); //back button doesn't work!
+            // Get the ViewPager and set it's PagerAdapter so that it can display items
+            ViewPager viewPager = findViewById(R.id.viewpager);
+            viewPager.setAdapter(new OffenceFragmentPagerAdapter(getSupportFragmentManager(),
+                    LineEditActivity.this));
 
-        // Give the TabLayout the ViewPager
-        TabLayout tabLayout2 = findViewById(R.id.sliding_tabs2);
-        tabLayout2.setupWithViewPager(viewPager2);
+            // Give the TabLayout the ViewPager
+            TabLayout tabLayout = findViewById(R.id.sliding_tabs);
+            tabLayout.setupWithViewPager(viewPager);
 
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager3 = findViewById(R.id.viewpager3);
-        viewPager3.setAdapter(new GoalieFragmentPagerAdapter(getSupportFragmentManager(),
-                LineEditActivity.this));
+            // Get the ViewPager and set it's PagerAdapter so that it can display items
+            ViewPager viewPager2 = findViewById(R.id.viewpager2);
+            viewPager2.setAdapter(new DefenceFragmentPagerAdapter(getSupportFragmentManager(),
+                    LineEditActivity.this));
 
-        // Give the TabLayout the ViewPager
-        TabLayout tabLayout3 = findViewById(R.id.sliding_tabs3);
-        tabLayout3.setupWithViewPager(viewPager3);
+            // Give the TabLayout the ViewPager
+            TabLayout tabLayout2 = findViewById(R.id.sliding_tabs2);
+            tabLayout2.setupWithViewPager(viewPager2);
+
+            // Get the ViewPager and set it's PagerAdapter so that it can display items
+            ViewPager viewPager3 = findViewById(R.id.viewpager3);
+            viewPager3.setAdapter(new GoalieFragmentPagerAdapter(getSupportFragmentManager(),
+                    LineEditActivity.this));
+
+            // Give the TabLayout the ViewPager
+            TabLayout tabLayout3 = findViewById(R.id.sliding_tabs3);
+            tabLayout3.setupWithViewPager(viewPager3);
+        }
+        catch (Exception exception){
+            Log.d("JOUNI", exception.toString());
+        }
+
     }
 
 }
