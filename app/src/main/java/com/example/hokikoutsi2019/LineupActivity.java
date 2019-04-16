@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -120,7 +121,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void setUpDrawer() {
-        drawerLayout = findViewById(R.id.activity_lastestgames);
+        drawerLayout = findViewById(R.id.activity_lineup);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -132,32 +133,39 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
+                Log.i("LOL", "Item id: " + id);
 
                 if (id == R.id.drawer_logout) {
+                    Log.i("LOL", "Log out pressed");
                     mAuth.getInstance().signOut();
                     Intent intent = new Intent(LineupActivity.this, LoginActivity.class);
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(intent);
-                    return true;
+
                 } else if (id == R.id.drawer_line_edit) {
                     Intent intent = new Intent(LineupActivity.this, LineEditActivity.class);
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(intent);
-                    return true;
+
+
                 } else if (id == R.id.drawer_lineup) {
-                    return true;
-                } else if (id == R.id.drawer_new_game) {
-                    Intent intent = new Intent(LineupActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    return true;
+                    drawerLayout.closeDrawer(Gravity.START);
+
                 } else if (id == R.id.drawer_games) {
                     Intent intent = new Intent(LineupActivity.this, LatestGamesActivity.class);
+                    drawerLayout.closeDrawer(Gravity.START);
                     startActivity(intent);
-                    return true;
+
+                } else if (id == R.id.drawer_new_game) {
+                    Intent intent = new Intent(LineupActivity.this, MainActivity.class);
+                    drawerLayout.closeDrawer(Gravity.START);
+                    startActivity(intent);
+
                 }
-                finish();
-                drawerLayout.closeDrawers();
                 return true;
             }
         });
+
 
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
         textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
