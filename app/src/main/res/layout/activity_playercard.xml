@@ -13,20 +13,22 @@
         android:id="@+id/playerNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="72dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="visible"
+        
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206"
+        app:layout_constraintVertical_bias="0.166"
         tools:text="Pekka Sauri" />
 
     <LinearLayout
@@ -36,6 +38,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:gravity="bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,28 +48,32 @@
             android:id="@+id/view2"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_marginRight="4dp"
             android:elevation="12dp"
-            app:cardCornerRadius="75dp">
+            app:cardBackgroundColor="@color/colorPrimaryDarkTransparent"
+
+            app:cardElevation="0dp">
 
             <ImageView
                 android:id="@+id/playerDefaultImage"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="match_parent"
+
                 android:scaleType="centerCrop"
-                android:src="@drawable/playerdefaultimage"
-                android:background="@color/colorPrimaryDarkTransparent"/>
+                android:src="@drawable/playerdefaultimage" />
 
         </android.support.v7.widget.CardView>
 
         <LinearLayout
             android:id="@+id/info2LinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="50"
+            android:background="@color/colorPrimaryDarkTransparent"
             android:gravity="bottom|center"
             android:orientation="vertical"
-            tools:layout_width="match_parent"
-            android:background="@color/colorPrimaryDarkTransparent">
+            tools:layout_marginLeft="4dp"
+            tools:layout_width="match_parent">
 
             <TextView
                 android:id="@+id/textView15"
@@ -113,9 +120,10 @@
     <TextView
         android:id="@+id/seasonTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_column="1"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@color/colorPrimaryDarkTransparent"
         android:text="Kausi: 2018 - 2019"
@@ -124,13 +132,14 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="199dp"
+        app:layout_constraintTop_toBottomOf="@+id/info3Linearlayout"
         tools:layout_marginTop="4dp" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="288dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -140,12 +149,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/seasonTextView"
-        app:layout_constraintVertical_bias="0.39999998"
+        app:layout_constraintTop_toBottomOf="@+id/seasonTextView"
         tools:layout_marginTop="8dp">
 
         <TableLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TableRow
@@ -168,28 +176,25 @@
                         android:layout_marginTop="14dp"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
-
                         android:text="Maalit:"
-
                         android:textColor="@color/colorWhite"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         android:textStyle="bold"
                         tools:layout_marginLeft="16dp" />
 
                     <TextView
                         android:id="@+id/goalsTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_column="1"
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="14dp"
                         android:text="69"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
-                        tools:layout_marginLeft="16dp" />
+                        tools:layout_marginLeft="14dp" />
 
                 </LinearLayout>
 
@@ -201,26 +206,25 @@
 
                     <TextView
                         android:id="@+id/playerAssists"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
                         android:layout_column="2"
-                        android:layout_marginLeft="14dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginTop="14dp"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
-                        android:paddingTop="14dp"
                         android:text="Syötöt"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
-                        android:textSize="14sp"
+                        android:textSize="10sp"
                         android:textStyle="bold"
                         tools:layout_marginLeft="14dp" />
 
                     <TextView
                         android:id="@+id/assistsTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_column="1"
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
+                        android:layout_column="2"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="14dp"
@@ -241,26 +245,24 @@
 
                     <TextView
                         android:id="@+id/playerPoints"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
                         android:layout_column="3"
                         android:layout_marginLeft="14dp"
                         android:layout_marginTop="14dp"
                         android:layout_marginRight="14dp"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
-                        android:paddingTop="14dp"
                         android:text="Pisteet"
-                        android:textAlignment="center"
                         android:textColor="@color/colorWhite"
-                        android:textSize="14sp"
+                        android:textSize="10sp"
                         android:textStyle="bold"
                         tools:layout_marginTop="14dp" />
 
                     <TextView
                         android:id="@+id/pointsTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_width="80dp"
+                        android:layout_height="60dp"
                         android:layout_column="1"
                         android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
