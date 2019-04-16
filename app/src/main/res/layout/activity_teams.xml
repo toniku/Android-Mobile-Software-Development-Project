@@ -7,9 +7,9 @@
     android:id="@+id/activity_teams"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/default_background"
     android:fitsSystemWindows="true">
-    <!--android:background="@drawable/testitausta1"-->
+
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/"/>
+                android:text="@string/" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 
