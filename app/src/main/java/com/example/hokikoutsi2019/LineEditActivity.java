@@ -21,7 +21,6 @@ public class LineEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-
         try {
             setContentView(R.layout.activity_line_edit);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true); //back button doesn't work!
@@ -51,8 +50,7 @@ public class LineEditActivity extends AppCompatActivity {
             // Give the TabLayout the ViewPager
             TabLayout tabLayout3 = findViewById(R.id.sliding_tabs3);
             tabLayout3.setupWithViewPager(viewPager3);
-        }
-        catch (Exception exception){
+        } catch (Exception exception) {
             Log.d("JOUNI", exception.toString());
         }
 
