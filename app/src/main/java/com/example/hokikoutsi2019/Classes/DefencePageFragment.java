@@ -20,10 +20,10 @@ public class DefencePageFragment extends Fragment {
 
     private int mPage;
 
-    public static OffencePageFragment newInstance(int page) {
+    public static DefencePageFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
-        OffencePageFragment fragment = new OffencePageFragment();
+        DefencePageFragment fragment = new DefencePageFragment();
         fragment.setArguments(args);
         return fragment;
     }
