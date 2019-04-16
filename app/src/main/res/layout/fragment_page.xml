@@ -27,7 +27,7 @@
 
             android:id="@+id/playerDefaultImage"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:clickable="true"
             android:scaleType="centerCrop"
@@ -52,7 +52,7 @@
 
             android:id="@+id/playerDefaultImage2"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:clickable="true"
             android:scaleType="centerCrop"
