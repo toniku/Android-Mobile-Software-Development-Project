@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -143,6 +144,28 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
             final Button dialogButtonCancel = (Button) dialog.findViewById(R.id.buttonCancel);
             final EditText editTextGoalScorer = (EditText) dialog.findViewById(R.id.editTextScorer);
             final EditText editTextFirstAssist = (EditText) dialog.findViewById(R.id.editText1Assist);
+            final EditText editTextSecondAssist = (EditText) dialog.findViewById(R.id.editText2Assist);
+            final CheckBox checkBox = (CheckBox) dialog.findViewById(R.id.checkBox);
+
+            checkBox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(checkBox.isChecked())
+                    {
+                        Log.d("LOL", "CheckBox: " + checkBox.isChecked());
+                        editTextFirstAssist.setText("");
+                        editTextFirstAssist.setEnabled(false);
+                        editTextSecondAssist.setText("");
+                        editTextSecondAssist.setEnabled(false);
+                    }
+                    else if (!checkBox.isChecked())
+                    {
+                        Log.d("LOL", "CheckBox: " + checkBox.isChecked());
+                        editTextFirstAssist.setEnabled(true);
+                        editTextSecondAssist.setEnabled(true);
+                    }
+                }
+            });
 
             dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
