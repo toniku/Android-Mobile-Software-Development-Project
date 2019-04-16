@@ -29,7 +29,7 @@ public class GoalieFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return OffencePageFragment.newInstance(position + 1);
+        return GoaliePageFragment.newInstance(position + 1);
     }
 
     @Override
