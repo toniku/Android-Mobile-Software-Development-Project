@@ -39,8 +39,8 @@ public class DefencePageFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_page2, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment #" + mPage);
+        //TextView textView = (TextView) view;
+        //textView.setText("Fragment #" + mPage);
         return view;
 
     }
