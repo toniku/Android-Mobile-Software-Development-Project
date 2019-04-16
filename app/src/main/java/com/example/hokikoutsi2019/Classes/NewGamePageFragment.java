@@ -20,8 +20,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hokikoutsi2019.R;
 
@@ -137,12 +139,30 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
 
             final Dialog dialog = new Dialog(getContext());
             dialog.setContentView(R.layout.goal_dialog);
-            Button dialogButton = (Button) dialog.findViewById(R.id.buttonOk);
+            final Button dialogButtonOk = (Button) dialog.findViewById(R.id.buttonOk);
+            final Button dialogButtonCancel = (Button) dialog.findViewById(R.id.buttonCancel);
+            final EditText editTextGoalScorer = (EditText) dialog.findViewById(R.id.editTextScorer);
 
-            dialogButton.setOnClickListener(new View.OnClickListener() {
+            dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("LOL", "Cancel clicked");
+                    dialog.dismiss();
+                }
+            });
+
+            dialogButtonOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("LOL", "OK clicked");
+                    String scorer = editTextGoalScorer.getText().toString();
+                    game.setHomeGoal(scorer);
+                    String score = game.getHome_goals() + "-" + game.getAway_goals();
+                    textViewScore.setText(score);
+                    dialog.dismiss();
+
+                    Toast toast=Toast.makeText(getContext(),"MAALI: " + scorer,Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             });
             dialog.show();
