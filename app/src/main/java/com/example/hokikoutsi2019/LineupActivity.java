@@ -72,10 +72,11 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         }
     };
     private ArrayList<Player> playerList = new ArrayList<Player>();
-    private LineupPlayerAdapter lineupPlayerAdapter;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private DatabaseReference databaseReference;
+
+    public LineupActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +89,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         setUpDrawer();
         final ListView listView = findViewById(R.id.playerListView);
         addPlayers();
-        lineupPlayerAdapter = new LineupPlayerAdapter(this, playerList);
+        LineupPlayerAdapter lineupPlayerAdapter = new LineupPlayerAdapter(this, playerList);
         listView.setAdapter(lineupPlayerAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -114,21 +115,10 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (actionBarDrawerToggle.onOptionsItemSelected(item))
-            return true;
-
-        return super.onOptionsItemSelected(item);
-    }
-
     public void setUpDrawer() {
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
@@ -191,7 +181,6 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
-
         });
 
 
@@ -213,7 +202,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void getUser() {
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
         query.addValueEventListener(valueEventListener);
     }
