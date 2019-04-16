@@ -142,6 +142,7 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
             final Button dialogButtonOk = (Button) dialog.findViewById(R.id.buttonOk);
             final Button dialogButtonCancel = (Button) dialog.findViewById(R.id.buttonCancel);
             final EditText editTextGoalScorer = (EditText) dialog.findViewById(R.id.editTextScorer);
+            final EditText editTextFirstAssist = (EditText) dialog.findViewById(R.id.editText1Assist);
 
             dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -156,12 +157,24 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
                 public void onClick(View v) {
                     Log.d("LOL", "OK clicked");
                     String scorer = editTextGoalScorer.getText().toString();
+                    String firstAssist = editTextFirstAssist.getText().toString();
+
                     game.setHomeGoal(scorer);
                     String score = game.getHome_goals() + "-" + game.getAway_goals();
                     textViewScore.setText(score);
                     dialog.dismiss();
 
-                    Toast toast=Toast.makeText(getContext(),"MAALI: " + scorer,Toast.LENGTH_SHORT);
+                    String toastText = "";
+                    if (firstAssist.length() > 0)
+                    {
+                        toastText = "MAALI: " + scorer + " (" + firstAssist + ")";
+                    }
+                    else
+                    {
+                        toastText = "MAALI: " + scorer;
+                    }
+
+                    Toast toast=Toast.makeText(getContext(),toastText,Toast.LENGTH_SHORT);
                     toast.show();
                 }
             });
