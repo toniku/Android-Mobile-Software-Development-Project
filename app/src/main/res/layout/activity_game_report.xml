@@ -7,9 +7,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/testitausta1"
-    tools:context=".GameReportActivity">
 
+    tools:context=".GameReportActivity">
+    <!--android:background="@drawable/testitausta1"-->
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"

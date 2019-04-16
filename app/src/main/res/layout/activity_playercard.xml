@@ -6,9 +6,9 @@
     android:id="@+id/activity_playercard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/testitausta1"
-    android:weightSum="100">
 
+    android:weightSum="100">
+    <!--android:background="@drawable/testitausta1"-->
     <TextView
         android:id="@+id/playerNameTextView"
         android:layout_width="wrap_content"
