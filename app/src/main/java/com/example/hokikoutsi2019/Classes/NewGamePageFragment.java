@@ -8,6 +8,8 @@ package com.example.hokikoutsi2019.Classes;
  * Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -129,9 +131,21 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
     public void onClick(View view) {
         if (view == this.getView().findViewById(R.id.buttonHomeGoal))
         {
-            game.setHomeGoal("LEHTOMAA");
-            String score = game.getHome_goals() + "-" + game.getAway_goals();
-            textViewScore.setText(score);
+            //game.setHomeGoal("LEHTOMAA");
+            //String score = game.getHome_goals() + "-" + game.getAway_goals();
+            //textViewScore.setText(score);
+
+            final Dialog dialog = new Dialog(getContext());
+            dialog.setContentView(R.layout.goal_dialog);
+            Button dialogButton = (Button) dialog.findViewById(R.id.buttonOk);
+
+            dialogButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("LOL", "OK clicked");
+                }
+            });
+            dialog.show();
         }
         else if (view == this.getView().findViewById(R.id.buttonHomePenalty))
         {
