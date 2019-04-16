@@ -39,8 +39,6 @@ public class GoaliePageFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_page3, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment #" + mPage);
         return view;
 
     }
