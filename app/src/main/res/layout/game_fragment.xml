@@ -73,5 +73,71 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <Button
+                android:id="@+id/buttonHomeGoal"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:text="MAALI" />
+
+            <Button
+                android:id="@+id/buttonHomePenalty"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:text="RANGAISTUS" />
+
+            <Button
+                android:id="@+id/buttonHomeSave"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:text="TORUJUNTA" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <Button
+                android:id="@+id/buttonAwayGoal"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:text="MAALI" />
+
+            <Button
+                android:id="@+id/buttonAwayPenalty"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:text="RANGAISTUS" />
+
+            <Button
+                android:id="@+id/buttonAwaySave"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:text="TORUJUNTA" />
+        </LinearLayout>
+
     </android.support.constraint.ConstraintLayout>
 </android.widget.LinearLayout>

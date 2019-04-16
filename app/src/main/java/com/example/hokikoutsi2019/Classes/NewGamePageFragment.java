@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,13 +29,14 @@ import java.util.ArrayList;
 
 
 // In this case, the fragment displays simple text based on the page
-public class NewGamePageFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class NewGamePageFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     public static final String ARG_PAGE = "ARG_PAGE";
     private int mPage;
 
     private static final String DESCRIBABLE_KEY = "describable_key";
     private Game game;
+    TextView textViewScore;
 
     public static NewGamePageFragment newInstance(int page, Game game) {
 
@@ -77,8 +79,17 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
             textViewAwayTeam.setText(game.getAwayTeam());
 
             String score = game.getHome_goals() + "-" + game.getAway_goals();
-            TextView textViewScore = view.findViewById(R.id.textViewScore);
+            textViewScore = view.findViewById(R.id.textViewScore);
             textViewScore.setText(score);
+
+            Button buttonHomeGoal = (Button) view.findViewById(R.id.buttonHomeGoal);
+            buttonHomeGoal.setOnClickListener(this);
+
+            Button buttonHomePenalty = (Button) view.findViewById(R.id.buttonHomePenalty);
+            buttonHomePenalty.setOnClickListener(this);
+
+            Button buttonHomeSave = (Button) view.findViewById(R.id.buttonHomeSave);
+            buttonHomeSave.setOnClickListener(this);
             return view;
 
         }
@@ -111,5 +122,24 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
     }
 
 
+    @Override
+    public void onClick(View view) {
+        if (view == this.getView().findViewById(R.id.buttonHomeGoal))
+        {
+            Log.d("LOLOL", "HOME TEAM SCORES");
+            game.setHomeGoal("LEHTOMAA");
+            Log.d("LOLOL", "Home goals: " + game.getHome_goals());
+            String score = game.getHome_goals() + "-" + game.getAway_goals();
+            textViewScore.setText(score);
+        }
+        else if (view == this.getView().findViewById(R.id.buttonHomePenalty))
+        {
+            Log.d("LOLOL", "HOME TEAM PENALTY");
+        }
+        else if (view == this.getView().findViewById(R.id.buttonHomeSave))
+        {
+            Log.d("LOLOL", "HOME TEAM SAVE");
+        }
+    }
 }
 
