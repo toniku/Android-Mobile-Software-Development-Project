@@ -10,10 +10,13 @@ package com.example.hokikoutsi2019.Classes;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.TextureView;
@@ -62,6 +65,19 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
         super.onCreate(savedInstanceState);
         mPage = getArguments().getInt(ARG_PAGE);
 
+    }
+
+    @Override
+    public void onInflate(Context context, AttributeSet attrs, Bundle savedInstanceState) {
+        super.onInflate(context, attrs, savedInstanceState);
+        Log.d("LOL", "OnInflate: ");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Log.d("LOLOL", "OnViewCreated: " + view.toString());
     }
 
     @Override
