@@ -11,7 +11,7 @@
 
     android:fitsSystemWindows="true"
     tools:openDrawer="left">
-    <!--android:background="@drawable/testitausta1"-->
+    <!--android:background="@drawable/defaultbackground"-->
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"

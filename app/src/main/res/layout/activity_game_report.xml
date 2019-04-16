@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
 
     tools:context=".GameReportActivity">
-    <!--android:background="@drawable/testitausta1"-->
+    <!--android:background="@drawable/defaultbackground"-->
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"

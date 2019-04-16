@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
 
     android:fitsSystemWindows="true">
-    <!--android:background="@drawable/testitausta1"-->
+    <!--android:background="@drawable/defaultbackground"-->
 
     <FrameLayout
         android:id="@+id/content_frame"
