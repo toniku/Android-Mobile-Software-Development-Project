@@ -44,7 +44,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/colorNavHeader"
         android:fitsSystemWindows="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:itemTextColor="@color/colorWhite"
         app:menu="@menu/navigation_menu">
 
     </android.support.design.widget.NavigationView>

@@ -4,11 +4,13 @@
 
 package com.example.hokikoutsi2019;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.example.hokikoutsi2019.Classes.DefenceFragmentPagerAdapter;
 import com.example.hokikoutsi2019.Classes.GoalieFragmentPagerAdapter;
@@ -16,13 +18,30 @@ import com.example.hokikoutsi2019.Classes.OffenceFragmentPagerAdapter;
 
 public class LineEditActivity extends AppCompatActivity {
 
+    ActionBar actionBar;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_line_edit);
+        actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
 
         try {
-            setContentView(R.layout.activity_line_edit);
+
             getSupportActionBar().setDisplayHomeAsUpEnabled(true); //back button doesn't work!
             // Get the ViewPager and set it's PagerAdapter so that it can display items
             ViewPager viewPager = findViewById(R.id.viewpager);
