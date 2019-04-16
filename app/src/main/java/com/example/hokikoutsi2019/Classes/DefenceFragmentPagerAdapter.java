@@ -28,7 +28,7 @@ public class DefenceFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return OffencePageFragment.newInstance(position + 1);
+        return DefencePageFragment.newInstance(position + 1);
     }
 
     @Override
