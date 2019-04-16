@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.hokikoutsi2019.R;
 
@@ -38,7 +37,7 @@ public class GoaliePageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_page3, container, false);
+        View view = inflater.inflate(R.layout.line_fragment3, container, false);
         return view;
 
     }
