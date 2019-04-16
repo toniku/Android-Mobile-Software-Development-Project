@@ -90,6 +90,9 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
 
             Button buttonHomeSave = (Button) view.findViewById(R.id.buttonHomeSave);
             buttonHomeSave.setOnClickListener(this);
+
+            Button buttonAwayGoal = (Button) view.findViewById(R.id.buttonAwayGoal);
+            buttonAwayGoal.setOnClickListener(this);
             return view;
 
         }
@@ -126,9 +129,7 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
     public void onClick(View view) {
         if (view == this.getView().findViewById(R.id.buttonHomeGoal))
         {
-            Log.d("LOLOL", "HOME TEAM SCORES");
             game.setHomeGoal("LEHTOMAA");
-            Log.d("LOLOL", "Home goals: " + game.getHome_goals());
             String score = game.getHome_goals() + "-" + game.getAway_goals();
             textViewScore.setText(score);
         }
@@ -140,6 +141,13 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
         {
             Log.d("LOLOL", "HOME TEAM SAVE");
         }
+        else if (view == this.getView().findViewById(R.id.buttonAwayGoal))
+        {
+            game.setAwayGoal("Peltola");
+            String score = game.getHome_goals() + "-" + game.getAway_goals();
+            textViewScore.setText(score);
+        }
+
     }
 }
 
