@@ -6,9 +6,9 @@
     android:id="@+id/activity_playercard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/default_background"
     android:weightSum="100">
-    <!--android:background="@drawable/defaultbackground"-->
+
     <TextView
         android:id="@+id/playerNameTextView"
         android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/playerdefaultimage"/>
+                android:src="@drawable/playerdefaultimage" />
 
         </android.support.v7.widget.CardView>
 

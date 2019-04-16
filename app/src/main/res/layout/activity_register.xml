@@ -7,9 +7,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/default_background"
     tools:context=".RegisterActivity">
-    <!--android:background="@drawable/defaultbackground"-->
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -172,8 +172,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="44dp"
             android:layout_marginEnd="8dp"
-            android:textSize="18sp"
             android:text="@string/reg_button"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"

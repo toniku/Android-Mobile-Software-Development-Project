@@ -7,9 +7,8 @@
     android:id="@+id/activity_lastestgames"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/default_background"
     android:fitsSystemWindows="true">
-    <!--android:background="@drawable/defaultbackground"-->
 
     <FrameLayout
         android:id="@+id/content_frame"

@@ -8,10 +8,10 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/default_background"
     android:fitsSystemWindows="true"
     tools:openDrawer="left">
-    <!--android:background="@drawable/defaultbackground"-->
+
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
