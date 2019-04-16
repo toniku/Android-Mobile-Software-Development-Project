@@ -33,7 +33,6 @@ public class NewGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
 
-
         ViewPager viewPager = findViewById(R.id.viewpager);
 
         // Give the TabLayout the ViewPager

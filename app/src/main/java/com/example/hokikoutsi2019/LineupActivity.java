@@ -136,18 +136,18 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
                     case R.id.drawer_logout:
                         Log.i("LOL", "Log out pressed");
                         //mAuth.getInstance().signOut();
-                        startActivity(new Intent(LineupActivity.this, LoginActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         break;
                     case R.id.drawer_line_edit:
-                        startActivity(new Intent(LineupActivity.this, LineEditActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LineEditActivity.class));
                         break;
                     case R.id.drawer_lineup:
                         break;
                     case R.id.drawer_games:
-                        startActivity(new Intent(LineupActivity.this, LatestGamesActivity.class));
+                        startActivity(new Intent(getApplicationContext(), LatestGamesActivity.class));
                         break;
                     case R.id.drawer_new_game:
-                        startActivity(new Intent(LineupActivity.this, MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         break;
                 }
             }
