@@ -11,8 +11,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 
 public class DefenceFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 3;
-    private String Defence[] = new String[] { "1. Pakki", "2. Pakki", "3. Pakki"};
+    final int PAGE_COUNT = 2;
+    private String Defence[] = new String[] { "1. Pakki", "2. Pakki"};
 
     private Context context;
 

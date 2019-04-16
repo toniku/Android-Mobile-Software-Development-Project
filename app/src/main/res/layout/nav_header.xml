@@ -21,7 +21,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/circle_shape3"
         android:scaleType="centerCrop"
-        android:src="@drawable/playerdefaultimagecropped"
+        android:src="@drawable/waht"
         app:layout_constraintBottom_toTopOf="@+id/drawer_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
