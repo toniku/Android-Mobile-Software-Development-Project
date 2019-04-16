@@ -36,9 +36,9 @@ import java.util.Objects;
 public class LineupActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonLogOut;
-    private DrawerLayout dl;
-    private ActionBarDrawerToggle t;
-    private NavigationView nv;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private NavigationView navigationView;
     private TextView textViewDrawHeader;
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -113,29 +113,27 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (t.onOptionsItemSelected(item))
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
     }
 
     public void setUpDrawer() {
-        dl = findViewById(R.id.activity_lineup);
-        t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
-        dl.addDrawerListener(t);
-        t.syncState();
+        drawerLayout = findViewById(R.id.activity_lastestgames);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv = findViewById(R.id.nav_view);
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
-                Log.i("LOL", "Item id: " + id);
 
                 if (id == R.id.drawer_logout) {
-                    Log.i("LOL", "Log out pressed");
                     mAuth.getInstance().signOut();
                     Intent intent = new Intent(LineupActivity.this, LoginActivity.class);
                     startActivity(intent);
@@ -145,7 +143,9 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
                     startActivity(intent);
                     return true;
                 } else if (id == R.id.drawer_lineup) {
-                    Intent intent = new Intent(LineupActivity.this, LineupActivity.class);
+                    return true;
+                } else if (id == R.id.drawer_new_game) {
+                    Intent intent = new Intent(LineupActivity.this, MainActivity.class);
                     startActivity(intent);
                     return true;
                 } else if (id == R.id.drawer_games) {
@@ -153,11 +153,13 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
                     startActivity(intent);
                     return true;
                 }
+                finish();
+                drawerLayout.closeDrawers();
                 return true;
             }
         });
 
-        View headerView = nv.inflateHeaderView(R.layout.nav_header);
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
         textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
         mAuth = FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
