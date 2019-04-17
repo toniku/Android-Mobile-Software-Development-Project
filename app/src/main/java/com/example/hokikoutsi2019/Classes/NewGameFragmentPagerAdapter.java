@@ -12,33 +12,42 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
+import java.util.ArrayList;
 
-public class NewGameFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 4;
-    private String tabTitles[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
-    private Game game;
-    private Context context;
+//private String tabTitles[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
 
-    public NewGameFragmentPagerAdapter(FragmentManager fm, Context context, Game game) {
+public class NewGameFragmentPagerAdapter extends FragmentStatePagerAdapter {
+
+    private final ArrayList<Fragment> mFragmentList = new ArrayList<Fragment>();
+    private final ArrayList<String> mFragmentTitleList = new ArrayList<String>();
+    private String Titles[] = new String[] {"Lisää Pelitapahtuma", "ottelutapahtumat"};
+
+    public NewGameFragmentPagerAdapter(FragmentManager fm)
+    {
         super(fm);
-        this.context = context;
-        this.game = game;
+    }
+
+    public void addFragment(Fragment fragment, String title)
+    {
+        mFragmentList.add(fragment);
+        mFragmentTitleList.add(title);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        return mFragmentList.get(position);
     }
 
     @Override
     public int getCount() {
-        return PAGE_COUNT;
-    }
-
-    @Override
-    public NewGamePageFragment getItem(int position) {
-        return NewGamePageFragment.newInstance(position + 1, game);
+        return mFragmentList.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         // Generate title based on item position
-        return tabTitles[position];
+        return Titles[position];
     }
 }

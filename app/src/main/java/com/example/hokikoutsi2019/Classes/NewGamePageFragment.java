@@ -30,6 +30,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hokikoutsi2019.MainActivity;
+import com.example.hokikoutsi2019.NewGameActivity;
 import com.example.hokikoutsi2019.R;
 
 import org.w3c.dom.Text;
@@ -41,144 +43,61 @@ import java.util.zip.Inflater;
 // In this case, the fragment displays simple text based on the page
 public class NewGamePageFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
-    public static final String ARG_PAGE = "ARG_PAGE";
-    private int mPage;
-
-    private static final String DESCRIBABLE_KEY = "describable_key";
     private Game game;
-    TextView textViewScore;
-    TextView textViewScorePage2;
-
-    public static NewGamePageFragment newInstance(int page, Game game) {
-
-        NewGamePageFragment fragment = new NewGamePageFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(ARG_PAGE, page);
-        bundle.putSerializable(DESCRIBABLE_KEY, game);
-        fragment.setArguments(bundle);
-        return fragment;
-    }
+    private TextView textViewHomeTeam;
+    private TextView textViewAwayTeam;
+    private TextView textViewScore;
+    NewGameActivity newGameActivity;
+    View view;
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt(ARG_PAGE);
-
-    }
-
-    @Override
-    public void onInflate(Context context, AttributeSet attrs, Bundle savedInstanceState) {
-        super.onInflate(context, attrs, savedInstanceState);
-        Log.d("LOL", "OnInflate: ");
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        Log.d("LOLOL", "OnViewCreated: " + view.toString());
-    }
-
-    @Override
-    public void setArguments(@Nullable Bundle args) {
-        super.setArguments(args);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d("LOL", "EEEEEEEEESSSSSSSS page: " + mPage);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        this.game = (Game) getArguments().getSerializable(DESCRIBABLE_KEY);
+        Log.d("LOL2", "OnCreateView()");
 
-        if (mPage == 1)
-        {
-            View view = inflater.inflate(R.layout.game_fragment, container, false);
-            Log.d("LOLOL", game.getHomeTeam());
+        this.view = inflater.inflate(R.layout.game_fragment, container, false);
 
-            TextView textViewHomeTeam =  view.findViewById(R.id.textViewHomeTeam);
-            textViewHomeTeam.setText(game.getHomeTeam());
+        textViewAwayTeam = view.findViewById(R.id.textViewAwayTeam);
+        textViewAwayTeam.setText(game.getAwayTeam());
 
-            TextView textViewAwayTeam =  view.findViewById(R.id.textViewAwayTeam);
-            textViewAwayTeam.setText(game.getAwayTeam());
+        textViewHomeTeam = view.findViewById(R.id.textViewHomeTeam);
+        textViewHomeTeam.setText(game.getHomeTeam());
 
-            String score = game.getHome_goals() + "-" + game.getAway_goals();
-            textViewScore = view.findViewById(R.id.textViewScore);
-            textViewScore.setText(score);
+        textViewScore = view.findViewById(R.id.textViewScore);
+        String score = game.getHome_goals() + "-" + game.getAway_goals();
+        textViewScore.setText(score);
 
-            Button buttonHomeGoal = (Button) view.findViewById(R.id.buttonHomeGoal);
-            buttonHomeGoal.setOnClickListener(this);
+        Button buttonHomeGoal = (Button) view.findViewById(R.id.buttonHomeGoal);
+        buttonHomeGoal.setOnClickListener(this);
 
-            Button buttonHomePenalty = (Button) view.findViewById(R.id.buttonHomePenalty);
-            buttonHomePenalty.setOnClickListener(this);
+        Button buttonHomePenalty = (Button) view.findViewById(R.id.buttonHomePenalty);
+        buttonHomePenalty.setOnClickListener(this);
 
-            Button buttonHomeSave = (Button) view.findViewById(R.id.buttonHomeSave);
-            buttonHomeSave.setOnClickListener(this);
+        Button buttonHomeSave = (Button) view.findViewById(R.id.buttonHomeSave);
+        buttonHomeSave.setOnClickListener(this);
 
-            Button buttonAwayGoal = (Button) view.findViewById(R.id.buttonAwayGoal);
-            buttonAwayGoal.setOnClickListener(this);
-            return view;
+        Button buttonAwayGoal = (Button) view.findViewById(R.id.buttonAwayGoal);
+        buttonAwayGoal.setOnClickListener(this);
 
-        }
-        else if (mPage == 2)
-        {
-            View view = inflater.inflate(R.layout.event_fragment, container, false);
-
-            TextView textViewHomeTeam =  view.findViewById(R.id.textViewHomeTeam);
-            textViewHomeTeam.setText(game.getHomeTeam());
-
-            TextView textViewAwayTeam =  view.findViewById(R.id.textViewAwayTeam);
-            textViewAwayTeam.setText(game.getAwayTeam());
-
-            String score = game.getHome_goals() + "-" + game.getAway_goals();
-            textViewScorePage2 = view.findViewById(R.id.textViewScore);
-            textViewScorePage2.setText(score);
-
-            return view;
-
-        }
-        else if (mPage == 3)
-        {
-            View view = inflater.inflate(R.layout.lines_frament, container, false);
-            return view;
-        }
-        else if (mPage == 4)
-        {
-            View view = inflater.inflate(R.layout.lines_frament, container, false);
-            return view;
-        }
-        else
-        {
-            View view = inflater.inflate(R.layout.lines_frament, container, false);
-            return view;
-        }
-
+        return view;
 
     }
 
 
+    public void getGame(Game game)
+    {
+        this.game = game;
+        Log.d("LOL2", "getGame()");
+    }
+
+
+
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        try {
 
-
-        }
-        catch (Exception e)
-        {
-
-        }
     }
 
 
@@ -186,9 +105,6 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
     public void onClick(View view) {
         if (view == this.getView().findViewById(R.id.buttonHomeGoal))
         {
-            //game.setHomeGoal("LEHTOMAA");
-            //String score = game.getHome_goals() + "-" + game.getAway_goals();
-            //textViewScore.setText(score);
 
             final Dialog dialog = new Dialog(getContext());
             dialog.setContentView(R.layout.goal_dialog);
@@ -249,10 +165,11 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
                     {
                         toastText = "MAALI: " + scorer;
                     }
-                    updateEvents();
                     Toast toast=Toast.makeText(getContext(),toastText,Toast.LENGTH_SHORT);
                     toast.show();
-                    getFragmentManager().beginTransaction().commit();
+
+                    newGameActivity = (NewGameActivity) getActivity();
+                    newGameActivity.updateGameReport(game);
                 }
             });
             dialog.show();
@@ -273,9 +190,5 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
         }
     }
 
-    public void updateEvents()
-    {
-
-    }
 }
 

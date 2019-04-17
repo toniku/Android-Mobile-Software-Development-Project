@@ -15,50 +15,66 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.Game;
+import com.example.hokikoutsi2019.Classes.GameReportFragment;
 import com.example.hokikoutsi2019.Classes.NewGameFragmentPagerAdapter;
 import com.example.hokikoutsi2019.Classes.NewGamePageFragment;
 
 
 public class NewGameActivity extends AppCompatActivity {
 
-    TextView textViewHome = null;
-    TextView textViewAway = null;
-    NewGameFragmentPagerAdapter newGameFragmentPagerAdapter;
+    private NewGameFragmentPagerAdapter newGameFragmentPagerAdapter;
+    private ViewPager viewPager;
+    private NewGamePageFragment fragment1;
+    private GameReportFragment fragment2;
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
 
-        ViewPager viewPager = findViewById(R.id.viewpager);
-
-        // Give the TabLayout the ViewPager
-        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
-        tabLayout.setupWithViewPager(viewPager);
-
         Intent i = getIntent();
-        Game game = (Game) i.getSerializableExtra("gameObject");
+        game = (Game) i.getSerializableExtra("gameObject");
         Log.d("LOL", "NewGame: " + game.getHomeTeam() + " VS " + game.getAwayTeam());
 
-        newGameFragmentPagerAdapter = new NewGameFragmentPagerAdapter(getSupportFragmentManager(), NewGameActivity.this, game);
-        viewPager.setAdapter(newGameFragmentPagerAdapter);
-
-
-        //Add contents to fragment
-        try
-        {
-
-        }
-        catch (Exception e)
-        {
-            Log.d("LOL", e.toString());
-        }
-
-
-
-
+        newGameFragmentPagerAdapter = new NewGameFragmentPagerAdapter(getSupportFragmentManager());
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setUpViewPager(viewPager);
+        fragment1.getGame(game);
     }
+
+    private void setUpViewPager(ViewPager viewPager)
+    {
+        NewGameFragmentPagerAdapter adapter= new NewGameFragmentPagerAdapter(getSupportFragmentManager());
+        fragment1 = new NewGamePageFragment();
+        fragment1.getGame(game);
+        fragment2  = new GameReportFragment();
+        adapter.addFragment(fragment1, "Fragment 1");
+        adapter.addFragment(fragment2, "fragment 2");
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+    public void setViewPager(int fragmentNumber)
+    {
+        viewPager.setCurrentItem(fragmentNumber);
+    }
+
+    public Game getGame()
+    {
+        return this.game;
+    }
+
+    public void updateGameReport(Game game)
+    {
+        fragment2.update(game);
+    }
+
+
 }
