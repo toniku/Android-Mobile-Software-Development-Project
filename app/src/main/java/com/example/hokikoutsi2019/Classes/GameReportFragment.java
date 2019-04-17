@@ -12,10 +12,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.hokikoutsi2019.NewGameActivity;
 import com.example.hokikoutsi2019.R;
+
+import java.util.ArrayList;
 
 public class GameReportFragment extends Fragment {
 
@@ -24,6 +27,8 @@ public class GameReportFragment extends Fragment {
     private TextView textViewScore;
     private Game game;
     private NewGameActivity newGameActivity;
+    private ListView listView = null;
+
 
     @Nullable
     @Override
@@ -43,6 +48,8 @@ public class GameReportFragment extends Fragment {
         textViewScore = view.findViewById(R.id.textViewScore);
         textViewScore.setText(score);
 
+        listView = view.findViewById(R.id.listView);
+
         return view;
     }
 
@@ -51,6 +58,10 @@ public class GameReportFragment extends Fragment {
         this.game = game;
         String score = game.getHome_goals() + "-" + game.getAway_goals();
         textViewScore.setText(score);
+
+        ArrayList<GoalEvent> goalList = game.getGameEvents();
+        GoalEventAdapter goalEventAdapter = new GoalEventAdapter(getContext(), goalList);
+        listView.setAdapter(goalEventAdapter);
     }
 
 }
