@@ -187,6 +187,8 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
             game.setAwayGoal("Peltola");
             String score = game.getHome_goals() + "-" + game.getAway_goals();
             textViewScore.setText(score);
+            newGameActivity = (NewGameActivity) getActivity();
+            newGameActivity.updateGameReport(game);
         }
     }
 
