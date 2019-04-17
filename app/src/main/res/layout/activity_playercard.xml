@@ -156,34 +156,31 @@
 
                     <TextView
                         android:id="@+id/playerGoalsTextView"
-                        android:layout_width="100dp"
-                        android:layout_height="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="14dp"
-                        android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="@dimen/default_gap"
                         android:text="Maalit:"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        tools:layout_marginLeft="12dp" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/goalsTextView"
-                        android:layout_width="100dp"
-                        android:layout_height="70dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="8dp"
-                        android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
                         android:text="30"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="32sp"
-                        android:textStyle="bold"
-                        tools:layout_marginLeft="12dp" />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -195,11 +192,9 @@
 
                     <TextView
                         android:id="@+id/playerAssists"
-                        android:layout_width="100dp"
-                        android:layout_height="30dp"
-                        android:layout_column="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="14dp"
-                        android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="@dimen/default_gap"
                         android:text="Syötöt:"
@@ -207,22 +202,21 @@
                         android:textColor="@color/colorWhite"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        tools:layout_marginLeft="16dp" />
+                        tools:layout_marginLeft="12dp" />
 
                     <TextView
                         android:id="@+id/assistsTextView"
-                        android:layout_width="100dp"
-                        android:layout_height="70dp"
-                        android:layout_column="2"
-                        android:layout_weight="33"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
                         android:text="69"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="32sp"
                         android:textStyle="bold"
-                        tools:layout_marginLeft="16dp" />
+                        tools:layout_marginLeft="12dp" />
 
                 </LinearLayout>
 
@@ -234,11 +228,9 @@
 
                     <TextView
                         android:id="@+id/playerPoints"
-                        android:layout_width="100dp"
-                        android:layout_height="30dp"
-                        android:layout_column="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="14dp"
-                        android:layout_weight="33"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="@dimen/default_gap"
                         android:text="Pisteet:"
@@ -246,24 +238,23 @@
                         android:textColor="@color/colorWhite"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        tools:layout_marginLeft="16dp"
-                        tools:layout_marginEnd="8dp"/>
+                        tools:layout_marginRight="8dp"
+                        tools:layout_marginLeft="12dp" />
 
                     <TextView
                         android:id="@+id/pointsTextView"
-                        android:layout_width="100dp"
-                        android:layout_height="70dp"
-                        android:layout_column="3"
-                        android:layout_weight="33"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
                         android:text="99"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="32sp"
                         android:textStyle="bold"
-                        tools:layout_marginLeft="16dp"
-                        tools:layout_marginEnd="8dp"/>
+                        tools:layout_marginRight="8dp"
+                        tools:layout_marginLeft="12dp" />
 
                 </LinearLayout>
 
