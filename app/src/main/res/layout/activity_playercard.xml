@@ -14,11 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="183dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:gravity="bottom"
+        android:weightSum="100"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -52,53 +53,68 @@
 
         </android.support.v7.widget.CardView>
 
+
         <LinearLayout
             android:id="@+id/info2LinearLayout"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:background="@color/colorPrimaryDarkTransparent"
             android:gravity="bottom|center"
             android:orientation="vertical"
-            tools:layout_marginLeft="4dp"
-            tools:layout_width="match_parent">
+            tools:layout_marginLeft="4dp">
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
                 android:text="Yhteystiedot:"
                 android:textColor="@color/colorWhite"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:layout_conversion_absoluteHeight="22dp"
+                tools:layout_conversion_absoluteWidth="112dp"
+                tools:layout_editor_absoluteX="229dp"
+                tools:layout_editor_absoluteY="113dp" />
 
             <TextView
                 android:id="@+id/textView16"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:text="Kylänraitti 5"
                 android:textColor="@color/colorWhite"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:layout_conversion_absoluteHeight="20dp"
+                tools:layout_conversion_absoluteWidth="89dp"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="136dp" />
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:text="378 800 Helsinki"
                 android:textColor="@color/colorWhite"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:layout_conversion_absoluteHeight="20dp"
+                tools:layout_conversion_absoluteWidth="122dp"
+                tools:layout_editor_absoluteX="224dp"
+                tools:layout_editor_absoluteY="155dp" />
 
             <TextView
                 android:id="@+id/playerPhoneNumberTextView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:text="0409997755"
                 android:textColor="@color/colorWhite"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:layout_conversion_absoluteHeight="20dp"
+                tools:layout_conversion_absoluteWidth="91dp"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="175dp" />
 
         </LinearLayout>
 
@@ -137,6 +153,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seasonTextView"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_marginTop="8dp">
 
         <TableLayout
@@ -145,20 +162,20 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:weightSum="100">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="33"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
 
                     <TextView
                         android:id="@+id/playerGoalsTextView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
                         android:layout_marginTop="14dp"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="@dimen/default_gap"
@@ -172,7 +189,6 @@
                         android:id="@+id/goalsTextView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="14dp"
                         android:paddingBottom="20dp"
@@ -188,7 +204,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="33"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
 
                     <TextView
                         android:id="@+id/playerAssists"
@@ -201,8 +219,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        tools:layout_marginLeft="12dp" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/assistsTextView"
@@ -215,8 +232,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="32sp"
-                        android:textStyle="bold"
-                        tools:layout_marginLeft="12dp" />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -224,7 +240,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="33"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
 
                     <TextView
                         android:id="@+id/playerPoints"
@@ -237,9 +255,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        tools:layout_marginRight="8dp"
-                        tools:layout_marginLeft="12dp" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/pointsTextView"
@@ -252,14 +268,125 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="32sp"
-                        android:textStyle="bold"
-                        tools:layout_marginRight="8dp"
-                        tools:layout_marginLeft="12dp" />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
             </TableRow>
 
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/playerGamesTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="14dp"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="@dimen/default_gap"
+                        android:text="Ottelut:"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/gamesTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
+                        android:text="131"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/playerPlusMinusTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="14dp"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="@dimen/default_gap"
+                        android:text="+/- :"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/plusMinusTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
+                        android:text="+35"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/playerPointsPerGamneTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="14dp"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="@dimen/default_gap"
+                        android:text="P / O:"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/pointsPerGameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
+                        android:text="2"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </TableRow>
             <!--<TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
