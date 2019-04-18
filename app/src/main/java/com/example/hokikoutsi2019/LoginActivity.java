@@ -4,13 +4,19 @@
 
 package com.example.hokikoutsi2019;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,7 +30,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView textViewRegister;
+    //private TextView textViewRegister;
     private Button buttonLogin;
     private EditText editTextEmail;
     private EditText editTextPassword;
@@ -33,10 +39,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.BLACK);
+        }
         setContentView(R.layout.activity_login);
-
-        textViewRegister = findViewById(R.id.textViewRegister);
-        textViewRegister.setOnClickListener(this);
+        //textViewRegister = findViewById(R.id.textViewRegister);
+        //textViewRegister.setOnClickListener(this);
         buttonLogin = findViewById(R.id.buttonLogIn);
         buttonLogin.setOnClickListener(this);
         editTextEmail = findViewById(R.id.editTextEmail);
@@ -60,10 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        if (view == findViewById(R.id.textViewRegister)) {
-            Intent intent = new Intent(this, RegisterActivity.class);
-            startActivity(intent);
-        } else if (view == findViewById(R.id.buttonLogIn)) {
+        if (view == findViewById(R.id.buttonLogIn)) {
             String email = editTextEmail.getText().toString();
             String password = editTextPassword.getText().toString();
 
@@ -83,12 +94,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Kirjautuminen onnistui", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 //updateUI(user);
                             } else {
-                                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Kirjautuminen epäonnistui!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
