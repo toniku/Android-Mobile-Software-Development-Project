@@ -9,11 +9,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.Player;
 import com.example.hokikoutsi2019.Classes.Stats;
+
+import java.util.Objects;
 
 public class PlayerCardActivity extends AppCompatActivity {
 
@@ -25,6 +28,8 @@ public class PlayerCardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playercard);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getApplicationContext().getString(R.string.player_card).toUpperCase());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent i = getIntent();
         player = (Player) i.getSerializableExtra("playerObject");
         Log.d("LOL", "CARD: " + player.getLastname());
@@ -68,5 +73,15 @@ public class PlayerCardActivity extends AppCompatActivity {
                 startActivity(callIntent);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

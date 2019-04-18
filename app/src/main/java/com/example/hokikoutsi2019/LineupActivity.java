@@ -4,6 +4,7 @@
 
 package com.example.hokikoutsi2019;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -49,8 +50,6 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
-                    Log.i("LOL", user.getFirstname());
-                    Log.i("LOL", user.getLastname());
 
                     String firstname = user.getFirstname();
                     String lastname = user.getLastname();
@@ -79,6 +78,15 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
+            return true;
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -87,6 +95,10 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         navigationView = findViewById(R.id.nav_view);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getApplicationContext().getString(R.string.lineup).toUpperCase());
         setUpDrawer();
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         final ListView listView = findViewById(R.id.playerListView);
         addPlayers();
         LineupPlayerAdapter lineupPlayerAdapter = new LineupPlayerAdapter(this, playerList);
@@ -117,6 +129,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
 
     public void setUpDrawer() {
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
@@ -208,13 +221,13 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void addPlayers() {
-        Player lineupPlayer = new Player("Jani", "Hakanpää", 94);
+        Player lineupPlayer = new Player("Janne", "Heikkilä", 36);
         playerList.add(lineupPlayer);
 
-        Player lineupPlayer1 = new Player("Toni", "Kukkohovi", 69);
+        Player lineupPlayer1 = new Player("Toni", "Kukkohovi", 32);
         playerList.add(lineupPlayer1);
 
-        Player lineupPlayer2 = new Player("Eetu", "Lehtomaa", 96);
+        Player lineupPlayer2 = new Player("Eetu", "Lehtomaa", 65);
         lineupPlayer2.setContact("Liisantie 7", "90560", "Oulu", "0407193427");
         lineupPlayer2.setStats(2019);
         playerList.add(lineupPlayer2);
