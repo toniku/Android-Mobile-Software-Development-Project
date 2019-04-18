@@ -18,8 +18,6 @@ import com.example.hokikoutsi2019.Classes.OffenceFragmentPagerAdapter;
 
 public class LineEditActivity extends AppCompatActivity {
 
-    ActionBar actionBar;
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -34,15 +32,14 @@ public class LineEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_line_edit);
-        actionBar = getActionBar();
+        ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-
         try {
 
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true); //back button doesn't work!
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); //back buttonStart doesn't work!
             // Get the ViewPager and set it's PagerAdapter so that it can display items
             ViewPager viewPager = findViewById(R.id.viewpager);
             viewPager.setAdapter(new OffenceFragmentPagerAdapter(getSupportFragmentManager(),

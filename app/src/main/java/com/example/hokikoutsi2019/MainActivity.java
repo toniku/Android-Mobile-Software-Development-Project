@@ -4,10 +4,12 @@
 
 package com.example.hokikoutsi2019;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -37,14 +39,15 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button button = null;
+    private int clickedNavItem = 0;
+    private Button buttonLogOut;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private NavigationView navigationView;
+    Button buttonStart = null;
     RadioButton radioButtonHome = null;
     RadioButton radioButtonAway = null;
     EditText editTextOpponent = null;
-    //private Button buttonLogOut;
-    private DrawerLayout dl;
-    private ActionBarDrawerToggle t;
-    private NavigationView nv;
     private TextView textViewDrawHeader;
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -83,13 +86,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getApplicationContext().getString(R.string.new_game).toUpperCase());
-        setUpDrawer();
-        button = findViewById(R.id.buttonStart);
-        button.setOnClickListener(this);
-
+        buttonStart = findViewById(R.id.buttonStart);
+        buttonStart.setOnClickListener(this);
+        drawerLayout = findViewById(R.id.activity_main);
+        navigationView = findViewById(R.id.nav_view);
         radioButtonHome = findViewById(R.id.radioButtonHome);
         radioButtonAway = findViewById(R.id.radioButtonAway);
         editTextOpponent = findViewById(R.id.editTextOpponent);
+        setUpDrawer();
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         // getUser();
     }
 
@@ -111,9 +119,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Game game = new Game("KIEKKO-LASER", opponent);
 
                 Log.d("LOL", game.getHomeTeam() + " VS " + game.getAwayTeam());
-                Intent i = new Intent(MainActivity.this, NewGameActivity.class);
-                i.putExtra("gameObject", game);
-                startActivity(i);
+                Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
+                intent.putExtra("gameObject", game);
+                startActivity(intent);
             } else {
                 String opponent = editTextOpponent.getText().toString().toUpperCase();
                 Game game = new Game(opponent, "KIEKKO-LASER");
@@ -129,59 +137,82 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (t.onOptionsItemSelected(item))
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
 
         return super.onOptionsItemSelected(item);
     }
 
     public void setUpDrawer() {
-        dl = findViewById(R.id.activity_main);
-        t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
-        dl.addDrawerListener(t);
-        t.syncState();
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv = findViewById(R.id.nav_view);
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+            }
 
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public void onDrawerOpened(@NonNull View drawerView) {
 
-                int id = item.getItemId();
-                Log.i("LOL", "Item id: " + id);
+            }
 
-                if (id == R.id.drawer_logout) {
-                    Log.i("LOL", "Log out pressed");
-                    mAuth.getInstance().signOut();
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.drawer_line_edit) {
-                    try
-                    {
-                        Intent intent = new Intent(MainActivity.this, LineEditActivity.class);
-                        startActivity(intent);
-                    }
-                    catch (Exception exception)
-                    {
-                        Log.d("JOUNI", exception.toString());
-                    }
-
-                    return true;
-                } else if (id == R.id.drawer_lineup) {
-                    Intent intent = new Intent(MainActivity.this, LineupActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.drawer_games) {
-                    Intent intent = new Intent(MainActivity.this, LatestGamesActivity.class);
-                    startActivity(intent);
-                    return true;
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+                switch (clickedNavItem) {
+                    case R.id.drawer_logout:
+                        mAuth.getInstance().signOut();
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        break;
+                    case R.id.drawer_line_edit:
+                        startActivity(new Intent(getApplicationContext(), LineEditActivity.class));
+                        break;
+                    case R.id.drawer_lineup:
+                        startActivity(new Intent(getApplicationContext(), LineupActivity.class));
+                        break;
+                    case R.id.drawer_games:
+                        startActivity(new Intent(getApplicationContext(), LatestGamesActivity.class));
+                        break;
+                    case R.id.drawer_new_game:
+                        break;
                 }
+            }
+
+            @Override
+            public void onDrawerStateChanged(int i) {
+
+            }
+        });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+                switch (item.getItemId()) {
+                    case R.id.drawer_logout:
+                        clickedNavItem = R.id.drawer_logout;
+                        break;
+                    case R.id.drawer_line_edit:
+                        clickedNavItem = R.id.drawer_line_edit;
+                        break;
+                    case R.id.drawer_lineup:
+                        clickedNavItem = R.id.drawer_lineup;
+                        break;
+                    case R.id.drawer_games:
+                        clickedNavItem = R.id.drawer_games;
+                        break;
+                    case R.id.drawer_new_game:
+                        break;
+                }
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
 
-        View headerView = nv.inflateHeaderView(R.layout.nav_header);
+
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
         textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
         mAuth = FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -207,6 +238,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        // Disables back button
+        // Disables back buttonStart
     }
 }

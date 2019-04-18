@@ -6,7 +6,8 @@
 
     <string name="app_name"></string>
 
-    <string name="new_game">Aloita peli</string>
+    <string name="start_game">Aloita peli</string>
+    <string name="new_game">Uusi peli</string>
     <string name="lines">Ketjut</string>
     <string name="open">Aukaise</string>
     <string name="close">Sulje</string>
@@ -22,6 +23,7 @@
     <string name="beginner">Aloittelija</string>
     <string name="pro">Ammattilainen</string>
     <string name="elite">Eliitti</string>
+    <string name="player_card">Pelaajakortti</string>
 
     <string name="latest_games">Viimeisimmät pelit</string>
     <string name="statistics">Tilastot</string>

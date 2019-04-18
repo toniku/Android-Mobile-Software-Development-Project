@@ -21,8 +21,6 @@ import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.Game;
 import com.example.hokikoutsi2019.Classes.GameAdapter;
-import com.example.hokikoutsi2019.Classes.LineupPlayerAdapter;
-import com.example.hokikoutsi2019.Classes.Player;
 import com.example.hokikoutsi2019.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +30,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class LatestGamesActivity extends AppCompatActivity implements View.OnClickListener {
@@ -107,7 +104,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void setUpDrawer() {
-        drawerLayout = findViewById(R.id.activity_lastestgames);
+        drawerLayout = findViewById(R.id.activity_latestgames);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
