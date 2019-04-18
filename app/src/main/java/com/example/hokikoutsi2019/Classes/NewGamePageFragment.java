@@ -184,11 +184,11 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
         }
         else if (view == this.getView().findViewById(R.id.buttonAwayGoal))
         {
-            game.setAwayGoal("Peltola");
-            String score = game.getHome_goals() + "-" + game.getAway_goals();
+            this.game.setAwayGoal("Peltola");
+            String score = game.getHome_goals() + "-" + this.game.getAway_goals();
             textViewScore.setText(score);
             newGameActivity = (NewGameActivity) getActivity();
-            newGameActivity.updateGameReport(game);
+            newGameActivity.updateGameReport(this.game);
         }
     }
 

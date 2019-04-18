@@ -43,7 +43,7 @@ public class GoalEventAdapter extends ArrayAdapter<GoalEvent> {
             textViewEvent.setText(goalEvent.getScorer() + System.getProperty ("line.separator")
                     + goalEvent.getHomeGoals() + "-" + goalEvent.getAwayGoals());
         }
-        else
+        else if (!goalEvent.isHomeScored())
         {
             TextView textViewEvent = convertView.findViewById(R.id.textViewAwayEvent);
             textViewEvent.setText(goalEvent.getScorer() + System.getProperty ("line.separator")

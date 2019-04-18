@@ -60,6 +60,14 @@ public class GameReportFragment extends Fragment {
         textViewScore.setText(score);
 
         ArrayList<GoalEvent> goalList = game.getGameEvents();
+        Log.d("XD", "" + goalList.size() + "XXXXXXXXXXXXXXXXXXXX");
+        int i = 0;
+        while (i < goalList.size())
+        {
+            Log.d("XD", goalList.get(i).getScorer() + " " + goalList.get(i).getHomeGoals() + "-" +  goalList.get(i).getAwayGoals());
+            i++;
+
+        }
         GoalEventAdapter goalEventAdapter = new GoalEventAdapter(getContext(), goalList);
         listView.setAdapter(goalEventAdapter);
     }
