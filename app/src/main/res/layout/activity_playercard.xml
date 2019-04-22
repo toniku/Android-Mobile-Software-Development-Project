@@ -58,7 +58,7 @@
             android:id="@+id/info2LinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
+            android:layout_weight="0"
             android:background="@color/colorPrimaryDarkTransparent"
             android:gravity="bottom|center"
             android:orientation="vertical"
@@ -68,6 +68,8 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center"
                 android:text="Yhteystiedot:"
                 android:textColor="@color/colorWhite"
                 android:textSize="16sp"
@@ -307,6 +309,120 @@
                         android:paddingTop="14dp"
                         android:paddingBottom="20dp"
                         android:text="131"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/playerPlusMinusTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="14dp"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="@dimen/default_gap"
+                        android:text="+/- :"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/plusMinusTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
+                        android:text="+35"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/playerPointsPerGamneTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="14dp"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="@dimen/default_gap"
+                        android:text="P / O:"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/pointsPerGameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
+                        android:text="2"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/playerPenaltyGoalsTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="14dp"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="@dimen/default_gap"
+                        android:text="RL-:"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/penaltyGoalsTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDarkTransparent"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="20dp"
+                        android:text="5"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="32sp"
