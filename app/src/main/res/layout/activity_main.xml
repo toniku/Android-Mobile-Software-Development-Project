@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Oma joukkue: "
+                android:text="@string/own_team"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
                     android:layout_weight="1"
                     android:buttonTint="@color/colorOrange"
                     android:checked="true"
-                    android:text="Koti"
+                    android:text="@string/home"
                     android:textColor="@color/colorWhite" />
 
                 <RadioButton
@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:buttonTint="@color/colorOrange"
-                    android:text="Vieras"
+                    android:text="@string/guest"
                     android:textColor="@color/colorWhite" />
             </RadioGroup>
 
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
-                android:text="Vastustaja: "
+                android:text="@string/opponent"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="44dp"
-                android:text="Päivämäärä"
+                android:text="@string/date"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"

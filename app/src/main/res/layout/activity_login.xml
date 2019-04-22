@@ -18,7 +18,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="OMA TIESI HUIPULLE."
+        android:text="@string/company_slogan"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
         app:layout_constraintEnd_toEndOf="parent"

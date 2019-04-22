@@ -45,7 +45,25 @@
     <string name="reg_confirm_password">Vahvista salasana</string>
     <string name="reg_button">Rekisteröidy</string>
     <string name="reg_fill_field">Täytä kenttä!</string>
-
+    <string name="company_slogan">OMA TIESI HUIPULLE.</string>
+    <string name="own_team">Oma joukkue</string>
+    <string name="home">Koti</string>
+    <string name="guest">Vieras</string>
+    <string name="opponent">Vastustaja</string>
+    <string name="date">Päivämäärä</string>
+    <string name="first_and_lastname">Etu- ja sukunimi</string>
+    <string name="contact_info">Yhteystiedot</string>
+    <string name="season_2018_2019">Kausi 2018 - 2019</string>
+    <string name="playerCard_goals">Maalit:</string>
+    <string name="playerCard_Assists">Syötöt:</string>
+    <string name="playerCard_points">Pisteet:</string>
+    <string name="playerCard_games">Ottelut:</string>
+    <string name="playerCard_p_o">P / O:</string>
+    <string name="playerCard_plus_minus">+/- :</string>
+    <string name="playerCard_penalty_shot">RL-:</string>
+    <string name="game_fragment_goal">MAALI</string>
+    <string name="game_fragment_penalty">RANGAISTUS</string>
+    <string name="game_fragment_goal_save">TORJUNTA</string>
 
 
 </resources>

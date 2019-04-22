@@ -88,7 +88,7 @@
                 android:layout_width="150dp"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="MAALI" />
+                android:text="@string/game_fragment_goal" />
 
             <Button
                 android:id="@+id/buttonHomePenalty"
@@ -96,7 +96,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:text="RANGAISTUS" />
+                android:text="@string/game_fragment_penalty" />
 
             <Button
                 android:id="@+id/buttonHomeSave"
@@ -104,7 +104,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:text="TORJUNTA" />
+                android:text="@string/game_fragment_goal_save" />
         </LinearLayout>
 
         <LinearLayout
@@ -121,7 +121,7 @@
                 android:layout_width="150dp"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="MAALI" />
+                android:text="@string/game_fragment_goal" />
 
             <Button
                 android:id="@+id/buttonAwayPenalty"
@@ -129,7 +129,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:text="RANGAISTUS" />
+                android:text="@string/game_fragment_penalty" />
 
             <Button
                 android:id="@+id/buttonAwaySave"
@@ -137,7 +137,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:text="TORJUNTA" />
+                android:text="@string/game_fragment_goal_save" />
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
