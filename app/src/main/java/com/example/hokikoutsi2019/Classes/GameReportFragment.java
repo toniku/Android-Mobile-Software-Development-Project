@@ -22,26 +22,21 @@ import java.util.ArrayList;
 
 public class GameReportFragment extends Fragment {
 
-    private TextView textViewHomeTeam;
-    private TextView textViewAwayTeam;
     private TextView textViewScore;
     private Game game;
-    private NewGameActivity newGameActivity;
-    private ListView listView = null;
+    private ListView listView;
 
-
-    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.event_fragment, container, false);
 
-        newGameActivity = (NewGameActivity) getActivity();
+        NewGameActivity newGameActivity = (NewGameActivity) getActivity();
         this.game = newGameActivity.getGame();
 
-        textViewHomeTeam =  view.findViewById(R.id.textViewHomeTeam);
+        TextView textViewHomeTeam = view.findViewById(R.id.textViewHomeTeam);
         textViewHomeTeam.setText(game.getHomeTeam());
 
-        textViewAwayTeam =  view.findViewById(R.id.textViewAwayTeam);
+        TextView textViewAwayTeam = view.findViewById(R.id.textViewAwayTeam);
         textViewAwayTeam.setText(game.getAwayTeam());
 
         String score = game.getHome_goals() + "-" + game.getAway_goals();
@@ -53,18 +48,15 @@ public class GameReportFragment extends Fragment {
         return view;
     }
 
-    public void update(Game game)
-    {
+    public void update(Game game) {
         this.game = game;
         String score = game.getHome_goals() + "-" + game.getAway_goals();
         textViewScore.setText(score);
 
         ArrayList<GoalEvent> goalList = game.getGameEvents();
-        Log.d("XD", "" + goalList.size() + "XXXXXXXXXXXXXXXXXXXX");
         int i = 0;
-        while (i < goalList.size())
-        {
-            Log.d("XD", goalList.get(i).getScorer() + " " + goalList.get(i).getHomeGoals() + "-" +  goalList.get(i).getAwayGoals());
+        while (i < goalList.size()) {
+            Log.d("GoalList", goalList.get(i).getScorer() + " " + goalList.get(i).getHomeGoals() + "-" + goalList.get(i).getAwayGoals());
             i++;
 
         }

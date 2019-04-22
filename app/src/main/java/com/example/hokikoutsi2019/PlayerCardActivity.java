@@ -20,8 +20,6 @@ import java.util.Objects;
 
 public class PlayerCardActivity extends AppCompatActivity {
 
-    Bundle bundle;
-    private TextView playerNameTextView;
     private Player player;
 
     @Override
@@ -33,7 +31,6 @@ public class PlayerCardActivity extends AppCompatActivity {
         Intent i = getIntent();
         player = (Player) i.getSerializableExtra("playerObject");
         Log.d("LOL", "CARD: " + player.getLastname());
-        playerNameTextView = findViewById(R.id.playerNameTextView);
 
         final TextView phoneNumberTextView = findViewById(R.id.playerPhoneNumberTextView);
         final TextView addressTextView = findViewById(R.id.textView16);
@@ -61,7 +58,7 @@ public class PlayerCardActivity extends AppCompatActivity {
             Stats playerStats = player.getStats();
             Log.d("LOL", "GOALS: " + playerStats.getGoals());
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
         phoneNumberTextView.setOnClickListener(new View.OnClickListener() {
@@ -77,10 +74,9 @@ public class PlayerCardActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

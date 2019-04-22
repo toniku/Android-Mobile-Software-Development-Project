@@ -6,52 +6,43 @@ package com.example.hokikoutsi2019.Classes;
 
 import java.io.Serializable;
 
-public class Line implements Serializable
-{
+public class Line implements Serializable {
     private OffenceLine offenseLine1;
     private OffenceLine offenseLine2;
 
     private DefenceLine defenceLine1;
     private DefenceLine defenceLine2;
 
-    public void setOffenseLine1(Player rightWing, Player leftWing)
-    {
+    public void setOffenseLine1(Player rightWing, Player leftWing) {
         offenseLine1 = new OffenceLine(rightWing, leftWing);
     }
 
-    public void setOffenseLine2(Player rightWing, Player leftWing)
-    {
+    public void setOffenseLine2(Player rightWing, Player leftWing) {
         offenseLine2 = new OffenceLine(rightWing, leftWing);
     }
 
-    public OffenceLine getOffenseLine1()
-    {
+    public OffenceLine getOffenseLine1() {
         return this.offenseLine1;
     }
 
-    public OffenceLine getOffenseLine2()
-    {
+    public OffenceLine getOffenseLine2() {
         return this.offenseLine2;
     }
 
 
-    public void setDefenceLine1(Player rightD, Player leftD)
-    {
+    public void setDefenceLine1(Player rightD, Player leftD) {
         defenceLine1 = new DefenceLine(rightD, leftD);
     }
 
-    public void setDefenceLine2(Player rightD, Player leftD)
-    {
+    public void setDefenceLine2(Player rightD, Player leftD) {
         defenceLine2 = new DefenceLine(rightD, leftD);
     }
 
-    public DefenceLine getDefenceLine1()
-    {
+    public DefenceLine getDefenceLine1() {
         return this.defenceLine1;
     }
 
-    public DefenceLine getDefenceLine2()
-    {
+    public DefenceLine getDefenceLine2() {
         return this.defenceLine2;
     }
 }

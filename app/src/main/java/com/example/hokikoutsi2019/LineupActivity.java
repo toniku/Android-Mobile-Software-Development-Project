@@ -70,7 +70,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     };
-    private ArrayList<Player> playerList = new ArrayList<Player>();
+    private ArrayList<Player> playerList = new ArrayList<>();
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 

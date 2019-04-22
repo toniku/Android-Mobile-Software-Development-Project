@@ -17,8 +17,6 @@ import com.example.hokikoutsi2019.R;
 public class OffencePageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
-    private int mPage;
-
     public static OffencePageFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
@@ -30,7 +28,7 @@ public class OffencePageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt(ARG_PAGE);
+        int mPage = getArguments().getInt(ARG_PAGE);
     }
 
     @Override

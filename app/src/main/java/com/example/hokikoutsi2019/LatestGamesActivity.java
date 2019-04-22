@@ -5,12 +5,12 @@
 package com.example.hokikoutsi2019;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,13 +34,11 @@ import java.util.Objects;
 
 public class LatestGamesActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonLogOut;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private NavigationView navigationView;
     private TextView textViewDrawHeader;
 
-    ValueEventListener valueEventListener = new ValueEventListener() {
+    private ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             if (dataSnapshot.exists()) {
@@ -70,7 +68,6 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
     };
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,13 +100,13 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         return super.onOptionsItemSelected(item);
     }
 
-    public void setUpDrawer() {
+    private void setUpDrawer() {
         drawerLayout = findViewById(R.id.activity_latestgames);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -118,7 +115,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
                 int id = item.getItemId();
 
                 if (id == R.id.drawer_logout) {
-                    mAuth.getInstance().signOut();
+                    FirebaseAuth.getInstance().signOut();
                     Intent intent = new Intent(LatestGamesActivity.this, LoginActivity.class);
                     startActivity(intent);
                     return true;
@@ -149,10 +146,10 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Log.i("LOL", "Logged In as " + mAuth.getCurrentUser().getEmail());
-                    Log.i("LOL", "Logged In as " + mAuth.getCurrentUser().getUid());
+                    Log.i("LogInEvent", "Logged In as " + mAuth.getCurrentUser().getEmail());
+                    Log.i("LogInEvent", "Logged In as " + mAuth.getCurrentUser().getUid());
                 } else {
-                    Log.i("LOL", "No user found...");
+                    Log.i("LogInEvent", "No user found...");
                 }
             }
         };
@@ -160,13 +157,12 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
 
 
     public void getUser() {
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
         query.addValueEventListener(valueEventListener);
     }
 
-    public void setUpListView()
-    {
+    private void setUpListView() {
         final ListView listView = findViewById(R.id.gamesListView);
         GameAdapter adapter = new GameAdapter(this, R.layout.game_list_item);
 
@@ -207,7 +203,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
 /*
 
 
-*//*
+ *//*
  * Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  *//*
 

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_playercard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/default_background" >
+    android:background="@drawable/default_background">
 
     <LinearLayout
         android:id="@+id/info3Linearlayout"
@@ -36,6 +35,7 @@
                 android:id="@+id/playerDefaultImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:importantForAccessibility="no"
                 android:scaleType="centerCrop"
                 android:src="@drawable/playerdefaultimage" />
 
@@ -57,7 +57,7 @@
         <LinearLayout
             android:id="@+id/info2LinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_weight="0"
             android:background="@color/colorPrimaryDarkTransparent"
             android:gravity="bottom|center"
@@ -68,7 +68,6 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
                 android:gravity="center"
                 android:text="Yhteystiedot:"
                 android:textColor="@color/colorWhite"
@@ -148,7 +147,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimaryDarkTransparent"
+        android:background="@color/colorPrimaryDarkTransparent100"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -169,10 +168,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/playerGoalsTextView"
@@ -205,10 +204,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/playerAssists"
@@ -241,10 +240,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/playerPoints"
@@ -283,10 +282,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/playerGamesTextView"
@@ -319,10 +318,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/playerPlusMinusTextView"
@@ -355,10 +354,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/playerPointsPerGamneTextView"
@@ -397,10 +396,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/playerPenaltyGoalsTextView"
@@ -433,13 +432,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/playerPlusMinusTextView"
+                        android:id="@+id/playerPlusMinusTextView2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="14dp"
@@ -452,7 +451,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/plusMinusTextView"
+                        android:id="@+id/plusMinusTextView2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/colorPrimaryDarkTransparent"
@@ -469,13 +468,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="33"
-                    android:orientation="vertical"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="33"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/playerPointsPerGamneTextView"
+                        android:id="@+id/playerPointsPerGamneTextView2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="14dp"
@@ -488,7 +487,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/pointsPerGameTextView"
+                        android:id="@+id/pointsPerGameTextView2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/colorPrimaryDarkTransparent"

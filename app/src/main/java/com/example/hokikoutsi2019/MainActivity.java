@@ -39,15 +39,15 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    Button buttonStart = null;
+    RadioButton radioButtonHome = null;
+    RadioButton radioButtonAway = null;
+    EditText editTextOpponent = null;
     private int clickedNavItem = 0;
     private Button buttonLogOut;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
-    Button buttonStart = null;
-    RadioButton radioButtonHome = null;
-    RadioButton radioButtonAway = null;
-    EditText editTextOpponent = null;
     private TextView textViewDrawHeader;
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
-                    Log.i("LOL", user.getFirstname());
-                    Log.i("LOL", user.getLastname());
+                    Log.i("LogInEvent", user.getFirstname());
+                    Log.i("LogInEvent", user.getLastname());
 
                     String firstname = user.getFirstname();
                     String lastname = user.getLastname();
@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,23 +109,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view == findViewById(R.id.buttonStart)) {
-            Log.d("LOL", "Button pressed!");
-            Log.d("LOL", "RadioButtonHome: " + radioButtonHome.isChecked());
-            Log.d("LOL", "RadioButtonAway: " + radioButtonAway.isChecked());
 
             if (radioButtonHome.isChecked()) {
                 String opponent = editTextOpponent.getText().toString().toUpperCase();
                 Game game = new Game("KIEKKO-LASER", opponent);
-
-                Log.d("LOL", game.getHomeTeam() + " VS " + game.getAwayTeam());
                 Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
                 intent.putExtra("gameObject", game);
                 startActivity(intent);
             } else {
                 String opponent = editTextOpponent.getText().toString().toUpperCase();
                 Game game = new Game(opponent, "KIEKKO-LASER");
-
-                Log.d("LOL", game.getHomeTeam() + " VS " + game.getAwayTeam());
                 Intent i = new Intent(MainActivity.this, NewGameActivity.class);
                 i.putExtra("gameObject", game);
                 startActivity(i);
@@ -163,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDrawerClosed(@NonNull View drawerView) {
                 switch (clickedNavItem) {
                     case R.id.drawer_logout:
-                        mAuth.getInstance().signOut();
+                        FirebaseAuth.getInstance().signOut();
                         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         break;
                     case R.id.drawer_line_edit:
@@ -231,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void getUser() {
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
         query.addValueEventListener(valueEventListener);
     }

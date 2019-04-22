@@ -4,19 +4,11 @@
 
 package com.example.hokikoutsi2019;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 import com.example.hokikoutsi2019.Classes.Game;
 import com.example.hokikoutsi2019.Classes.GameReportFragment;
@@ -39,20 +31,18 @@ public class NewGameActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         game = (Game) i.getSerializableExtra("gameObject");
-        Log.d("LOL", "NewGame: " + game.getHomeTeam() + " VS " + game.getAwayTeam());
 
         newGameFragmentPagerAdapter = new NewGameFragmentPagerAdapter(getSupportFragmentManager());
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = findViewById(R.id.viewpager);
         setUpViewPager(viewPager);
         fragment1.getGame(game);
     }
 
-    private void setUpViewPager(ViewPager viewPager)
-    {
-        NewGameFragmentPagerAdapter adapter= new NewGameFragmentPagerAdapter(getSupportFragmentManager());
+    private void setUpViewPager(ViewPager viewPager) {
+        NewGameFragmentPagerAdapter adapter = new NewGameFragmentPagerAdapter(getSupportFragmentManager());
         fragment1 = new NewGamePageFragment();
         fragment1.getGame(game);
-        fragment2  = new GameReportFragment();
+        fragment2 = new GameReportFragment();
         adapter.addFragment(fragment1, "Fragment 1");
         adapter.addFragment(fragment2, "fragment 2");
         viewPager.setAdapter(adapter);
@@ -61,18 +51,15 @@ public class NewGameActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    public void setViewPager(int fragmentNumber)
-    {
+    public void setViewPager(int fragmentNumber) {
         viewPager.setCurrentItem(fragmentNumber);
     }
 
-    public Game getGame()
-    {
+    public Game getGame() {
         return this.game;
     }
 
-    public void updateGameReport(Game game)
-    {
+    public void updateGameReport(Game game) {
         fragment2.update(game);
     }
 

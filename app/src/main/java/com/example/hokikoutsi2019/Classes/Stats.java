@@ -9,29 +9,22 @@ import java.io.Serializable;
 public class Stats implements Serializable {
 
     private int goals;
-    private int penaltyShotGoals;
-
-    private int firstAssists;
-    private int secondaryAssists;
-
-    private int seasonStartYear;
 
     public Stats(int seasonStartYear) {
         this.goals = 0;
-        this.penaltyShotGoals = 0;
+        int penaltyShotGoals = 0;
 
-        this.firstAssists = 0;
-        this.secondaryAssists = 0;
+        int firstAssists = 0;
+        int secondaryAssists = 0;
 
-        this.seasonStartYear = seasonStartYear;
+        int seasonStartYear1 = seasonStartYear;
     }
 
     public void setGoal() {
         this.goals++;
     }
 
-    public int getGoals()
-    {
+    public int getGoals() {
         return this.goals;
     }
 }

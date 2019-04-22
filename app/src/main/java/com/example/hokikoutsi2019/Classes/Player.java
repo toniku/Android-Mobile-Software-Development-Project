@@ -11,6 +11,19 @@ public class Player implements Serializable {
     private Stats stats;
 
     private Contact contact;
+    private String firstname;
+    private String lastname;
+    private int number;
+    private String handness;
+    private String birthdate;
+
+    public Player(String fname, String lname, int jerseyNumber) {
+        this.firstname = fname;
+        this.lastname = lname;
+        this.number = jerseyNumber;
+        this.birthdate = "";
+        this.handness = "";
+    }
 
     public String getFirstname() {
         return firstname;
@@ -20,8 +33,6 @@ public class Player implements Serializable {
         this.firstname = firstname;
     }
 
-    private String firstname;
-
     public String getLastname() {
         return lastname;
     }
@@ -29,8 +40,6 @@ public class Player implements Serializable {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-
-    private String lastname;
 
     public int getNumber() {
         return number;
@@ -40,8 +49,6 @@ public class Player implements Serializable {
         this.number = number;
     }
 
-    private int number;
-
     public String getHandness() {
         return handness;
     }
@@ -49,8 +56,6 @@ public class Player implements Serializable {
     public void setHandness(String handness) {
         this.handness = handness;
     }
-
-    private String handness;
 
     public String getBirthdate() {
         return birthdate;
@@ -60,33 +65,19 @@ public class Player implements Serializable {
         this.birthdate = birthdate;
     }
 
-    private String birthdate;
-
-    public Player(String fname,String lname, int jerseyNumber)
-    {
-        this.firstname = fname;
-        this.lastname = lname;
-        this.number = jerseyNumber;
-        this.birthdate = "";
-        this.handness = "";
-    }
-
     public void setContact(String address, String zipCode, String city, String phoneNumber) {
         this.contact = new Contact(address, zipCode, city, phoneNumber);
     }
 
-    public void setStats(int seasonStart)
-    {
-        stats = new Stats(2019);
-    }
-
-    public Stats getStats()
-    {
+    public Stats getStats() {
         return this.stats;
     }
 
-    public Contact getContact()
-    {
+    public void setStats(int seasonStart) {
+        stats = new Stats(2019);
+    }
+
+    public Contact getContact() {
         return contact;
     }
 }

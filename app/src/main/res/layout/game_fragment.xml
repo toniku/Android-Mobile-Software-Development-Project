@@ -33,7 +33,7 @@
                 android:layout_marginBottom="8dp"
                 android:text="KIEKKO-LASER"
                 android:textColor="@color/colorWhite"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textViewScore"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +50,7 @@
                 android:gravity="center"
                 android:text="3-0"
                 android:textColor="@color/colorWhite"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
                 android:layout_marginBottom="8dp"
                 android:text="KÄRPÄT"
                 android:textColor="@color/colorWhite"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textViewScore"
@@ -104,7 +104,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:text="TORUJUNTA" />
+                android:text="TORJUNTA" />
         </LinearLayout>
 
         <LinearLayout
@@ -137,7 +137,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:text="TORUJUNTA" />
+                android:text="TORJUNTA" />
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

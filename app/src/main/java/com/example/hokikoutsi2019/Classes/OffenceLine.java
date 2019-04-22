@@ -10,19 +10,16 @@ public class OffenceLine implements Serializable {
     private Player rightWing;
     private Player leftWing;
 
-    public OffenceLine(Player rightWing, Player leftWing)
-    {
+    public OffenceLine(Player rightWing, Player leftWing) {
         this.rightWing = rightWing;
         this.leftWing = leftWing;
     }
 
-    public Player getRightWing()
-    {
+    public Player getRightWing() {
         return this.rightWing;
     }
 
-    public Player getLeftWing()
-    {
+    public Player getLeftWing() {
         return this.leftWing;
     }
 }
