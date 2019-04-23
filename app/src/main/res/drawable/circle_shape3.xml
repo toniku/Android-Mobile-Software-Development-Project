@@ -7,7 +7,7 @@
     <stroke
         android:width="4dp"
         android:color="@color/colorOrange" />
-    <solid android:color="@color/colorPrimaryDarkTransparent" />
+    <solid android:color="@color/colorNavHeader" />
     <size
         android:width="60dp"
         android:height="60dp" />
