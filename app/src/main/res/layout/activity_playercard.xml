@@ -84,6 +84,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="Syntymäaika:"
+                        android:paddingTop="2dp"
                         android:textColor="@color/colorWhite" />
 
                     <TextView
@@ -100,6 +101,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="Paino:"
+                        android:paddingBottom="2dp"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
