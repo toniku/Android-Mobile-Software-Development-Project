@@ -37,7 +37,7 @@
                 android:layout_height="113dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/playerdefaultimagecropped"
+                android:background="@drawable/playerdefaultimagecropped2"
                 android:importantForAccessibility="no"
                 android:scaleType="centerCrop"
                 android:src="@drawable/circle_shape_playercard" />
