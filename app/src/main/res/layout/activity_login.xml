@@ -5,8 +5,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/login_background"
     tools:context=".LoginActivity">
 
@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/log_email"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
@@ -57,7 +58,7 @@
         android:layout_width="260dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="480dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/login_edit_text_background"
         android:ems="10"
@@ -65,7 +66,7 @@
         android:labelFor="@+id/editTextEmail"
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,22 +87,22 @@
         app:layout_constraintHorizontal_bias="0.203"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="260dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/login_edit_text_background"
         android:ems="10"
-        android:labelFor="@+id/editTextPassword"
         android:inputType="textPassword"
+        android:labelFor="@+id/editTextPassword"
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
@@ -125,6 +126,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.428" />
 
 </android.support.constraint.ConstraintLayout>
