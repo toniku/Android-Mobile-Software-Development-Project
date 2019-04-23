@@ -14,8 +14,9 @@
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorBlueTransparent"
         app:tabTextColor="@color/colorWhite"
+        app:tabGravity="center"
         app:tabMode="scrollable" />
 
     <android.support.v4.view.ViewPager
@@ -28,13 +29,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
-        android:background="@color/colorPrimaryDarkTransparent" />
+        android:background="@color/colorWhiteTransparent" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs2"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorRedTransparent"
+        app:tabGravity="center"
         app:tabTextColor="@color/colorWhite"
         app:tabMode="scrollable" />
 
@@ -48,13 +50,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
-        android:background="@color/colorPrimaryDarkTransparent" />
+        android:background="@color/colorWhiteTransparent" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs3"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorBlueTransparent"
+        app:tabGravity="center"
         app:tabTextColor="@color/colorWhite"
         app:tabMode="scrollable" />
 
@@ -68,7 +71,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
-        android:background="@color/colorPrimaryDarkTransparent" />
+        android:background="@color/colorWhiteTransparent" />
 
 </LinearLayout>
 
