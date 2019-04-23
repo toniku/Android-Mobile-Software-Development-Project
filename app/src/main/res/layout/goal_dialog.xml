@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="340dp">
 
     <TextView
         android:id="@+id/textViewScorer"
@@ -15,6 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="8dp"
+        android:textColor="@color/colorWhite"
         android:text="Maalintekijä:"
         app:layout_constraintEnd_toStartOf="@+id/editTextScorer"
         app:layout_constraintHorizontal_bias="0.375"
@@ -28,11 +29,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:labelFor="@+id/editTextScorer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        android:importantForAutofill="no"
         tools:targetApi="o" />
 
     <TextView
@@ -40,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:textColor="@color/colorWhite"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
         android:text="1. syöttäjä:"
@@ -52,23 +54,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:labelFor="@+id/editTextFirstAssist"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextScorer"
-        android:importantForAutofill="no"
         tools:targetApi="o" />
 
     <TextView
         android:id="@+id/textViewSecondAssist"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
+        android:textColor="@color/colorWhite"
         android:text="2.syöttäjä:"
         app:layout_constraintEnd_toStartOf="@+id/editTextSecondAssist"
         app:layout_constraintHorizontal_bias="0.494"
@@ -82,20 +86,22 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:labelFor="@+id/editTextSecondAssist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextFirstAssist"
-        android:importantForAutofill="no"
         tools:targetApi="o" />
 
     <Button
         android:id="@+id/buttonOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorPrimaryDarkTransparent"
         android:text="OK"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSecondAssist" />
 
@@ -103,14 +109,17 @@
         android:id="@+id/buttonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:background="@color/colorPrimaryDarkTransparent"
         android:text="PERUUTA"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toStartOf="@+id/buttonOk"
         app:layout_constraintTop_toBottomOf="@+id/editTextSecondAssist" />
 
     <CheckBox
         android:id="@+id/checkBox"
+        android:textColor="@color/colorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
