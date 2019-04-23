@@ -20,7 +20,7 @@ public class NewGameFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     private final ArrayList<Fragment> mFragmentList = new ArrayList<>();
     private final ArrayList<String> mFragmentTitleList = new ArrayList<>();
-    private String[] Titles = new String[]{"Lisää Pelitapahtuma", "ottelutapahtumat"};
+    private String[] Titles = new String[]{"LISÄÄ PELITAPAHTUMA", "OTTELUTAPAHTUMAT"};
 
     public NewGameFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
