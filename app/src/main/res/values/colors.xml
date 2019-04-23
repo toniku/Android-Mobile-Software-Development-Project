@@ -12,5 +12,7 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorOrange">#F26522</color>
+    <color name="colorBlue">#6495ED</color>
+    <color name="colorRed">#FF0000</color>
     <color name="colorOrangeTransparent" tools:keep="@color/colorOrangeTransparent">#99F26522</color>
 </resources>
