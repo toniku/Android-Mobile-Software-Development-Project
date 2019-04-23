@@ -12,9 +12,9 @@
         android:id="@+id/info3Linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="3dp"
         android:gravity="bottom"
         android:weightSum="100"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
                 android:layout_height="113dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/playerdefaultimagecropped"
+                android:background="@drawable/playerdefaultimagecropped2"
                 android:importantForAccessibility="no"
                 android:scaleType="centerCrop"
                 android:src="@drawable/circle_shape_playercard" />
@@ -65,7 +65,7 @@
             android:layout_weight="0"
             android:gravity="bottom"
             android:orientation="vertical"
-            tools:layout_marginLeft="8dp">
+            tools:layout_marginLeft="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="112dp"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:gravity="right"
                     android:orientation="vertical">
@@ -85,6 +85,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="Syntymäaika:"
+                        android:paddingTop="2dp"
                         android:textColor="@color/colorWhite" />
 
                     <TextView
@@ -101,21 +102,23 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="Paino:"
+                        android:paddingBottom="2dp"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="111dp"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingLeft="16dp">
+                    android:paddingLeft="12dp">
 
                     <TextView
                         android:id="@+id/textView11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="30.6.2006"
+                        android:paddingTop="2dp"
                         android:textColor="@color/colorWhite" />
 
                     <TextView
@@ -130,6 +133,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="50 kg"
+                        android:paddingBottom="2dp"
                         android:textColor="@color/colorWhite" />
                 </LinearLayout>
 
@@ -207,9 +211,9 @@
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_column="1"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="3dp"
         android:background="@color/colorPrimaryDarkTransparent40"
         android:paddingTop="2dp"
         android:text="@string/season_2018_2019"
@@ -225,9 +229,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
         android:background="@color/colorPrimaryDarkTransparent40"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"

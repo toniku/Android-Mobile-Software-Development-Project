@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/default_background"
     android:fitsSystemWindows="true"
-    tools:openDrawer="left">
+    tools:openDrawer="end">
 
     <!--tools:openDrawer="left"-->
 
@@ -128,10 +128,9 @@
 
             <Button
                 android:id="@+id/buttonStart"
-                android:layout_width="363dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="276dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="@color/colorPrimaryDarkTransparent"
@@ -139,9 +138,7 @@
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-                app:layout_constraintVertical_bias="0.63" />
+                app:layout_constraintStart_toStartOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 
