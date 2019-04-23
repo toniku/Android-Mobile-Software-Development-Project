@@ -11,9 +11,12 @@
     <color name="colorPrimaryDarkTransparent100">#00666666</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhiteTransparent">#99FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorOrange">#F26522</color>
     <color name="colorBlue">#6495ED</color>
+    <color name="colorBlueTransparent">#996495ED</color>
     <color name="colorRed">#FF0000</color>
+    <color name="colorRedTransparent">#99FF0000</color>
     <color name="colorOrangeTransparent" tools:keep="@color/colorOrangeTransparent">#99F26522</color>
 </resources>

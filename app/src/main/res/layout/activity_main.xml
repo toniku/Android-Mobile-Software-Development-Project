@@ -9,7 +9,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/default_background"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="left">
 
     <!--tools:openDrawer="left"-->
 
@@ -153,7 +154,8 @@
         android:fitsSystemWindows="true"
         android:foreground="?attr/selectableItemBackground"
         app:itemTextColor="@color/colorWhite"
-        app:menu="@menu/navigation_menu">
+        app:menu="@menu/navigation_menu"
+        app:itemHorizontalPadding="40dp">
 
     </android.support.design.widget.NavigationView>
 

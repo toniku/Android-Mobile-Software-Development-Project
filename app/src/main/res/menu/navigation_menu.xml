@@ -11,7 +11,7 @@
 
     <item
         android:id="@+id/drawer_lineup"
-        android:icon="@drawable/ic_perm_identity_black_24dp"
+        android:icon="@drawable/ic_people_black_24dp"
         android:title="@string/lineup" />
 
 
@@ -22,7 +22,7 @@
 
     <item
         android:id="@+id/drawer_teams"
-        android:icon="@drawable/ic_people_black_24dp"
+        android:icon="@drawable/ic_perm_identity_black_24dp"
         android:title="@string/teams" />
 
     <item
