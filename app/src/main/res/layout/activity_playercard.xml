@@ -41,7 +41,7 @@
                 android:background="@drawable/playerdefaultimagecropped"
                 android:importantForAccessibility="no"
                 android:scaleType="centerCrop"
-                android:src="@drawable/circle_shape_playerCard" />
+                android:src="@drawable/circle_shape_playercard" />
 
             <TextView
                 android:id="@+id/playerNameTextView"
