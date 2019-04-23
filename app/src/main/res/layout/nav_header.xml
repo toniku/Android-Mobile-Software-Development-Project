@@ -20,6 +20,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/circle_shape3"
+        android:importantForAccessibility="no"
         android:scaleType="centerCrop"
         android:src="@drawable/playerdefaultimagecropped"
         app:layout_constraintBottom_toTopOf="@+id/drawer_header"
@@ -36,7 +37,7 @@
         android:gravity="center"
         android:text="Kiekko-Laser D1"
         android:textColor="@color/colorWhite"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 

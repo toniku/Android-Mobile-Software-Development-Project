@@ -15,9 +15,7 @@ import com.example.hokikoutsi2019.R;
 
 // In this case, the fragment displays simple text based on the page
 public class GoaliePageFragment extends Fragment {
-    public static final String ARG_PAGE = "ARG_PAGE";
-
-    private int mPage;
+    private static final String ARG_PAGE = "ARG_PAGE";
 
     public static GoaliePageFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -25,12 +23,12 @@ public class GoaliePageFragment extends Fragment {
         GoaliePageFragment fragment = new GoaliePageFragment();
         fragment.setArguments(args);
         return fragment;
-}
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt(ARG_PAGE);
+        int mPage = getArguments().getInt(ARG_PAGE);
     }
 
     @Override

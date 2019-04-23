@@ -37,7 +37,9 @@ public class LineupPlayer {
         return jerseyNumber;
     }
 
-    public void setJerseyNumber(int jerseyNumber) { this.jerseyNumber = jerseyNumber; }
+    public void setJerseyNumber(int jerseyNumber) {
+        this.jerseyNumber = jerseyNumber;
+    }
 
 }
 

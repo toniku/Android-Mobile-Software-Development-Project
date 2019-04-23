@@ -7,35 +7,31 @@ package com.example.hokikoutsi2019.Classes;
 import java.io.Serializable;
 
 public class Contact implements Serializable {
+    private String address;
+    private String zipCode;
+    private String city;
+    private String phoneNumber;
+
+    public Contact(String address, String zipCode, String city, String phoneNumber) {
+        this.address = address;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getAddress() {
         return address;
     }
-
-    private String address;
 
     public String getZipCode() {
         return zipCode;
     }
 
-    private String zipCode;
-
     public String getCity() {
         return city;
     }
 
-    private String city;
-
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    private String phoneNumber;
-
-    public Contact(String address, String zipCode, String city, String phoneNumber)
-    {
-        this.address = address;
-        this.zipCode = zipCode;
-        this.city = city;
-        this.phoneNumber = phoneNumber;
     }
 }

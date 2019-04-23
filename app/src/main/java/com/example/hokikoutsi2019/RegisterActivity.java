@@ -24,8 +24,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonRegister;
-
     private EditText editTextFirstname;
     private EditText editTextLastname;
     private EditText editTextEmail;
@@ -37,20 +35,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private String lastname;
     private String username;
     private String email;
-    private String password;
-    private String conPassword;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-
-    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        buttonRegister = findViewById(R.id.buttonRegister);
+        Button buttonRegister = findViewById(R.id.buttonRegister);
         buttonRegister.setOnClickListener(this);
 
         editTextFirstname = findViewById(R.id.editTextFirstName);
@@ -61,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editTextConPassword = findViewById(R.id.editTextConfirmPassword);
 
         mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -87,8 +81,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             lastname = editTextLastname.getText().toString();
             email = editTextEmail.getText().toString();
             username = editTextUsername.getText().toString();
-            password = editTextPassword.getText().toString();
-            conPassword = editTextConPassword.getText().toString();
+            String password = editTextPassword.getText().toString();
+            String conPassword = editTextConPassword.getText().toString();
 
             if (TextUtils.isEmpty(firstname)) {
                 editTextFirstname.setError(getString(R.string.reg_fill_field));

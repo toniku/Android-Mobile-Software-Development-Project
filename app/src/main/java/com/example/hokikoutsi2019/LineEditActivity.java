@@ -9,23 +9,21 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.hokikoutsi2019.Classes.DefenceFragmentPagerAdapter;
 import com.example.hokikoutsi2019.Classes.GoalieFragmentPagerAdapter;
 import com.example.hokikoutsi2019.Classes.OffenceFragmentPagerAdapter;
 
-public class LineEditActivity extends AppCompatActivity {
+import java.util.Objects;
 
-    ActionBar actionBar;
+public class LineEditActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -34,15 +32,15 @@ public class LineEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_line_edit);
-        actionBar = getActionBar();
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getApplicationContext().getString(R.string.line_edit).toUpperCase());
+        ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-
         try {
 
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true); //back button doesn't work!
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); //back buttonStart doesn't work!
             // Get the ViewPager and set it's PagerAdapter so that it can display items
             ViewPager viewPager = findViewById(R.id.viewpager);
             viewPager.setAdapter(new OffenceFragmentPagerAdapter(getSupportFragmentManager(),
@@ -54,8 +52,8 @@ public class LineEditActivity extends AppCompatActivity {
 
             // Get the ViewPager and set it's PagerAdapter so that it can display items
             ViewPager viewPager2 = findViewById(R.id.viewpager2);
-            viewPager2.setAdapter(new DefenceFragmentPagerAdapter(getSupportFragmentManager(),
-                    LineEditActivity.this));
+            viewPager2.setAdapter(new DefenceFragmentPagerAdapter(getSupportFragmentManager()
+            ));
 
             // Give the TabLayout the ViewPager
             TabLayout tabLayout2 = findViewById(R.id.sliding_tabs2);
@@ -63,14 +61,14 @@ public class LineEditActivity extends AppCompatActivity {
 
             // Get the ViewPager and set it's PagerAdapter so that it can display items
             ViewPager viewPager3 = findViewById(R.id.viewpager3);
-            viewPager3.setAdapter(new GoalieFragmentPagerAdapter(getSupportFragmentManager(),
-                    LineEditActivity.this));
+            viewPager3.setAdapter(new GoalieFragmentPagerAdapter(getSupportFragmentManager()
+            ));
 
             // Give the TabLayout the ViewPager
             TabLayout tabLayout3 = findViewById(R.id.sliding_tabs3);
             tabLayout3.setupWithViewPager(viewPager3);
         } catch (Exception exception) {
-            Log.d("JOUNI", exception.toString());
+            exception.printStackTrace();
         }
 
     }

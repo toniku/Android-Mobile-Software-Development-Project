@@ -8,35 +8,42 @@ package com.example.hokikoutsi2019.Classes;
  * Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
+import java.util.ArrayList;
 
-public class NewGameFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 4;
-    private String tabTitles[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
-    private Context context;
+//private String tabTitles[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
 
-    public NewGameFragmentPagerAdapter(FragmentManager fm, Context context) {
+public class NewGameFragmentPagerAdapter extends FragmentStatePagerAdapter {
+
+    private final ArrayList<Fragment> mFragmentList = new ArrayList<>();
+    private final ArrayList<String> mFragmentTitleList = new ArrayList<>();
+    private String[] Titles = new String[]{"Lisää Pelitapahtuma", "ottelutapahtumat"};
+
+    public NewGameFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.context = context;
     }
 
-    @Override
-    public int getCount() {
-        return PAGE_COUNT;
+    public void addFragment(Fragment fragment, String title) {
+        mFragmentList.add(fragment);
+        mFragmentTitleList.add(title);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return NewGamePageFragment.newInstance(position + 1);
+        return mFragmentList.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        return mFragmentList.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         // Generate title based on item position
-        return tabTitles[position];
+        return Titles[position];
     }
 }

@@ -5,10 +5,6 @@
 package com.example.hokikoutsi2019.Classes;
 
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,9 +51,9 @@ public class GameAdapter extends ArrayAdapter {
             LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             list_item_view = layoutInflater.inflate(R.layout.game_list_item, parent, false);
             gameHolder = new GameHolder();
-            gameHolder.ScoreListView = (TextView) list_item_view.findViewById(R.id.textViewScore);
-            gameHolder.HomeTeamName = (TextView) list_item_view.findViewById(R.id.textViewHomeTeam);
-            gameHolder.AwayTeamName = (TextView) list_item_view.findViewById(R.id.textViewAwayTeam);
+            gameHolder.ScoreListView = list_item_view.findViewById(R.id.textViewScore);
+            gameHolder.HomeTeamName = list_item_view.findViewById(R.id.textViewHomeTeam);
+            gameHolder.AwayTeamName = list_item_view.findViewById(R.id.textViewAwayTeam);
             list_item_view.setTag(gameHolder);
         } else {
             gameHolder = (GameHolder) list_item_view.getTag();

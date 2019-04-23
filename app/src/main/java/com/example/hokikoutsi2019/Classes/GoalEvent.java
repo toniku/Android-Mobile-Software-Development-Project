@@ -8,6 +8,20 @@ import java.io.Serializable;
 
 public class GoalEvent implements Serializable {
 
+    private String type;
+    private String scorer;
+    private int homeGoals;
+    private int awayGoals;
+    private boolean homeScored;
+
+    public GoalEvent(String scorer, int homeGoals, int awayGoals, boolean homeScored) {
+        this.scorer = scorer;
+        this.awayGoals = awayGoals;
+        this.homeGoals = homeGoals;
+        this.homeScored = homeScored;
+        this.type = "MAALI";
+    }
+
     public String getType() {
         return type;
     }
@@ -15,8 +29,6 @@ public class GoalEvent implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
-
-    private String type;
 
     public String getScorer() {
         return scorer;
@@ -26,8 +38,6 @@ public class GoalEvent implements Serializable {
         this.scorer = scorer;
     }
 
-    private String scorer;
-
     public int getHomeGoals() {
         return homeGoals;
     }
@@ -35,8 +45,6 @@ public class GoalEvent implements Serializable {
     public void setHomeGoals(int homeGoals) {
         this.homeGoals = homeGoals;
     }
-
-    private int homeGoals;
 
     public int getAwayGoals() {
         return awayGoals;
@@ -46,25 +54,11 @@ public class GoalEvent implements Serializable {
         this.awayGoals = awayGoals;
     }
 
-    private int awayGoals;
-
     public boolean isHomeScored() {
         return homeScored;
     }
 
     public void setHomeScored(boolean homeScored) {
         this.homeScored = homeScored;
-    }
-
-    private boolean homeScored;
-
-
-    public GoalEvent(String scorer, int homeGoals, int awayGoals, boolean homeScored)
-    {
-        this.scorer = scorer;
-        this.awayGoals = awayGoals;
-        this.homeGoals = homeGoals;
-        this.homeScored = homeScored;
-        this.type = "MAALI";
     }
 }

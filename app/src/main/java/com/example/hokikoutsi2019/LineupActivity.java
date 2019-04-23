@@ -4,10 +4,12 @@
 
 package com.example.hokikoutsi2019;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,10 +37,12 @@ import java.util.Objects;
 
 public class LineupActivity extends AppCompatActivity implements View.OnClickListener {
 
+
+    private int clickedNavItem = 0;
     private Button buttonLogOut;
-    private DrawerLayout dl;
-    private ActionBarDrawerToggle t;
-    private NavigationView nv;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private NavigationView navigationView;
     private TextView textViewDrawHeader;
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -46,8 +50,6 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
-                    Log.i("LOL", user.getFirstname());
-                    Log.i("LOL", user.getLastname());
 
                     String firstname = user.getFirstname();
                     String lastname = user.getLastname();
@@ -68,22 +70,38 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     };
-    private ArrayList<Player> playerList = new ArrayList<Player>();
-    private LineupPlayerAdapter lineupPlayerAdapter;
+    private ArrayList<Player> playerList = new ArrayList<>();
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private DatabaseReference databaseReference;
+
+    public LineupActivity() {
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
+            return true;
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lineup);
+        drawerLayout = findViewById(R.id.activity_lineup);
+        navigationView = findViewById(R.id.nav_view);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getApplicationContext().getString(R.string.lineup).toUpperCase());
         setUpDrawer();
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         final ListView listView = findViewById(R.id.playerListView);
         addPlayers();
-        lineupPlayerAdapter = new LineupPlayerAdapter(this, playerList);
+        LineupPlayerAdapter lineupPlayerAdapter = new LineupPlayerAdapter(this, playerList);
         listView.setAdapter(lineupPlayerAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -101,7 +119,6 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onStart() {
         super.onStart();
-
         mAuth.addAuthStateListener(mAuthStateListener);
     }
 
@@ -110,54 +127,77 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (t.onOptionsItemSelected(item))
-            return true;
-
-        return super.onOptionsItemSelected(item);
-    }
-
     public void setUpDrawer() {
-        dl = findViewById(R.id.activity_lineup);
-        t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.close); //Remember to change string contents
-        dl.addDrawerListener(t);
-        t.syncState();
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nv = findViewById(R.id.nav_view);
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+            }
 
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public void onDrawerOpened(@NonNull View drawerView) {
 
-                int id = item.getItemId();
-                Log.i("LOL", "Item id: " + id);
+            }
 
-                if (id == R.id.drawer_logout) {
-                    Log.i("LOL", "Log out pressed");
-                    mAuth.getInstance().signOut();
-                    Intent intent = new Intent(LineupActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.drawer_line_edit) {
-                    Intent intent = new Intent(LineupActivity.this, LineEditActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.drawer_lineup) {
-                    Intent intent = new Intent(LineupActivity.this, LineupActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.drawer_games) {
-                    Intent intent = new Intent(LineupActivity.this, LatestGamesActivity.class);
-                    startActivity(intent);
-                    return true;
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+                switch (clickedNavItem) {
+                    case R.id.drawer_logout:
+                        Log.i("LOL", "Log out pressed");
+                        //mAuth.getInstance().signOut();
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        break;
+                    case R.id.drawer_line_edit:
+                        startActivity(new Intent(getApplicationContext(), LineEditActivity.class));
+                        break;
+                    case R.id.drawer_lineup:
+                        break;
+                    case R.id.drawer_games:
+                        startActivity(new Intent(getApplicationContext(), LatestGamesActivity.class));
+                        break;
+                    case R.id.drawer_new_game:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        break;
                 }
+            }
+
+            @Override
+            public void onDrawerStateChanged(int i) {
+
+            }
+        });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+                switch (item.getItemId()) {
+                    case R.id.drawer_logout:
+                        clickedNavItem = R.id.drawer_logout;
+                        break;
+                    case R.id.drawer_line_edit:
+                        clickedNavItem = R.id.drawer_line_edit;
+                        break;
+                    case R.id.drawer_lineup:
+                        break;
+                    case R.id.drawer_games:
+                        clickedNavItem = R.id.drawer_games;
+                        break;
+                    case R.id.drawer_new_game:
+                        clickedNavItem = R.id.drawer_new_game;
+                        break;
+                }
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
 
-        View headerView = nv.inflateHeaderView(R.layout.nav_header);
+
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
         textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
         mAuth = FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -175,19 +215,19 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void getUser() {
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
         query.addValueEventListener(valueEventListener);
     }
 
     private void addPlayers() {
-        Player lineupPlayer = new Player("Jani", "Hakanpää", 94);
+        Player lineupPlayer = new Player("Janne", "Heikkilä", 36);
         playerList.add(lineupPlayer);
 
-        Player lineupPlayer1 = new Player("Toni", "Kukkohovi", 69);
+        Player lineupPlayer1 = new Player("Toni", "Kukkohovi", 32);
         playerList.add(lineupPlayer1);
 
-        Player lineupPlayer2 = new Player("Eetu", "Lehtomaa", 96);
+        Player lineupPlayer2 = new Player("Eetu", "Lehtomaa", 65);
         lineupPlayer2.setContact("Liisantie 7", "90560", "Oulu", "0407193427");
         lineupPlayer2.setStats(2019);
         playerList.add(lineupPlayer2);

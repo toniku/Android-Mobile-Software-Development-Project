@@ -18,19 +18,18 @@ import android.widget.TextView;
 import com.example.hokikoutsi2019.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class LineupPlayerAdapter extends ArrayAdapter<Player> {
 
     public LineupPlayerAdapter(Context context, ArrayList<Player> players) {
-        super(context,0, players);
+        super(context, 0, players);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Player player = (Player) getItem(position);
+        Player player = getItem(position);
 
         if (convertView == null) {
             int layoutId = 0;

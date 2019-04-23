@@ -11,14 +11,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 
 public class DefenceFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 2;
-    private String Defence[] = new String[] { "1. Pakki", "2. Pakki"};
 
-    private Context context;
+    private final int PAGE_COUNT = 2;
+    private String[] Defence = new String[]{"1. Pakki", "2. Pakki"};
 
-    public DefenceFragmentPagerAdapter(FragmentManager fm, Context context) {
+    public DefenceFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.context = context;
     }
 
     @Override

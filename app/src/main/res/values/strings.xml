@@ -2,37 +2,40 @@
   ~ Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name"></string>
+    <string name="app_name"> </string>
+    <string name="default_app_name">KOUTSI</string>
 
-    <string name="new_game">Aloita peli</string>
+    <string name="start_game">Aloita peli</string>
+    <string name="new_game">Uusi peli</string>
     <string name="lines">Ketjut</string>
     <string name="open">Aukaise</string>
     <string name="close">Sulje</string>
     <string name="logout">Kirjaudu ulos</string>
-    <string name="myProfile">Oma profiili</string>
-    <string name="goToTraining">Siirry Harjoitteluun</string>
+    <string name="myProfile" tools:keep="@string/myProfile">Oma profiili</string>
+    <string name="goToTraining" tools:keep="@string/goToTraining">Siirry Harjoitteluun</string>
     <string name="teams">Joukkueet</string>
     <string name="line_edit">Ketjut</string>
-    <string name="calendar">Kalenteri</string>
-    <string name="training">Harjoittelu</string>
-    <string name="edit_user_Information">Muokkaa käyttäjätietoja</string>
-    <string name="save_changes">Tallenna muutokset</string>
-    <string name="beginner">Aloittelija</string>
-    <string name="pro">Ammattilainen</string>
-    <string name="elite">Eliitti</string>
+    <string name="calendar" tools:keep="@string/calendar">Kalenteri</string>
+    <string name="training" tools:keep="@string/training">Harjoittelu</string>
+    <string name="edit_user_Information" tools:keep="@string/edit_user_Information">Muokkaa käyttäjätietoja</string>
+    <string name="save_changes" tools:keep="@string/save_changes">Tallenna muutokset</string>
+    <string name="beginner" tools:keep="@string/beginner">Aloittelija</string>
+    <string name="pro" tools:keep="@string/pro">Ammattilainen</string>
+    <string name="elite" tools:keep="@string/elite">Eliitti</string>
+    <string name="player_card">Pelaajakortti</string>
 
     <string name="latest_games">Viimeisimmät pelit</string>
-    <string name="statistics">Tilastot</string>
+    <string name="statistics" tools:keep="@string/statistics">Tilastot</string>
     <string name="lineup">Kokoonpano</string>
 
-    <string name="drawer_item1">Profiili</string>
+    <string name="drawer_item1" tools:keep="@string/drawer_item1">Profiili</string>
 
     <string name="log_email">Sähköposti</string>
     <string name="log_password">Salasana</string>
     <string name="log_button_login">Kirjaudu</string>
-    <string name="log_register">Rekisteröidy</string>
+    <string name="log_register" tools:keep="@string/log_register">Rekisteröidy</string>
 
     <string name="reg_firstName">Etunimi</string>
     <string name="reg_lastName">Sukunimi</string>
@@ -42,5 +45,25 @@
     <string name="reg_confirm_password">Vahvista salasana</string>
     <string name="reg_button">Rekisteröidy</string>
     <string name="reg_fill_field">Täytä kenttä!</string>
+    <string name="company_slogan">OMA TIESI HUIPULLE.</string>
+    <string name="own_team">Oma joukkue</string>
+    <string name="home">Koti</string>
+    <string name="guest">Vieras</string>
+    <string name="opponent">Vastustaja</string>
+    <string name="date">Päivämäärä</string>
+    <string name="first_and_lastname">Etu- ja sukunimi</string>
+    <string name="contact_info">Yhteystiedot:</string>
+    <string name="season_2018_2019">Kausi 2018 - 2019</string>
+    <string name="playerCard_goals">Maalit:</string>
+    <string name="playerCard_Assists">Syötöt:</string>
+    <string name="playerCard_points">Pisteet:</string>
+    <string name="playerCard_games">Ottelut:</string>
+    <string name="playerCard_p_o">P / O:</string>
+    <string name="playerCard_plus_minus">+/- :</string>
+    <string name="playerCard_penalty_shot">RL:</string>
+    <string name="game_fragment_goal">MAALI</string>
+    <string name="game_fragment_penalty">RANGAISTUS</string>
+    <string name="game_fragment_goal_save">TORJUNTA</string>
+
 
 </resources>

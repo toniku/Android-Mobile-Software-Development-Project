@@ -5,26 +5,21 @@
 package com.example.hokikoutsi2019.Classes;
 
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
 public class GoalieFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 2;
-    private String Goalies[] = new String[] { "1. MV", "2. MV"};
+    private String[] Goalies = new String[]{"1. MV", "2. MV"};
 
-    private Context context;
-
-    public GoalieFragmentPagerAdapter(FragmentManager fm, Context context) {
+    public GoalieFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
-        this.context = context;
     }
 
     @Override
     public int getCount() {
-        return PAGE_COUNT;
+        return 2;
     }
 
     @Override
