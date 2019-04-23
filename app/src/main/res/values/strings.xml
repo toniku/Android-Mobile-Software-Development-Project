@@ -52,7 +52,7 @@
     <string name="opponent">Vastustaja</string>
     <string name="date">Päivämäärä</string>
     <string name="first_and_lastname">Etu- ja sukunimi</string>
-    <string name="contact_info">Yhteystiedot</string>
+    <string name="contact_info">Yhteystiedot:</string>
     <string name="season_2018_2019">Kausi 2018 - 2019</string>
     <string name="playerCard_goals">Maalit:</string>
     <string name="playerCard_Assists">Syötöt:</string>
@@ -60,7 +60,7 @@
     <string name="playerCard_games">Ottelut:</string>
     <string name="playerCard_p_o">P / O:</string>
     <string name="playerCard_plus_minus">+/- :</string>
-    <string name="playerCard_penalty_shot">RL-:</string>
+    <string name="playerCard_penalty_shot">RL:</string>
     <string name="game_fragment_goal">MAALI</string>
     <string name="game_fragment_penalty">RANGAISTUS</string>
     <string name="game_fragment_goal_save">TORJUNTA</string>
