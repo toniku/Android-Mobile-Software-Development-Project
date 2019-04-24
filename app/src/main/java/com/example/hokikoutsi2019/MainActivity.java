@@ -43,12 +43,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioButton radioButtonHome = null;
     RadioButton radioButtonAway = null;
     EditText editTextOpponent = null;
-    private int clickedNavItem = 0;
-    private Button buttonLogOut;
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
-    private NavigationView navigationView;
-    private TextView textViewDrawHeader;
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -65,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String capLasName = lastname.substring(0, 1).toUpperCase() + lastname.substring(1);
 
                     String fullname = capFirName + " " + capLasName;
-                    textViewDrawHeader.setText(fullname);
+                    //textViewDrawHeader.setText(fullname);
                 }
             } else {
                 //textViewWarning.setText("Data fetching failed...");
@@ -77,6 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     };
+    private int clickedNavItem = 0;
+    private Button buttonLogOut;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private NavigationView navigationView;
+    private TextView textViewDrawHeader;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        // getUser();
+        getUser();
     }
 
     @Override
@@ -119,9 +119,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 String opponent = editTextOpponent.getText().toString().toUpperCase();
                 Game game = new Game(opponent, "KIEKKO-LASER");
-                Intent i = new Intent(MainActivity.this, NewGameActivity.class);
-                i.putExtra("gameObject", game);
-                startActivity(i);
+                Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
+                intent.putExtra("gameObject", game);
+                startActivity(intent);
             }
         }
     }
@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void getUser() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
+        Query query = databaseReference.orderByChild("email").equalTo(Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
         query.addValueEventListener(valueEventListener);
     }
 
