@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        getUser();
+        //getUser();
     }
 
     @Override
