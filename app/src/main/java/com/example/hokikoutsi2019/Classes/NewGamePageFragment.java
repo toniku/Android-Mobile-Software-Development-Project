@@ -25,6 +25,8 @@ import android.widget.Toast;
 import com.example.hokikoutsi2019.NewGameActivity;
 import com.example.hokikoutsi2019.R;
 
+import java.util.Objects;
+
 
 // In this case, the fragment displays simple text based on the page
 public class NewGamePageFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
@@ -75,9 +77,9 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
 
     @Override
     public void onClick(View view) {
-        if (view == this.getView().findViewById(R.id.buttonHomeGoal)) {
+        if (view == Objects.requireNonNull(this.getView()).findViewById(R.id.buttonHomeGoal)) {
 
-            final Dialog dialog = new Dialog(getContext());
+            final Dialog dialog = new Dialog(Objects.requireNonNull(getContext()));
             dialog.setContentView(R.layout.goal_dialog);
             final Button dialogButtonOk = dialog.findViewById(R.id.buttonOk);
             final Button dialogButtonCancel = dialog.findViewById(R.id.buttonCancel);

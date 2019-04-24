@@ -151,8 +151,7 @@
         android:fitsSystemWindows="true"
         android:foreground="?attr/selectableItemBackground"
         app:itemTextColor="@color/colorWhite"
-        app:menu="@menu/navigation_menu"
-        app:itemHorizontalPadding="40dp">
+        app:menu="@menu/navigation_menu">
 
     </android.support.design.widget.NavigationView>
 

@@ -27,8 +27,8 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginEnd="8dp"
-            android:elevation="12dp"
             app:cardBackgroundColor="@color/colorPrimaryDarkTransparent40"
+            app:cardCornerRadius="0dp"
             app:cardElevation="0dp">
 
             <ImageView
@@ -37,7 +37,7 @@
                 android:layout_height="113dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/playerdefaultimagecropped2"
+                android:background="@drawable/playerdefaultimagecropped3"
                 android:importantForAccessibility="no"
                 android:scaleType="centerCrop"
                 android:src="@drawable/circle_shape_playercard" />
@@ -62,7 +62,6 @@
             android:id="@+id/info2LinearLayout"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_weight="0"
             android:gravity="bottom"
             android:orientation="vertical"
             tools:layout_marginLeft="4dp">
@@ -84,8 +83,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="Syntymäaika:"
                         android:paddingTop="2dp"
+                        android:text="Syntymäaika:"
                         android:textColor="@color/colorWhite" />
 
                     <TextView
@@ -101,8 +100,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="Paino:"
                         android:paddingBottom="2dp"
+                        android:text="Paino:"
                         android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
@@ -117,8 +116,8 @@
                         android:id="@+id/textView11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="30.6.2006"
                         android:paddingTop="2dp"
+                        android:text="30.6.2006"
                         android:textColor="@color/colorWhite" />
 
                     <TextView
@@ -132,8 +131,8 @@
                         android:id="@+id/textView13"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="50 kg"
                         android:paddingBottom="2dp"
+                        android:text="50 kg"
                         android:textColor="@color/colorWhite" />
                 </LinearLayout>
 
@@ -192,6 +191,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="bottom|center"
+                    android:paddingBottom="2dp"
                     android:text="040 9997 755"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp"
@@ -503,7 +503,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/colorPrimaryDarkTransparent"
-                        android:paddingTop="14dp"
+                        android:paddingTop="18dp"
                         android:paddingBottom="20dp"
                         android:text="5"
                         android:textAlignment="center"
@@ -539,7 +539,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/colorPrimaryDarkTransparent"
-                        android:paddingTop="14dp"
+                        android:paddingTop="18dp"
                         android:paddingBottom="20dp"
                         android:text="24"
                         android:textAlignment="center"
@@ -550,7 +550,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
@@ -560,11 +560,11 @@
                     <TextView
                         android:id="@+id/playerPointsPerGamneTextView2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
                         android:background="@color/colorPrimaryDarkTransparent"
                         android:paddingTop="@dimen/default_gap"
-                        android:text=":"
+                        android:text="L %:"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="14sp"
@@ -573,9 +573,9 @@
                     <TextView
                         android:id="@+id/pointsPerGameTextView2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="@color/colorPrimaryDarkTransparent"
-                        android:paddingTop="14dp"
+                        android:paddingTop="18dp"
                         android:paddingBottom="20dp"
                         android:text="8"
                         android:textAlignment="center"
