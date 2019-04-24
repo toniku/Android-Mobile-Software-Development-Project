@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class OffenceFragmentPagerAdapter extends FragmentPagerAdapter {
-    private String[] Offence = new String[]{"1. ketju", "2. ketju"};
+    private String[] Offence = new String[]{"Hyökkäys 1", "Hyökkäys 2"};
 
     public OffenceFragmentPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
