@@ -44,6 +44,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
+                    assert user != null;
                     Log.i("LOL", user.getFirstname());
                     Log.i("LOL", user.getLastname());
 
@@ -56,9 +57,8 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
                     String fullname = capFirName + " " + capLasName;
                     textViewDrawHeader.setText(fullname);
                 }
-            } else {
-                //textViewWarning.setText("Data fetching failed...");
-            }
+            }  //textViewWarning.setText("Data fetching failed...");
+
         }
 
         @Override
@@ -105,7 +105,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
@@ -167,7 +167,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         GameAdapter adapter = new GameAdapter(this, R.layout.game_list_item);
 
         //ADD TEST DATA
-        Game game1 = new Game("KÄRPÄT", "KIEKKO-LASER");
+        Game game1 = new Game("KÄRPÄT", "JYP");
         game1.setHomeGoal("KUKKONEN");
         game1.setAwayGoal("LESKINEN");
         game1.setHomeGoal("HAKANPÄÄ");
@@ -190,11 +190,10 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Game game = (Game) parent.getAdapter().getItem(position);
-                Log.d("LOL", game.getHomeTeam() + " VS " + game.getAwayTeam());
 
-                Intent i = new Intent(LatestGamesActivity.this, GameReportActivity.class);
-                i.putExtra("gameObject", game);
-                startActivity(i);
+                Intent intent = new Intent(LatestGamesActivity.this, GameReportActivity.class);
+                intent.putExtra("gameObject", game);
+                startActivity(intent);
             }
         });
     }
