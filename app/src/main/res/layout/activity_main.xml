@@ -88,13 +88,13 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords"
                 android:labelFor="@+id/editTextOpponent"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewOpponent"
-                android:inputType="textCapWords"
-                android:importantForAutofill="no"
                 tools:targetApi="o" />
 
             <EditText
@@ -105,6 +105,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
+                android:importantForAutofill="no"
                 android:inputType="date"
                 android:labelFor="@+id/editTextDate"
                 android:textColor="@color/colorWhite"
@@ -112,7 +113,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewDate"
-                android:importantForAutofill="no"
                 tools:targetApi="o" />
 
             <TextView
@@ -131,8 +131,8 @@
                 android:id="@+id/buttonStart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@color/colorPrimaryDarkTransparent"
                 android:text="@string/start_game"
