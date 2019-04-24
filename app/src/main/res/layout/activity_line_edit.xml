@@ -14,7 +14,7 @@
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="@color/colorBlueTransparent"
+        android:background="@color/colorPrimaryDarkTransparent"
         app:tabTextColor="@color/colorWhite"
         app:tabMode="scrollable" />
 
@@ -34,7 +34,7 @@
         android:id="@+id/sliding_tabs2"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="@color/colorRedTransparent"
+        android:background="@color/colorPrimaryDarkTransparent"
         app:tabGravity="center"
         app:tabTextColor="@color/colorWhite"
         app:tabMode="scrollable" />
@@ -55,7 +55,7 @@
         android:id="@+id/sliding_tabs3"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="@color/colorBlueTransparent"
+        android:background="@color/colorPrimaryDarkTransparent"
         app:tabGravity="center"
         app:tabTextColor="@color/colorWhite"
         app:tabMode="scrollable" />
