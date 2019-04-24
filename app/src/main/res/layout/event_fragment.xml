@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/textViewHomeTeam"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -59,7 +59,7 @@
 
         <TextView
             android:id="@+id/textViewAwayTeam"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -71,7 +71,6 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.573"
             app:layout_constraintStart_toEndOf="@+id/textViewScore"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.487" />
@@ -80,16 +79,13 @@
     <ListView
         android:id="@+id/listView"
         android:layout_width="300dp"
-        android:layout_height="447dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 </android.support.constraint.ConstraintLayout>
