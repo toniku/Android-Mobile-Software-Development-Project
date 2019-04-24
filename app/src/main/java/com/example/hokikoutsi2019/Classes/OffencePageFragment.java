@@ -29,6 +29,7 @@ public class OffencePageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         int mPage = getArguments().getInt(ARG_PAGE);
+
     }
 
     @Override
@@ -39,5 +40,6 @@ public class OffencePageFragment extends Fragment {
         return view;
 
     }
+
 }
 
