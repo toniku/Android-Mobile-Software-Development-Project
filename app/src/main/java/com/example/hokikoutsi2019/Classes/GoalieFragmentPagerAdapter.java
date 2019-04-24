@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 
 public class GoalieFragmentPagerAdapter extends FragmentPagerAdapter {
-    private String[] Goalies = new String[]{"1. MV", "2. MV"};
+    private String[] Goalies = new String[]{"MV 1", "MV 2"};
 
     public GoalieFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
