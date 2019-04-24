@@ -158,7 +158,7 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
 
     public void getUser() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
+        Query query = databaseReference.orderByChild("email").equalTo(Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
         query.addValueEventListener(valueEventListener);
     }
 
@@ -167,21 +167,21 @@ public class LatestGamesActivity extends AppCompatActivity implements View.OnCli
         GameAdapter adapter = new GameAdapter(this, R.layout.game_list_item);
 
         //ADD TEST DATA
-        Game game1 = new Game("KIEKKO-LASER", "KÄRPÄT");
-        game1.setHomeGoal("LEHTOMAA");
-        game1.setAwayGoal("KUKKOHOVI");
-        game1.setHomeGoal("HEIKKILÄ");
-        game1.setHomeGoal("LIPSANEN");
-        game1.setAwayGoal("PELTOLA");
+        Game game1 = new Game("KÄRPÄT", "KIEKKO-LASER");
+        game1.setHomeGoal("KUKKONEN");
+        game1.setAwayGoal("LESKINEN");
+        game1.setHomeGoal("HAKANPÄÄ");
+        game1.setHomeGoal("HEPONIEMI");
+        game1.setAwayGoal("KUPARI");
 
         adapter.add(game1);
-        Game game2 = new Game("KIEKKO-LASER", "LIMINGAN KIEKKO");
+        Game game2 = new Game("KÄRPÄT", "HPK");
         adapter.add(game2);
-        Game game3 = new Game("TAPPARA", "KIEKKO-LASER");
+        Game game3 = new Game("TAPPARA", "KÄRPÄT");
         adapter.add(game3);
-        Game game4 = new Game("ROKI", "KIEKKO-LASER");
+        Game game4 = new Game("HIFK", "KÄRPÄT");
         adapter.add(game4);
-        Game game5 = new Game("KIEKKO-LASER", "KEPA");
+        Game game5 = new Game("KÄRPÄT", "PELICANS");
         adapter.add(game5);
 
         listView.setAdapter(adapter);
