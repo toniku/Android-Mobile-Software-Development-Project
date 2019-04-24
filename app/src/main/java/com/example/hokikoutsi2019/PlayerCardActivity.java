@@ -48,7 +48,7 @@ public class PlayerCardActivity extends AppCompatActivity {
             String city = player.getContact().getZipCode() + " " + player.getContact().getCity();
             cityTextView.setText(city);
         } catch (Exception e) {
-            Log.d("LOL", e.toString());
+            e.printStackTrace();
             phoneNumberTextView.setText("");
             addressTextView.setText("");
             cityTextView.setText("");
@@ -56,7 +56,6 @@ public class PlayerCardActivity extends AppCompatActivity {
 
         try {
             Stats playerStats = player.getStats();
-            Log.d("LOL", "GOALS: " + playerStats.getGoals());
         } catch (Exception e) {
             e.printStackTrace();
         }
