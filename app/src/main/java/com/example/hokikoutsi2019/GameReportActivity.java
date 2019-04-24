@@ -28,8 +28,8 @@ public class GameReportActivity extends AppCompatActivity {
         TextView textViewScore = findViewById(R.id.textViewScore);
         ListView listView = findViewById(R.id.listView);
 
-        Intent i = getIntent();
-        Game game = (Game) i.getSerializableExtra("gameObject");
+        Intent intent = getIntent();
+        Game game = (Game) intent.getSerializableExtra("gameObject");
 
         textViewHomeTeam.setText(game.getHomeTeam());
         textViewAwayTeam.setText(game.getAwayTeam());
