@@ -5,12 +5,12 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@mipmap/logo"
+        android:icon="@mipmap/koutsi_launcher"
         android:label="@string/default_app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/koutsi_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewGameActivity"/>
+        <activity android:name=".NewGameActivity" />
         <activity android:name=".GameReportActivity" />
         <activity android:name=".LatestGamesActivity" />
         <activity android:name=".LineupActivity" />
