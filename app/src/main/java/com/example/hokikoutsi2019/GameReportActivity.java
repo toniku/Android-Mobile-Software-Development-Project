@@ -17,7 +17,6 @@ import com.example.hokikoutsi2019.Classes.GoalEventAdapter;
 import java.util.ArrayList;
 
 public class GameReportActivity extends AppCompatActivity {
-    private ListView listView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class GameReportActivity extends AppCompatActivity {
         TextView textViewHomeTeam = findViewById(R.id.textViewHomeTeam);
         TextView textViewAwayTeam = findViewById(R.id.textViewAwayTeam);
         TextView textViewScore = findViewById(R.id.textViewScore);
-        listView = findViewById(R.id.listView);
+        ListView listView = findViewById(R.id.listView);
 
         Intent i = getIntent();
         Game game = (Game) i.getSerializableExtra("gameObject");
