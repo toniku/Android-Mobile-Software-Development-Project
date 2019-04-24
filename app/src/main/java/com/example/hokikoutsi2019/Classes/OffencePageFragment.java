@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.hokikoutsi2019.R;
 
@@ -16,6 +17,7 @@ import com.example.hokikoutsi2019.R;
 // In this case, the fragment displays simple text based on the page
 public class OffencePageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
+    private int mPage;
 
     public static OffencePageFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -35,9 +37,9 @@ public class OffencePageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.line_fragment1, container, false);
 
-        View view = inflater.inflate(R.layout.line_fragment1, container, false);
-        return view;
+            return view;
 
     }
 
