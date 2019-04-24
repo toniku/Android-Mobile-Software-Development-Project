@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
+                    assert user != null;
                     Log.i("LogInEvent", user.getFirstname());
                     Log.i("LogInEvent", user.getLastname());
 
@@ -72,11 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
     private int clickedNavItem = 0;
-    private Button buttonLogOut;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
-    private TextView textViewDrawHeader;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -112,13 +111,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if (radioButtonHome.isChecked()) {
                 String opponent = editTextOpponent.getText().toString().toUpperCase();
-                Game game = new Game("KIEKKO-LASER", opponent);
+                Game game = new Game("KÄRPÄT", opponent);
                 Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
                 intent.putExtra("gameObject", game);
                 startActivity(intent);
             } else {
                 String opponent = editTextOpponent.getText().toString().toUpperCase();
-                Game game = new Game(opponent, "KIEKKO-LASER");
+                Game game = new Game(opponent, "KÄRPÄT");
                 Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
                 intent.putExtra("gameObject", game);
                 startActivity(intent);
@@ -205,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
-        textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
+        TextView textViewDrawHeader = headerView.findViewById(R.id.drawer_header);
         mAuth = FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
