@@ -13,6 +13,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Selection;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioButton radioButtonHome = null;
     RadioButton radioButtonAway = null;
     EditText editTextOpponent = null;
+    EditText editTextDate = null;
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         radioButtonHome = findViewById(R.id.radioButtonHome);
         radioButtonAway = findViewById(R.id.radioButtonAway);
         editTextOpponent = findViewById(R.id.editTextOpponent);
+        editTextDate = findViewById(R.id.editTextDate);
         setUpDrawer();
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
@@ -225,6 +228,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
         query.addValueEventListener(valueEventListener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        editTextOpponent.setText(null);
+        editTextDate.setText(null);
+        editTextOpponent.clearFocus();
+        editTextDate.clearFocus();
     }
 
     @Override
