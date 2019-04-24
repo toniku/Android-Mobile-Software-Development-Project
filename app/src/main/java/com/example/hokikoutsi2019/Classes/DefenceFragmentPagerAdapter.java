@@ -13,7 +13,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class DefenceFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private final int PAGE_COUNT = 2;
-    private String[] Defence = new String[]{"Pakki 1", "Pakki 2"};
+    private String[] Defence = new String[]{"Puolustus 1", "Puolustus 2"};
 
     public DefenceFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
