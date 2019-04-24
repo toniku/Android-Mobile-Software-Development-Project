@@ -3,7 +3,6 @@
   -->
 <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/newGameFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,7 +34,6 @@
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:text="KÄRPÄT"
-                android:gravity="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +71,6 @@
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:text="TAPPARA"
-                android:gravity="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
