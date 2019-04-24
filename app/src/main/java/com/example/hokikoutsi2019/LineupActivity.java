@@ -205,19 +205,13 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Log.i("LOL", "Logged In as " + mAuth.getCurrentUser().getEmail());
-                    Log.i("LOL", "Logged In as " + mAuth.getCurrentUser().getUid());
+                    Log.i("LogInEvent", "Logged In as " + mAuth.getCurrentUser().getEmail());
+                    Log.i("LogInEvent", "Logged In as " + mAuth.getCurrentUser().getUid());
                 } else {
-                    Log.i("LOL", "No user found...");
+                    Log.i("LogInEvent", "No user found...");
                 }
             }
         };
-    }
-
-    public void getUser() {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        Query query = databaseReference.orderByChild("email").equalTo(mAuth.getCurrentUser().getEmail());
-        query.addValueEventListener(valueEventListener);
     }
 
     private void addPlayers() {
