@@ -50,7 +50,7 @@
         android:layout_height="34dp"
         android:layout_marginBottom="12dp"
         android:gravity="center"
-        android:text="Kiekko-Laser D1"
+        android:text="OULUN KÄRPÄT"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
