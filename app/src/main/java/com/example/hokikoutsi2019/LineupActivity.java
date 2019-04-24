@@ -27,9 +27,6 @@ import com.example.hokikoutsi2019.Classes.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -39,7 +36,6 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private int clickedNavItem = 0;
-    private Button buttonLogOut;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
@@ -108,10 +104,9 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Player player2 = (Player) parent.getAdapter().getItem(position);
-                Log.d("LOL", "Clicked player: " + player2.getFirstname() + " " + player2.getLastname());
-                Intent i = new Intent(LineupActivity.this, PlayerCardActivity.class);
-                i.putExtra("playerObject", player2);
-                startActivity(i);
+                Intent intent = new Intent(LineupActivity.this, PlayerCardActivity.class);
+                intent.putExtra("playerObject", player2);
+                startActivity(intent);
             }
         });
     }
@@ -131,7 +126,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close); //Remember to change string contents
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
@@ -147,8 +142,7 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
             public void onDrawerClosed(@NonNull View drawerView) {
                 switch (clickedNavItem) {
                     case R.id.drawer_logout:
-                        Log.i("LOL", "Log out pressed");
-                        //mAuth.getInstance().signOut();
+                        FirebaseAuth.getInstance().signOut();
                         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         break;
                     case R.id.drawer_line_edit:
