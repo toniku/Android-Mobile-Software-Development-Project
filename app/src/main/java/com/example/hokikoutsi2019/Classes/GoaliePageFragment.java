@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hokikoutsi2019.LineEditActivity;
 import com.example.hokikoutsi2019.R;
 
 
