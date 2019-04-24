@@ -14,8 +14,6 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 
-//private String tabTitles[] = new String[] { "Lisää pelitapahtuma", "Pelitapahtumat", "Ketjut", "Kommentit"};
-
 public class NewGameFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     private final ArrayList<Fragment> mFragmentList = new ArrayList<>();
