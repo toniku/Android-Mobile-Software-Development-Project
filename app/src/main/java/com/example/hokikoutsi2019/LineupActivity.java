@@ -221,19 +221,65 @@ public class LineupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void addPlayers() {
-        Player lineupPlayer = new Player("Janne", "Heikkilä", 36);
+        Player lineupPlayer = new Player("Aleksi", "Heponiemi", 20);
+        lineupPlayer.setContact("Kotkantie 1", "90250", "Oulu", "0407193427");
+        lineupPlayer.setStats(2019);
         playerList.add(lineupPlayer);
 
-        Player lineupPlayer1 = new Player("Toni", "Kukkohovi", 32);
+        Player lineupPlayer1 = new Player("Aleksi", "Mäkelä", 37);
         playerList.add(lineupPlayer1);
 
-        Player lineupPlayer2 = new Player("Eetu", "Lehtomaa", 65);
-        lineupPlayer2.setContact("Liisantie 7", "90560", "Oulu", "0407193427");
-        lineupPlayer2.setStats(2019);
+        Player lineupPlayer2 = new Player("Atte", "Ohtamaa", 55);
         playerList.add(lineupPlayer2);
 
-        Player lineupPlayer3 = new Player("Jouni", "Peltola", 85);
+        Player lineupPlayer3 = new Player("Jani", "Hakanpää", 58);
         playerList.add(lineupPlayer3);
+
+        Player lineupPlayer4 = new Player("Jari", "Sailio", 41);
+        playerList.add(lineupPlayer4);
+
+        Player lineupPlayer5 = new Player("Jussi", "Jokinen", 36);
+        playerList.add(lineupPlayer5);
+
+        Player lineupPlayer6 = new Player("Jussi", "Rynnäs", 40);
+        playerList.add(lineupPlayer6);
+
+        Player lineupPlayer7 = new Player("Lasse", "Kukkonen", 5);
+        playerList.add(lineupPlayer7);
+
+        Player lineupPlayer8 = new Player("Mika", "Pyörälä", 17);
+        playerList.add(lineupPlayer8);
+
+        Player lineupPlayer9 = new Player("Mikko", "Niemelä", 28);
+        playerList.add(lineupPlayer9);
+
+        Player lineupPlayer10 = new Player("Miska", "Humaloja", 27);
+        playerList.add(lineupPlayer10);
+
+        Player lineupPlayer11 = new Player("Nicklas", "Lasu", 31);
+        playerList.add(lineupPlayer11);
+
+        Player lineupPlayer12 = new Player("Oskar", "Osala", 92);
+        playerList.add(lineupPlayer12);
+
+        Player lineupPlayer13 = new Player("Otto", "Karvinen", 21);
+        playerList.add(lineupPlayer13);
+
+        Player lineupPlayer14 = new Player("Rasmus", "Kupari", 19);
+        playerList.add(lineupPlayer14);
+
+        Player lineupPlayer15 = new Player("Taneli", "Ronkainen", 22);
+        playerList.add(lineupPlayer15);
+
+        Player lineupPlayer16 = new Player("Teemu", "Kivihalme", 61);
+        playerList.add(lineupPlayer16);
+
+        Player lineupPlayer17 = new Player("Veini", "Vehviläinen", 35);
+        playerList.add(lineupPlayer17);
+
+
+        Player lineupPlayer18 = new Player("Ville", "Leskinen", 12);
+        playerList.add(lineupPlayer18);
 
     }
 }
