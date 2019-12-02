@@ -145,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                             }
                                         });
                             } else {
-                                Log.w("LOL", "createUserWithEmail:failure", task.getException());
+                                Log.w("TAG", "createUserWithEmail:failure", task.getException());
                                 Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -153,39 +153,3 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 }
-
-            /*mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful())
-                            {
-                                //We will store additional fields in the database
-                                /*User user = new User(firstname, lastname, email, username);
-                                FirebaseDatabase.getInstance().getReference("Users")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful())
-                                        {
-                                            Toast.makeText(RegisterActivity.this, "Registeration Success!", Toast.LENGTH_LONG).show();
-                                        }
-                                        else
-                                        {
-                                            Toast.makeText(RegisterActivity.this, "Error In Registeration adding to datbase", Toast.LENGTH_LONG).show();
-                                        }
-                                    }
-                                });
-
-                                databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
-
-
-                            }
-                            else
-                            {
-                                Toast.makeText(RegisterActivity.this, "Error In Registeration lol", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    });*/
-
