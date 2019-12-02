@@ -3,8 +3,7 @@
 Android mobile application school group-project
 
 We designed the application for the small ice hockey teams. Graphics were designed by the graphic designers. With the app user can:
-- Add stats during the game
-- Add events during the game
+- Add stats and events during the game
 - Analyze players stats
 - Build/design lineups
 - Give feedback for the players
