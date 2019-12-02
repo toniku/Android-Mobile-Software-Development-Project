@@ -8,4 +8,5 @@ We designed the application for the small ice hockey teams. Graphics were design
 - Build/design lineups
 - Give feedback for the players
 
-In this project we did accomplish our goals pretty well but the time proved to be our biggest obstacle.
+Application was developed with Android Studio using Java and Firebase database was used for storing the information of the user. In this project we did accomplish our goals pretty well but time proved to be our biggest obstacle.
+
