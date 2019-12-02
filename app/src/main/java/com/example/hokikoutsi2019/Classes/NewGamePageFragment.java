@@ -3,11 +3,6 @@
  */
 
 package com.example.hokikoutsi2019.Classes;
-
-/*
- * Copyright 2019 Eetu, Janne, Jouni, Toni. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
- */
-
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -92,13 +87,13 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
                 @Override
                 public void onClick(View v) {
                     if (checkBox.isChecked()) {
-                        Log.d("LOL", "CheckBox: " + checkBox.isChecked());
+                        Log.d("TAG", "CheckBox: " + checkBox.isChecked());
                         editTextFirstAssist.setText("");
                         editTextFirstAssist.setEnabled(false);
                         editTextSecondAssist.setText("");
                         editTextSecondAssist.setEnabled(false);
                     } else if (!checkBox.isChecked()) {
-                        Log.d("LOL", "CheckBox: " + checkBox.isChecked());
+                        Log.d("TAG", "CheckBox: " + checkBox.isChecked());
                         editTextFirstAssist.setEnabled(true);
                         editTextSecondAssist.setEnabled(true);
                     }
@@ -108,7 +103,7 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
             dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("LOL", "Cancel clicked");
+                    Log.d("TAG", "Cancel clicked");
                     dialog.dismiss();
                 }
             });
@@ -116,7 +111,7 @@ public class NewGamePageFragment extends Fragment implements AdapterView.OnItemC
             dialogButtonOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("LOL", "OK clicked");
+                    Log.d("TAG", "OK clicked");
                     String scorer = editTextGoalScorer.getText().toString();
                     String firstAssist = editTextFirstAssist.getText().toString();
 
