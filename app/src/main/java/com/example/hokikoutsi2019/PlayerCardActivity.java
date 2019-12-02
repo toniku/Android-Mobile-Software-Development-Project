@@ -30,7 +30,7 @@ public class PlayerCardActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent i = getIntent();
         player = (Player) i.getSerializableExtra("playerObject");
-        Log.d("LOL", "CARD: " + player.getLastname());
+        Log.d("TAG", "CARD: " + player.getLastname());
 
         final TextView phoneNumberTextView = findViewById(R.id.playerPhoneNumberTextView);
         final TextView addressTextView = findViewById(R.id.textView16);
