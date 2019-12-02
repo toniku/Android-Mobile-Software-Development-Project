@@ -33,10 +33,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-/**
- * Created by Janne Heikkilä, Toni Kukkohovi, Eetu Lehtomaa, Jouni Peltola
- */
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button buttonStart = null;
@@ -213,10 +209,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Log.i("LOL", "Logged In as " + mAuth.getCurrentUser().getEmail());
-                    Log.i("LOL", "Logged In as " + mAuth.getCurrentUser().getUid());
+                    Log.i("TAG", "Logged In as " + mAuth.getCurrentUser().getEmail());
+                    Log.i("TAG", "Logged In as " + mAuth.getCurrentUser().getUid());
                 } else {
-                    Log.i("LOL", "No user found...");
+                    Log.i("TAG", "No user found...");
                 }
             }
         };
