@@ -53,11 +53,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
-            Log.d("LOL", "User: " + mAuth.getCurrentUser().toString());
+            Log.d("TAG", "User: " + mAuth.getCurrentUser().toString());
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         } else {
-            Log.d("LOL", "User: No User found...");
+            Log.d("TAG", "User: No User found...");
         }
     }
 
